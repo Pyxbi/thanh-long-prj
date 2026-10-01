@@ -6,6 +6,7 @@
     "build": "next build",
     "dev": "next dev",
     "lint": "eslint .",
+    "test:home": "node --test tests/homepage-smoke.mjs",
     "start": "next start"
   },
   "dependencies": {

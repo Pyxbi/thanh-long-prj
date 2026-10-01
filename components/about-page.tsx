@@ -1,9 +1,9 @@
 "use client"
 
 import Image from "next/image"
-import { ArrowUpRight, Leaf, Menu, X } from "lucide-react"
-import { useState } from "react"
+import { ArrowUpRight } from "lucide-react"
 import { Footer } from "@/components/footer"
+import { SiteHeader } from "@/components/site-header"
 
 const farmImage = "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1200&q=85"
 const packingImage = "https://images.unsplash.com/photo-1586528116493-da8b5f1b4b1f?auto=format&fit=crop&w=1200&q=85"
@@ -20,9 +20,8 @@ const milestones = [
 ]
 
 export function AboutPage() {
-  const [open, setOpen] = useState(false)
   return <div className="min-h-screen bg-[#f0e8dd] text-[#2d3026]">
-    <header className="fixed inset-x-0 top-0 z-50 px-4 pt-5 lg:px-8"><div className="mx-auto flex h-[68px] max-w-7xl items-center justify-between rounded-[20px] border border-white/70 bg-[#fffaf3]/85 px-5 shadow-xl backdrop-blur-xl lg:px-7"><a href="/" className="flex items-center gap-3"><span className="flex size-11 items-center justify-center rounded-full bg-[#ba466d] text-white"><Leaf size={21} /></span><span className="font-serif text-2xl font-semibold text-[#822944]">long gia</span></a><nav className="hidden items-center gap-7 text-[13px] font-medium text-[#626751] lg:flex"><a href="/">Trang chủ</a><a className="text-[#822944]" href="#cau-chuyen">Về chúng tôi</a><a href="/#san-pham">Sản phẩm</a><a href="/#nang-luc">Vùng trồng & Nhà xưởng</a><a href="#hanh-trinh">Hành trình</a><a href="#lien-he" className="rounded-full bg-[#ba466d] px-5 py-3 font-semibold text-white">Liên hệ <ArrowUpRight className="ml-1 inline" size={14} /></a></nav><button className="lg:hidden" onClick={() => setOpen(!open)} aria-label="Mở menu">{open ? <X /> : <Menu />}</button></div>{open && <nav className="mx-4 rounded-b-2xl bg-[#fffaf3] px-6 py-5 lg:hidden"><div className="flex flex-col gap-4 text-sm"><a href="/">Trang chủ</a><a href="#cau-chuyen">Về chúng tôi</a><a href="#tam-nhin">Tầm nhìn & Sứ mệnh</a><a href="#hanh-trinh">Hành trình</a><a href="#lien-he">Liên hệ</a></div></nav>}</header>
+    <SiteHeader />
     <main>
       <section className="mx-auto grid max-w-7xl gap-12 px-5 pb-24 pt-40 lg:grid-cols-[1fr_.85fr] lg:items-center lg:px-8 lg:pb-32 lg:pt-48"><div><p className="text-xs font-bold uppercase tracking-[.22em] text-[#ba466d]">Về chúng tôi</p><h1 className="mt-6 max-w-3xl font-serif text-5xl leading-[.96] tracking-[-.04em] text-[#822944] sm:text-7xl">Kiến tạo giá trị bền vững<br /><em className="font-normal text-[#6e8644]">từ vùng đất Tiền Giang</em></h1><p className="mt-7 max-w-xl text-base leading-7 text-[#626751]">Từ những vùng thanh long trù phú của Chợ Gạo, Hưng Thịnh Phát xây dựng một chuỗi nông nghiệp sạch, minh bạch và hướng đến thị trường toàn cầu.</p></div><ImageSlot src={farmImage} alt="Vùng trồng nông nghiệp Tiền Giang" className="aspect-[4/5] rotate-2" /></section>
       <section id="cau-chuyen" className="bg-[#fffaf3] px-5 py-24 lg:px-8 lg:py-32"><div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-[.9fr_1.1fr] lg:items-center"><div><p className="text-xs font-bold uppercase tracking-[.2em] text-[#ba466d]">Câu chuyện Hưng Thịnh Phát</p><h2 className="mt-5 font-serif text-5xl text-[#822944]">Thư Ngỏ</h2><blockquote className="mt-8 border-l-4 border-[#ba466d] pl-5 font-serif text-2xl leading-snug text-[#6e8644]">“Kính chào Quý đối tác, Doanh nghiệp & Khách hàng!”</blockquote><div className="mt-7 space-y-5 text-sm leading-7 text-[#626751]"><p>Tiền Giang từ lâu đã được biết đến là vùng đất phù sa màu mỡ, thủ phủ của những trái thanh long ruột đỏ, ruột trắng mọng ngọt và các dòng nông sản nhiệt đới trù phú. Chúng tôi sinh ra và lớn lên trên mảnh đất này, chứng kiến sự dãi dầu nắng mưa của bà con nông dân và hiểu rõ tiềm năng to lớn của nông sản Việt trên bản đồ thế giới.</p><p>Tuy nhiên, rào cản về quy chuẩn canh tác, công nghệ bảo quản sau thu hoạch và tính minh bạch thương hiệu từng khiến nông sản địa phương gặp nhiều bấp bênh. Bằng niềm tin về một nền nông nghiệp sạch, tử tế và tự chủ, Hợp tác xã Nông nghiệp Sạch Hưng Thịnh Phát đã ra đời.</p><p>Chúng tôi chọn đồng hành trực tiếp cùng người nông dân từ khâu cải tạo đất, hướng dẫn kỹ thuật VietGAP/GLOBALG.A.P., đến đầu tư nhà máy sơ chế, đóng gói khép kín đạt chuẩn HACCP.</p></div></div><ImageSlot src={packingImage} alt="Nhà xưởng đóng gói nông sản" className="aspect-[4/5]" /></div></section>

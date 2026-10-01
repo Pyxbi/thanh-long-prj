@@ -2,8 +2,9 @@
 
 import Image from "next/image"
 import { useState } from "react"
-import { ArrowUpRight, Check, MapPin, Phone, RotateCcw, Send } from "lucide-react"
+import { Check, MapPin, Phone, RotateCcw, Send } from "lucide-react"
 import { Footer } from "@/components/footer"
+import { SiteHeader } from "@/components/site-header"
 
 const steps = [
   { number: "01", title: "Tiếp Nhận Nguyên Liệu & Phân Loại Sơ Bộ", text: "Thanh long từ các vùng trồng liên kết đạt chuẩn GLOBALG.A.P. tại Chợ Gạo, Tiền Giang được thu hái đúng độ chín và vận chuyển về khu vực tiếp nhận trong thời gian ngắn nhất.", bullets: ["Đánh mã truy xuất cho từng lô hàng", "Ghi nhận vùng trồng, ngày thu hoạch và số lượng", "QC loại bỏ trái không đạt chuẩn xuất khẩu"], image: "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&w=1200&q=85", alt: "Nông sản tươi tại khu vực tiếp nhận" },
@@ -23,7 +24,7 @@ function Field({ label, placeholder, type = "text" }: { label: string; placehold
 export function ProcessContactPage() {
   const [sent, setSent] = useState(false)
   return <main className="min-h-screen bg-[#f0e8dd] text-[#2d3026]">
-    <header className="fixed inset-x-0 top-0 z-50 px-4 pt-5 lg:px-8"><div className="mx-auto flex h-[68px] max-w-7xl items-center justify-between rounded-[20px] border border-white/70 bg-[#fffaf3]/85 px-5 shadow-xl shadow-[#3f3150]/10 backdrop-blur-xl lg:px-7"><a href="/" className="font-serif text-xl font-semibold text-[#822944]">Long Gia</a><nav className="hidden items-center gap-8 text-sm lg:flex"><a href="/">Trang chủ</a><a href="/ve-chung-toi">Về chúng tôi</a><a className="font-semibold text-[#822944]" href="/quy-trinh-lien-he">Quy trình & Liên hệ</a></nav><a href="#lien-he" className="rounded-full border border-[#822944]/25 px-4 py-2 text-sm font-medium text-[#822944]">Liên hệ <ArrowUpRight className="ml-1 inline" size={14} /></a></div></header>
+    <SiteHeader />
 
     <section className="mx-auto grid max-w-7xl gap-10 px-5 pb-16 pt-40 lg:grid-cols-[1.15fr_.85fr] lg:items-center lg:px-8 lg:pt-48"><div><p className="mb-5 text-xs font-bold uppercase tracking-[.24em] text-[#ba466d]">Quy trình sản xuất</p><h1 className="max-w-3xl font-serif text-5xl leading-[.98] tracking-[-.045em] text-[#822944] sm:text-7xl">Quy trình sơ chế & đóng gói <em className="font-normal text-[#6e8644]">thanh long xuất khẩu</em> đạt chuẩn HACCP</h1><p className="mt-7 max-w-2xl text-base leading-7 text-[#626751]">Để một quả thanh long giữ nguyên độ giòn ngọt, vỏ đỏ tươi và tai xanh cứng cáp khi đến các thị trường quốc tế, công đoạn sơ chế và đóng gói giữ vai trò then chốt.</p><p className="mt-4 max-w-2xl text-base leading-7 text-[#626751]">Tại Hợp tác xã Nông nghiệp Sạch Hưng Thịnh Phát, toàn bộ quy trình tuân thủ nghiêm ngặt hệ thống quản lý an toàn thực phẩm HACCP Codex 2020.</p><div className="mt-8 flex flex-wrap gap-3"><a href="#quy-trinh" className="rounded-full bg-[#ba466d] px-6 py-3.5 text-sm font-semibold text-white transition hover:-translate-y-1 hover:bg-[#822944]">Xem quy trình</a><a href="#lien-he" className="rounded-full border border-[#ba466d]/30 bg-white/40 px-6 py-3.5 text-sm font-semibold text-[#822944]">Liên hệ hợp tác</a></div></div><div className="relative overflow-hidden rounded-[28px] bg-[#b0bc78]/25 p-3 shadow-2xl shadow-[#822944]/10"><Image src="https://images.unsplash.com/photo-1566385101042-1a0aa0c1268c?auto=format&fit=crop&w=1200&q=85" alt="Thanh long tươi trong quy trình sản xuất" width={1200} height={900} className="aspect-[4/3] rounded-[20px] object-cover" priority /><div className="absolute bottom-7 left-7 rounded-2xl bg-[#fffaf3]/90 px-5 py-4 shadow-lg backdrop-blur"><p className="font-serif text-3xl text-[#ba466d]">6 bước</p><p className="text-xs text-[#626751]">kiểm soát từ vườn đến container</p></div></div></section>
 
