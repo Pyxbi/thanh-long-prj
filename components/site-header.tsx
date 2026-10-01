@@ -15,6 +15,8 @@ const productLinks = [
   { label: "Thanh long ruột đỏ", href: "/san-pham#product-1" },
   { label: "Thanh long ruột trắng", href: "/san-pham#product-0" },
   { label: "Thanh long vỏ vàng", href: "/san-pham#product-2" },
+  { label: "Dừa kim cương", href: "/san-pham#product-3" },
+  { label: "Dừa nhấn nút", href: "/san-pham#product-4" },
 ]
 
 export function SiteHeader() {
