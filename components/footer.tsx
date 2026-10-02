@@ -7,11 +7,11 @@ export function Footer() {
         <div>
           <p className="font-serif text-3xl">Long Gia</p>
           <p className="mt-5 max-w-sm text-sm leading-6 text-white/65">Hợp tác xã Nông nghiệp sạch Hưng Thịnh Phát</p>
-          <p className="mt-5 max-w-sm text-xs leading-6 text-white/55">Thửa 154, Ấp Long Thạnh, Xã Tân Thuận Bình, Huyện Chợ Gạo, Tiền Giang<br />Hotline: 0919 831 055<br />hoptacxanongnghiepsachhungthinhphat@gmail.com</p>
+          <p className="mt-5 max-w-sm text-xs leading-6 text-white/55">Thửa 154, Ấp Long Thạnh, Xã Tân Thuận Bình, Huyện Chợ Gạo, Tiền Giang<br />Hotline: 0919 831 055<br /><a href="mailto:trungquy077@gmail.com" className="transition hover:text-white">trungquy077@gmail.com</a></p>
         </div>
         <div>
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#e8cda8]">Liên kết hệ thống</p>
-          <div className="mt-5 flex flex-col gap-3 text-sm text-white/65"><a href="/">Trang chủ</a><a href="/ve-chung-toi">Về chúng tôi</a><a href="/san-pham">Sản phẩm</a><a href="/long-gia-nha-toi">Vùng trồng & Nhà xưởng</a><a href="/#tin-tuc">Tin tức & Báo chí</a></div>
+          <div className="mt-5 flex flex-col gap-3 text-sm text-white/65"><a className="transition hover:text-white" href="/">Trang chủ</a><a className="transition hover:text-white" href="/ve-chung-toi">Về chúng tôi</a><a className="transition hover:text-white" href="/san-pham">Sản phẩm</a><a className="transition hover:text-white" href="/long-gia-nha-toi">Vùng trồng & Nhà xưởng</a><a className="transition hover:text-white" href="/#tin-tuc">Tin tức & Báo chí</a></div>
         </div>
         <div>
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#e8cda8]">Kênh kết nối</p>
