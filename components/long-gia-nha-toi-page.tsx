@@ -1,12 +1,13 @@
 "use client"
 
 import Image from "next/image"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { ArrowRight, Check, ChevronRight, MapPin, Sprout } from "lucide-react"
 import { Footer } from "@/components/footer"
 import { SiteHeader } from "@/components/site-header"
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
+import { clearLongGiaUser, LongGiaAccountChip, LongGiaAuthPage, readLongGiaUser, type LongGiaUser } from "@/components/long-gia-auth"
 
 const stages = [
   { no: "01", title: "Chong Đèn Kích Hoa", time: "Khoảng 20 – 30 ngày", short: "Kích thích cây ra hoa đồng loạt theo chu kỳ.", detail: "Hệ thống đèn LED chuyên dụng được thắp sáng từ 22:00 đến 02:00 hằng ngày nhằm kích thích trụ thanh long ra hoa đồng loạt theo chu kỳ. Kỹ thuật viên HTX liên tục kiểm tra mật độ ánh sáng và độ ẩm đất để đảm bảo tỷ lệ đậu hoa tối ưu nhất.", image: "/images/stage-01-lighting.jpg" },
@@ -27,10 +28,21 @@ export function LongGiaNhaToiPage() {
   const [stage, setStage] = useState(0)
   const [adoptOpen, setAdoptOpen] = useState(false)
   const [success, setSuccess] = useState(false)
+  const [user, setUser] = useState<LongGiaUser | null>(null)
+  const [authReady, setAuthReady] = useState(true)
   const active = stages[stage]
+
+  useEffect(() => {
+    setUser(readLongGiaUser())
+    setAuthReady(true)
+  }, [])
+
+  if (!authReady) return <div className="min-h-screen bg-[#f0e8dd]"><SiteHeader /><main className="min-h-screen" /></div>
+  if (!user) return <LongGiaAuthPage mode="login" onAuthenticated={setUser} />
 
   return <div className="min-h-screen bg-[#f0e8dd] text-[#2d3026]">
     <SiteHeader />
+    <LongGiaAccountChip user={user} onLogout={() => { clearLongGiaUser(); setUser(null) }} />
     <main>
       <section className="mx-auto grid max-w-7xl gap-12 px-5 pb-24 pt-40 lg:grid-cols-[1fr_.85fr] lg:items-center lg:px-8 lg:pt-48"><div><p className="text-xs font-bold uppercase tracking-[.22em] text-[#ba466d]">Nông nghiệp số · Tiền Giang</p><h1 className="mt-5 max-w-3xl font-serif text-6xl leading-[.92] tracking-[-.06em] text-[#822944] sm:text-8xl">Long Gia<br /><em className="font-normal text-[#6e8644]">Nhà Tôi</em></h1><h2 className="mt-8 max-w-xl font-serif text-2xl leading-tight text-[#2d3026]">Nhận Nuôi Một Trụ Thanh Long, Theo Dõi Cả Một Hành Trình</h2><p className="mt-5 max-w-xl leading-7 text-[#626751]">Long Gia Nhà Tôi là mô hình nhận nuôi trụ thanh long điện tử do Hợp tác xã Nông nghiệp Sạch Hưng Thịnh Phát phát triển. Theo dõi hành trình sinh trưởng của cây ngay trên website.</p><div className="mt-8 flex flex-wrap gap-3"><button onClick={() => setAdoptOpen(true)} className="rounded-full bg-[#ba466d] px-6 py-3.5 font-semibold text-white transition duration-300 hover:-translate-y-0.5 hover:bg-[#822944] hover:shadow-lg active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ba466d] focus-visible:ring-offset-2">Đăng Ký Nhận Nuôi <ArrowRight className="ml-2 inline" size={16} /></button><a className="rounded-full border border-[#ba466d]/35 px-6 py-3.5 font-semibold text-[#822944] transition duration-300 hover:-translate-y-0.5 hover:border-[#ba466d] hover:bg-[#ba466d] hover:text-white hover:shadow-lg active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ba466d] focus-visible:ring-offset-2" href="#hanh-trinh">Xem Hành Trình Canh Tác</a></div><div className="mt-12 grid max-w-lg grid-cols-3 gap-4 border-t border-[#d5c8b9] pt-6"><div><p className="font-serif text-3xl text-[#ba466d]">150ha</p><p className="mt-1 text-xs text-[#626751]">Vùng trồng liên kết</p></div><div><p className="font-serif text-3xl text-[#ba466d]">100%</p><p className="mt-1 text-xs text-[#626751]">Theo dõi minh bạch</p></div><div><p className="font-serif text-3xl text-[#ba466d]">48h</p><p className="mt-1 text-xs text-[#626751]">Thu hoạch đến giao</p></div></div></div><div className="relative mx-auto w-full max-w-md"><div className="relative aspect-[.78] overflow-hidden rounded-[38px] bg-[#6e8644] shadow-2xl"><Image src="/images/long-gia-pillar.jpg" alt="Trụ thanh long tại vùng trồng" fill className="object-cover" priority /><div className="absolute inset-0 bg-gradient-to-t from-[#2d3026]/65 to-transparent" /><p className="absolute bottom-7 left-7 text-sm text-white/75">Long Gia Nhà Tôi</p></div><div className="absolute -bottom-7 -left-5 rounded-2xl border border-white/80 bg-[#fffaf3]/95 p-5 shadow-xl backdrop-blur"><p className="font-serif text-lg text-[#822944]">Thanh Long Ruột Đỏ HTP</p><p className="mt-2 text-xs text-[#626751]">Mã trụ: <b>LG-HTP-027</b></p><p className="mt-1 text-xs text-[#626751]">Trạng thái: <b className="text-[#6e8644]">Đang phát triển</b></p><p className="mt-1 text-xs text-[#626751]">Cập nhật: 20/07/2026</p></div></div></section>
       <section id="hanh-trinh" className="bg-[#fffaf3] px-5 py-24 lg:px-8 lg:py-32"><div className="mx-auto max-w-7xl"><p className="text-xs font-bold uppercase tracking-[.2em] text-[#ba466d]">Nhật ký canh tác</p><h2 className="mt-4 max-w-2xl font-serif text-5xl leading-tight text-[#822944]">Theo Dõi Từng Giai Đoạn<br /><em className="font-normal text-[#6e8644]">Sinh Trưởng Thanh Long</em></h2><p className="mt-5 max-w-xl leading-7 text-[#626751]">Mọi công đoạn chăm sóc đều được cập nhật minh bạch, giúp bạn dễ dàng theo dõi hành trình lớn lên của trụ thanh long nhà mình.</p><div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">{stages.map((item, i) => <button key={item.no} onClick={() => setStage(i)} className={`overflow-hidden rounded-3xl border text-left transition hover:-translate-y-1 active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ba466d] focus-visible:ring-offset-2 ${stage === i ? "border-[#ba466d] bg-[#f7e7ea] shadow-lg" : "border-[#ded3c6] bg-white"}`}><div className="relative h-44"><Image src={item.image} alt="" fill className="object-cover" />{/* TODO: Replace with real cultivation stage photo */}</div><div className="p-5"><p className="text-xs font-bold text-[#ba466d]">GIAI ĐOẠN {item.no}</p><h3 className="mt-3 font-serif text-xl text-[#822944]">{item.title}</h3><p className="mt-2 text-xs text-[#6e8644]">{item.time}</p><p className="mt-3 text-sm leading-6 text-[#626751]">{item.short}</p></div></button>)}</div><div className="mt-6 grid overflow-hidden rounded-3xl bg-[#f0e8dd] lg:grid-cols-[.8fr_1.2fr]"><div className="relative min-h-[280px]"><Image src={active.image} alt="" fill className="object-cover" />{/* TODO: Replace with real cultivation stage photo */}</div><div className="p-8 lg:p-12"><p className="text-xs font-bold uppercase tracking-[.2em] text-[#ba466d]">Giai đoạn hiện tại · {active.no}</p><h3 className="mt-4 font-serif text-4xl text-[#822944]">{active.title}</h3><p className="mt-3 font-semibold text-[#6e8644]">{active.time}</p><p className="mt-5 max-w-xl leading-7 text-[#626751]">{active.detail}</p><span className="mt-7 inline-flex items-center gap-2 rounded-full bg-[#ba466d] px-4 py-2 text-xs font-semibold text-white"><Check size={14} /> Đang được cập nhật</span></div></div></div></section>

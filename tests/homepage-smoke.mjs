@@ -48,12 +48,21 @@ test("homepage uses the supplied dragon fruit images", async () => {
   assert.match(html, /\/images\/thanh-long-ruot-trang\.png/)
 })
 
+test("homepage hero uses a mobile-safe background frame", async () => {
+  const html = await loadPage()
+  const hero = html.match(/<section[^>]*data-testid="homepage-hero"[\s\S]*?<\/section>/)?.[0]
+
+  assert.ok(hero, "homepage hero is missing")
+  assert.match(hero, /min-h-\[540px\]/)
+  assert.match(hero, /object-center/)
+})
+
 test("homepage uses the supplied coconut and pomelo images and descriptions", async () => {
   const html = await loadPage()
 
-  assert.match(html, /\/images\/dua-kim-cuong\.png/)
-  assert.match(html, /\/images\/dua-nhan-nut\.png/)
-  assert.match(html, /\/images\/buoi-da-xanh\.png/)
+  assert.match(html, /\/images\/dua-kim-cuong-transparent\.png/)
+  assert.match(html, /\/images\/dua-nhan-nut-transparent\.png/)
+  assert.match(html, /\/images\/buoi-da-xanh-transparent\.png/)
   assert.match(html, /Giàu nước và khoáng chất/)
   assert.match(html, /Giàu vitamin và chất chống oxy hóa/)
   assert.match(html, /Giàu vitamin C và chất xơ/)
@@ -93,32 +102,13 @@ test("about page decorates the values section with both supplied mascots", async
   assert.match(html, /\/images\/value-mascot-white\.png/)
 })
 
-test("growing journey uses the supplied field photos", async () => {
+test("Long Gia Nhà Tôi shows the auth gate before private farm content", async () => {
   const html = await loadPage("/long-gia-nha-toi")
 
   assert.match(html, /\/images\/long-gia-pillar\.jpg/)
-  assert.match(html, /\/images\/stage-01-lighting\.jpg/)
-  assert.match(html, /\/images\/stage-02-pruning\.jpg/)
-  assert.ok(html.match(/\/images\/stage-02-pruning\.jpg/g)?.length >= 2)
-  assert.ok(html.match(/\/images\/stage-03-04\.jpg/g)?.length >= 1)
-})
-
-test("garden cards use the supplied alternating cultivation photos", async () => {
-  const html = await loadPage("/long-gia-nha-toi")
-
-  assert.ok(html.match(/\/images\/garden-fruit-closeup\.jpg/g)?.length >= 3)
-  assert.ok(html.match(/\/images\/garden-fruit-cluster\.jpg/g)?.length >= 3)
-})
-
-test("post-harvest cards show the supplied photos and delivery details", async () => {
-  const html = await loadPage("/long-gia-nha-toi")
-
-  assert.match(html, /\/images\/post-harvest-picking\.jpg/)
-  assert.match(html, /\/images\/post-harvest-packing\.jpg/)
-  assert.match(html, /\/images\/post-harvest-delivery\.jpg/)
-  assert.match(html, /Hái tay từng trái đủ độ chín theo tiêu chuẩn VietGAP/)
-  assert.match(html, /Mỗi hộp 5kg kiểm tra độ brix/)
-  assert.match(html, /Vận chuyển lạnh đến 63 tỉnh thành toàn quốc/)
+  assert.match(html, /Đăng nhập/)
+  assert.match(html, /Đăng ký ngay/)
+  assert.match(html, /Prototype đăng nhập/)
 })
 
 test("every page uses the shared Long Gia navigation and footer", async () => {
@@ -138,10 +128,68 @@ test("every page uses the shared Long Gia navigation and footer", async () => {
   }
 })
 
-test("unfinished demo pages redirect to the homepage", async () => {
-  for (const path of ["/san-pham", "/quy-trinh-lien-he"]) {
-    const response = await fetch(`${process.env.HOME_URL ?? "http://127.0.0.1:3002"}${path}`)
-    assert.equal(response.redirected, true, `${path} should redirect`)
-    assert.equal(new URL(response.url).pathname, "/")
+test("all public routes render their own page", async () => {
+  const pages = [
+    ["/san-pham", "Sản phẩm Long Gia"],
+    ["/quy-trinh-lien-he", "Quy trình sơ chế"],
+    ["/quiz", "Bí Kíp Sống Trọn Ngày"],
+    ["/long-gia-nha-toi/dang-ky", "Tạo tài khoản Long Gia"],
+  ]
+
+  for (const [path, heading] of pages) {
+    const html = await loadPage(path)
+    assert.match(html, new RegExp(heading))
   }
+})
+
+test("quiz CTA opens the Long Gia Nhà Tôi auth flow", async () => {
+  const html = await loadPage("/quiz")
+
+  assert.match(html, /href="\/long-gia-nha-toi"[^>]*>Làm Trắc Nghiệm Ngay/)
+})
+
+test("Long Gia Nhà Tôi starts with a login entry point", async () => {
+  const html = await loadPage("/long-gia-nha-toi")
+
+  assert.match(html, /Đăng nhập/)
+  assert.match(html, /Đăng ký ngay/)
+  assert.match(html, /Vùng trồng &amp; Nhà xưởng/)
+})
+
+test("Long Gia Nhà Tôi exposes a registration page", async () => {
+  const html = await loadPage("/long-gia-nha-toi/dang-ky")
+
+  assert.match(html, /Tạo tài khoản Long Gia/)
+  assert.match(html, /Họ và tên/)
+  assert.match(html, /Số điện thoại \/ Zalo/)
+})
+
+test("quiz landing uses the illustrated orchard background and red mascot", async () => {
+  const html = await loadPage("/quiz")
+
+  assert.match(html, /\/images\/quiz-hero-bg\.png/)
+  assert.match(html, /\/images\/mascot-red-transparent\.png/)
+  assert.match(html, /Bí Kíp Sống Trọn Ngày/)
+  assert.match(html, /min-h-\[100dvh\]/)
+})
+
+test("quiz landing closes the hero flush with the footer", async () => {
+  const html = await loadPage("/quiz")
+  const main = html.match(/<main[^>]*data-testid="quiz-main"[^>]*>/)?.[0]
+
+  assert.ok(main, "quiz main is missing")
+  assert.match(main, /pb-0/)
+  assert.doesNotMatch(main, /pb-12|pb-20/)
+})
+
+test("product page uses homepage product imagery", async () => {
+  const html = await loadPage("/san-pham")
+
+  assert.match(html, /\/images\/product-red-htp-transparent\.png/)
+  assert.match(html, /\/images\/thanh-long-vo-vang\.png/)
+  assert.match(html, /\/images\/thanh-long-ruot-trang\.png/)
+  assert.match(html, /\/images\/dua-kim-cuong-transparent\.png/)
+  assert.match(html, /\/images\/dua-nhan-nut-transparent\.png/)
+  assert.match(html, /\/images\/buoi-da-xanh-transparent\.png/)
+  assert.match(html, /Bưởi Da Xanh/)
 })

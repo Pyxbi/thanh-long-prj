@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { usePathname } from "next/navigation"
 import { ArrowUpRight, ChevronDown, Menu, X } from "lucide-react"
 
@@ -22,6 +22,36 @@ const productLinks = [
 export function SiteHeader() {
   const [open, setOpen] = useState(false)
   const pathname = usePathname()
+  const contactHref = "/quy-trinh-lien-he#lien-he"
+
+  const scrollToContact = () => {
+    document.getElementById("lien-he")?.scrollIntoView({ behavior: "smooth", block: "start" })
+  }
+
+  useEffect(() => {
+    if (pathname !== "/quy-trinh-lien-he" || window.location.hash !== "#lien-he") return
+
+    const frame = window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(scrollToContact)
+    })
+    const fallback = window.setTimeout(scrollToContact, 180)
+
+    return () => {
+      window.cancelAnimationFrame(frame)
+      window.clearTimeout(fallback)
+    }
+  }, [pathname])
+
+  const handleContactClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    setOpen(false)
+
+    if (pathname !== "/quy-trinh-lien-he") return
+
+    event.preventDefault()
+    window.history.replaceState(null, "", contactHref)
+    scrollToContact()
+  }
+
   const active = (href: string) => href === "/" ? pathname === "/" : pathname.startsWith(href)
 
   return <header className="fixed inset-x-0 top-0 z-50 px-4 pt-5 lg:px-8">
@@ -32,12 +62,13 @@ export function SiteHeader() {
         <NavDropdown label="Về chúng tôi" href="/ve-chung-toi" items={aboutLinks} active={active("/ve-chung-toi")} />
         <NavDropdown label="Sản phẩm" href="/san-pham" items={productLinks} active={active("/san-pham")} />
         <a className={active("/long-gia-nha-toi") ? "text-[#822944]" : "transition hover:text-[#822944]"} href="/long-gia-nha-toi">Vùng trồng & Nhà xưởng</a>
+        <a className={active("/quiz") ? "text-[#822944]" : "transition hover:text-[#822944]"} href="/quiz">Trắc nghiệm</a>
         <a className="transition hover:text-[#822944]" href="/#tin-tuc">Tin tức & Báo chí</a>
-        <a href="/quy-trinh-lien-he#lien-he" className="rounded-full bg-[#ba466d] px-5 py-3 font-semibold text-white transition hover:bg-[#822944]">Liên hệ <ArrowUpRight className="ml-1 inline" size={14} /></a>
+        <a href={contactHref} onClick={handleContactClick} className="rounded-full bg-[#ba466d] px-5 py-3 font-semibold text-white transition hover:bg-[#822944]">Liên hệ <ArrowUpRight className="ml-1 inline" size={14} /></a>
       </nav>
       <button className="rounded-full p-2 transition hover:bg-[#f0e8dd] active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ba466d] lg:hidden" onClick={() => setOpen(!open)} aria-label={open ? "Đóng menu" : "Mở menu"} aria-expanded={open}>{open ? <X /> : <Menu />}</button>
     </div>
-    {open && <nav aria-label="Điều hướng di động" className="mx-4 rounded-b-[20px] border border-t-0 border-white/70 bg-[#fffaf3] px-6 py-5 shadow-xl lg:hidden"><div className="flex flex-col gap-4 text-sm"><MobileLink href="/" close={() => setOpen(false)}>Trang chủ</MobileLink><MobileGroup label="Về chúng tôi" href="/ve-chung-toi" items={aboutLinks} close={() => setOpen(false)} /><MobileGroup label="Sản phẩm" href="/san-pham" items={productLinks} close={() => setOpen(false)} /><MobileLink href="/long-gia-nha-toi" close={() => setOpen(false)}>Vùng trồng & Nhà xưởng</MobileLink><MobileLink href="/#tin-tuc" close={() => setOpen(false)}>Tin tức & Báo chí</MobileLink><a className="font-semibold text-[#ba466d] transition hover:text-[#822944] focus-visible:outline-none focus-visible:underline" href="/quy-trinh-lien-he#lien-he" onClick={() => setOpen(false)}>Liên hệ</a></div></nav>}
+    {open && <nav aria-label="Điều hướng di động" className="mx-4 rounded-b-[20px] border border-t-0 border-white/70 bg-[#fffaf3] px-6 py-5 shadow-xl lg:hidden"><div className="flex flex-col gap-4 text-sm"><MobileLink href="/" close={() => setOpen(false)}>Trang chủ</MobileLink><MobileGroup label="Về chúng tôi" href="/ve-chung-toi" items={aboutLinks} close={() => setOpen(false)} /><MobileGroup label="Sản phẩm" href="/san-pham" items={productLinks} close={() => setOpen(false)} /><MobileLink href="/long-gia-nha-toi" close={() => setOpen(false)}>Vùng trồng & Nhà xưởng</MobileLink><MobileLink href="/quiz" close={() => setOpen(false)}>Trắc nghiệm</MobileLink><MobileLink href="/#tin-tuc" close={() => setOpen(false)}>Tin tức & Báo chí</MobileLink><a className="font-semibold text-[#ba466d] transition hover:text-[#822944] focus-visible:outline-none focus-visible:underline" href={contactHref} onClick={handleContactClick}>Liên hệ</a></div></nav>}
   </header>
 }
 

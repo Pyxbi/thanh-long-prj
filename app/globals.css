@@ -1,4 +1,6 @@
-@import "tailwindcss";
+@import "tailwindcss" source(none);
+@source "../app";
+@source "../components";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
@@ -8,48 +10,28 @@ html {
   scroll-behavior: smooth;
 }
 
-:root {
-  /* Long Gia palette */
-  --background: #f0e8dd;
-  --foreground: #2d3026;
-  --card: oklch(0.99 0 0);
-  --card-foreground: oklch(0.1 0 0);
-  --popover: oklch(0.99 0 0);
-  --popover-foreground: oklch(0.1 0 0);
-  --primary: oklch(0.1 0 0);
-  --primary-foreground: oklch(0.98 0 0);
-  --secondary: oklch(0.94 0 0);
-  --secondary-foreground: oklch(0.1 0 0);
-  --muted: oklch(0.92 0 0);
-  --muted-foreground: oklch(0.45 0 0);
-  --accent: oklch(0.94 0 0);
-  --accent-foreground: oklch(0.1 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(0.88 0 0);
-  --input: oklch(0.94 0 0);
-  --ring: oklch(0.1 0 0);
-  --chart-1: oklch(0.1 0 0);
-  --chart-2: oklch(0.4 0 0);
-  --chart-3: oklch(0.6 0 0);
-  --chart-4: oklch(0.3 0 0);
-  --chart-5: oklch(0.5 0 0);
-  --radius: 0.75rem;
-  --sidebar: oklch(0.99 0 0);
-  --sidebar-foreground: oklch(0.1 0 0);
-  --sidebar-primary: oklch(0.1 0 0);
-  --sidebar-primary-foreground: oklch(0.98 0 0);
-  --sidebar-accent: oklch(0.94 0 0);
-  --sidebar-accent-foreground: oklch(0.1 0 0);
-  --sidebar-border: oklch(0.88 0 0);
-  --sidebar-ring: oklch(0.1 0 0);
-}
+/*
+ * Design system definition.
+ *
+ * The @theme inline block maps CSS custom properties to Tailwind utility
+ * classes (e.g. --color-primary -> bg-primary, text-primary).
+ *
+ * The :root and .dark blocks define the actual color values using oklch.
+ * All colors MUST use oklch format.
+ *
+ * To add a new semantic color:
+ * 1. Add the variable to :root (light value) and .dark (dark value)
+ * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ */
 
 @theme inline {
-  /* Add serif font for headings */
-  --font-sans: var(--font-geist), system-ui, sans-serif;
-  --font-serif: var(--font-playfair), "Georgia", serif;
-  --font-mono: var(--font-geist-mono), monospace;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -69,15 +51,12 @@ html {
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
@@ -88,11 +67,155 @@ html {
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+:root {
+  --radius: 1rem;
+  --dragon-berry: oklch(0.55 0.15 2);
+  --dragon-berry-bright: oklch(0.62 0.17 5);
+  --forest-green: oklch(0.57 0.09 125);
+  --deep-rose: oklch(0.38 0.11 3);
+  --harvest-gold: oklch(0.87 0.05 75);
+  --spring-green: oklch(0.77 0.09 115);
+  --soft-ivory: oklch(0.935 0.017 75);
+  --background: oklch(0.985 0.006 75);
+  --foreground: oklch(0.27 0.03 20);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.27 0.03 20);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.27 0.03 20);
+  --primary: var(--dragon-berry);
+  --primary-foreground: oklch(0.99 0.005 75);
+  --secondary: var(--soft-ivory);
+  --secondary-foreground: var(--deep-rose);
+  --muted: var(--soft-ivory);
+  --muted-foreground: oklch(0.5 0.025 30);
+  --accent: var(--soft-ivory);
+  --accent-foreground: var(--deep-rose);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.9 0.02 70);
+  --input: oklch(0.88 0.02 70);
+  --ring: var(--dragon-berry);
+  --chart-1: var(--dragon-berry);
+  --chart-2: var(--forest-green);
+  --chart-3: var(--harvest-gold);
+  --chart-4: var(--spring-green);
+  --chart-5: var(--deep-rose);
+  --sidebar: var(--soft-ivory);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: var(--dragon-berry);
+  --sidebar-primary-foreground: oklch(0.99 0 0);
+  --sidebar-accent: var(--soft-ivory);
+  --sidebar-accent-foreground: var(--deep-rose);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--dragon-berry);
+  --shadow-soft: 0 10px 40px -12px oklch(0.38 0.11 3 / 0.18);
+  --shadow-card: 0 2px 12px -4px oklch(0.38 0.11 3 / 0.12);
+}
+
+@theme inline {
+  --color-dragon-berry: var(--dragon-berry);
+  --color-dragon-berry-bright: var(--dragon-berry-bright);
+  --color-forest-green: var(--forest-green);
+  --color-deep-rose: var(--deep-rose);
+  --color-harvest-gold: var(--harvest-gold);
+  --color-spring-green: var(--spring-green);
+  --color-soft-ivory: var(--soft-ivory);
+  --font-serif: "Newsreader", Georgia, serif;
+  --font-sans: "Be Vietnam Pro", system-ui, sans-serif;
+  --shadow-soft: var(--shadow-soft);
+  --shadow-card: var(--shadow-card);
+  --animate-reveal: reveal 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  --animate-pop: pop 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  @keyframes reveal { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+  @keyframes pop { 0% { opacity: 0; transform: scale(0.85); } 60% { opacity: 1; transform: scale(1.04); } 100% { transform: scale(1); } }
+}
+
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    border-color: var(--color-border);
   }
+
   body {
-    @apply bg-background text-foreground;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
   }
+  h1, h2, h3 { font-family: var(--font-serif); letter-spacing: -0.01em; }
 }
+
+/* Square result artwork: one layout, three editorial colorways. */
+.share-art {
+  --art-bg: oklch(0.72 0.19 5);
+  --art-ink: oklch(0.99 0.01 60);
+  --art-panel: oklch(0.97 0.025 5);
+  --art-tag-ink: oklch(0.42 0.10 5);
+  --art-panel-ink: oklch(0.23 0.03 20);
+  --art-deep: oklch(0.5 0.16 5);
+  --art-beam: oklch(0.99 0.025 5 / 0.85);
+  --art-outline: oklch(0.99 0.01 60 / 0.9);
+  position: relative;
+  width: 760px;
+  height: 760px;
+  overflow: hidden;
+  background: var(--art-bg);
+  color: var(--art-ink);
+  font-family: "Be Vietnam Pro", sans-serif;
+}
+.share-art--white {
+  --art-bg: oklch(0.71 0.085 116);
+  --art-ink: oklch(0.37 0.085 125);
+  --art-panel: oklch(0.95 0.026 97);
+  --art-panel-ink: oklch(0.23 0.025 60);
+  --art-tag-ink: oklch(0.37 0.085 125);
+  --art-deep: oklch(0.39 0.075 125);
+  --art-beam: oklch(0.97 0.06 100 / 0.78);
+  --art-outline: oklch(0.95 0.04 95);
+}
+.share-art--yellow {
+  --art-bg: oklch(0.9 0.08 81);
+  --art-ink: oklch(0.5 0.105 52);
+  --art-panel: oklch(0.98 0.024 82);
+  --art-panel-ink: oklch(0.28 0.035 48);
+  --art-tag-ink: oklch(0.5 0.105 52);
+  --art-deep: oklch(0.66 0.11 66);
+  --art-beam: oklch(0.86 0.14 84 / 0.82);
+  --art-outline: oklch(0.99 0.015 84);
+}
+.share-art__top { position: relative; height: 390px; }
+.share-art__spotlight { position: absolute; top: -20px; left: 394px; width: 335px; height: 387px; background: var(--art-beam); clip-path: polygon(35% 0, 65% 0, 100% 93%, 93% 100%, 7% 100%, 0 93%); }
+.share-art__spotlight::after { content: ""; position: absolute; bottom: 0; left: 0; width: 100%; height: 46px; border-radius: 50%; background: var(--art-outline); }
+.share-art__mascot { position: absolute; z-index: 2; top: 72px; left: 455px; width: 224px; height: 260px; object-fit: contain; filter: drop-shadow(0 8px 4px oklch(0.3 0.02 40 / 0.12)); }
+.share-art--red .share-art__mascot { top: 65px; left: 451px; width: 225px; height: 278px; }
+.share-art__intro { position: absolute; z-index: 2; top: 135px; left: 58px; width: 400px; display: flex; flex-direction: column; align-items: flex-start; }
+.share-art__intro > span { font-size: 22px; line-height: 1.3; }
+.share-art__intro > strong { margin-top: 5px; font-family: Georgia, "Times New Roman", serif; font-size: 62px; line-height: 1.06; white-space: nowrap; }
+.share-art--white .share-art__intro > strong { font-size: 54px; }
+.share-art--yellow .share-art__intro > strong { font-size: 58px; }
+.share-art__intro > b { font-family: Georgia, "Times New Roman", serif; font-size: 31px; line-height: 1.1; white-space: nowrap; }
+.share-art__tags { display: flex; flex-direction: column; align-items: flex-start; gap: 5px; margin-top: 21px; }
+.share-art__tags span { border-radius: 9px; background: var(--art-panel); color: var(--art-tag-ink); padding: 3px 11px; font-size: 17px; line-height: 1.25; }
+.share-art__bottom { display: grid; grid-template-columns: 365px 1fr; gap: 24px; padding: 0 52px 0 57px; height: 323px; }
+.share-art__chart { height: 314px; overflow: hidden; border: 2px solid var(--art-outline); border-radius: 16px; background: var(--art-panel); color: var(--art-panel-ink); text-align: center; }
+.share-art__chart h3 { margin: 16px 0 2px; font-family: "Be Vietnam Pro", sans-serif; font-size: 19px; font-weight: 700; }
+.share-art__chart img { width: 330px; height: 268px; margin: 0 auto; object-fit: contain; mix-blend-mode: multiply; }
+.share-art__facts { display: grid; grid-template-rows: 87px 103px 108px; gap: 8px; }
+.share-art__fact { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 2px solid var(--art-outline); border-radius: 16px; background: var(--art-panel); color: var(--art-panel-ink); text-align: center; }
+.share-art__fact--dark { background: var(--art-deep); color: oklch(0.99 0.01 80); }
+.share-art__fact--dark strong { font-size: 22px; line-height: 1.2; }
+.share-art__fact--dark small { font-size: 16px; }
+.share-art__number { position: absolute; top: -10px; left: -12px; width: 29px; height: 29px; display: grid; place-items: center; border-radius: 50%; background: var(--art-panel); color: var(--art-panel-ink); font-weight: 700; font-size: 15px; }
+.share-art__percent { font-size: 38px; line-height: 1.1; }
+.share-art__fact > span:not(.share-art__number) { font-size: 17px; }
+.share-art__fact--lucky { align-items: flex-start; padding: 9px 20px; }
+.share-art__fact--lucky strong { font-size: 17px; }
+.share-art__fact--lucky > span:not(.share-art__number) { display: flex; align-items: center; gap: 12px; min-width: 0; width: 100%; font-size: 17px; white-space: normal; }
+.share-art__lucky-icon { display: grid; width: 31px; height: 31px; flex: 0 0 31px; place-items: center; color: var(--art-deep); }
+.share-art__lucky-icon svg { width: 28px; height: 28px; stroke-width: 1.8; }
+.share-art__fact--lucky i { margin-left: auto; color: var(--art-outline); font-size: 28px; font-style: normal; }
+.share-art__footer { position: absolute; bottom: 10px; right: 48px; font-size: 15px; }
+.quiz-mascot { animation: quiz-mascot-float 5s ease-in-out infinite; transform-origin: 50% 100%; }
+@keyframes quiz-mascot-float {
+  0%, 100% { transform: translateY(0) rotate(-1deg); }
+  50% { transform: translateY(-8px) rotate(1deg); }
+}
+@media (prefers-reduced-motion: reduce) { .animate-reveal, .animate-pop, .quiz-mascot { animation: none; } }
