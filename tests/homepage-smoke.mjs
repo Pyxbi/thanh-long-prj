@@ -142,10 +142,11 @@ test("all public routes render their own page", async () => {
   }
 })
 
-test("quiz CTA opens the Long Gia Nhà Tôi auth flow", async () => {
+test("quiz CTA stays in the quiz flow instead of routing to the farm page", async () => {
   const html = await loadPage("/quiz")
 
-  assert.match(html, /href="\/long-gia-nha-toi"[^>]*>Làm Trắc Nghiệm Ngay/)
+  assert.match(html, /<button[^>]*>Làm Trắc Nghiệm Ngay/)
+  assert.doesNotMatch(html, /href="\/long-gia-nha-toi"[^>]*>Làm Trắc Nghiệm Ngay/)
 })
 
 test("Long Gia Nhà Tôi starts with a login entry point", async () => {

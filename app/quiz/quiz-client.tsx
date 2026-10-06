@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect, useState } from "react";
-import { toast } from "sonner";
 import { ArrowRight, Check, Sparkles, RotateCcw, Share2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -12,6 +11,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { SiteHeader } from "@/components/site-header";
 import { Footer } from "@/components/footer";
 import { SharePreview } from "@/components/quiz/ShareCard";
+import { readLongGiaUser } from "@/components/long-gia-auth";
 import {
   calcResult,
   colorLabel,
@@ -47,6 +47,21 @@ export function QuizClient() {
   };
 
   const start = () => (loggedIn ? begin() : setLoginOpen(true));
+
+  useEffect(() => {
+    const user = readLongGiaUser();
+    setLoggedIn(Boolean(user));
+
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("start") !== "1") return;
+
+    window.history.replaceState(null, "", "/quiz");
+    if (user) {
+      begin();
+    } else {
+      setLoginOpen(true);
+    }
+  }, []);
 
   const choose = (c: AnswerColor) => {
     const next = [...answers.slice(0, step), c];
@@ -117,8 +132,8 @@ function QuizHero({ onStart }: { onStart: () => void }) {
             <strong className="font-semibold text-[#BA466D]">100 điểm thưởng</strong> tích lũy.
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
-            <Button size="lg" asChild className="h-13 rounded-full px-7 text-base shadow-sm bg-[#BA466D] text-white hover:bg-[#BA466D]/90">
-              <a href="/long-gia-nha-toi">Làm Trắc Nghiệm Ngay <ArrowRight /></a>
+            <Button type="button" size="lg" onClick={onStart} className="h-13 rounded-full bg-[#BA466D] px-7 text-base text-white shadow-sm hover:bg-[#BA466D]/90">
+              Làm Trắc Nghiệm Ngay <ArrowRight />
             </Button>
             <Button size="lg" variant="outline" asChild className="h-13 rounded-full border-[#6E8644]/40 px-7 text-base text-[#6E8644] hover:bg-[#F0E8DD] hover:text-[#6E8644]">
               <a href="/">Tìm hiểu thêm về Long Gia</a>
@@ -183,9 +198,9 @@ function QuizLoginDialog({
       </Button>
       <p className="text-center text-sm text-muted-foreground">
         Chưa có tài khoản?{" "}
-        <button type="button" onClick={() => valid ? onSuccess() : toast("Nhập số điện thoại để đăng ký tài khoản")} className="font-medium text-[#BA466D] underline-offset-4 hover:underline">
+        <a href="/long-gia-nha-toi/dang-ky?returnTo=%2Fquiz%3Fstart%3D1" className="font-medium text-[#BA466D] underline-offset-4 hover:underline">
           Đăng ký tài khoản
-        </button>
+        </a>
       </p>
     </form>
   );

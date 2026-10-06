@@ -1,11 +1,19 @@
 "use client"
 
 import Image from "next/image"
-import { FormEvent, useState } from "react"
+import { FormEvent, useEffect, useState } from "react"
 import { ArrowRight, LockKeyhole, LogOut, Phone, UserRound } from "lucide-react"
 import { Footer } from "@/components/footer"
 import { SiteHeader } from "@/components/site-header"
 import { Button } from "@/components/ui/button"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 
 export const LONG_GIA_AUTH_KEY = "long-gia-demo-user"
 
@@ -29,6 +37,11 @@ function saveLongGiaUser(user: LongGiaUser) {
   window.localStorage.setItem(LONG_GIA_AUTH_KEY, JSON.stringify(user))
 }
 
+function readSafeReturnTo() {
+  const returnTo = new URLSearchParams(window.location.search).get("returnTo")
+  return returnTo && returnTo.startsWith("/") && !returnTo.startsWith("//") ? returnTo : null
+}
+
 export function clearLongGiaUser() {
   window.localStorage.removeItem(LONG_GIA_AUTH_KEY)
 }
@@ -42,6 +55,11 @@ export function LongGiaAuthPage({ mode, onAuthenticated }: { mode: "login" | "re
   const [otp, setOtp] = useState("")
   const [otpSent, setOtpSent] = useState(false)
   const [error, setError] = useState("")
+  const [returnTo, setReturnTo] = useState<string | null>(null)
+
+  useEffect(() => {
+    setReturnTo(readSafeReturnTo())
+  }, [])
 
   const submit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -68,9 +86,11 @@ export function LongGiaAuthPage({ mode, onAuthenticated }: { mode: "login" | "re
     if (onAuthenticated) {
       onAuthenticated(user)
     } else {
-      window.location.href = "/long-gia-nha-toi"
+      window.location.href = returnTo ?? readSafeReturnTo() ?? "/long-gia-nha-toi"
     }
   }
+
+  const authSwitchHref = `${isRegister ? "/long-gia-nha-toi" : "/long-gia-nha-toi/dang-ky"}${returnTo ? `?returnTo=${encodeURIComponent(returnTo)}` : ""}`
 
   return <div className="min-h-screen bg-[#f0e8dd] text-[#2d3026]">
     <SiteHeader />
@@ -109,7 +129,7 @@ export function LongGiaAuthPage({ mode, onAuthenticated }: { mode: "login" | "re
             <Button type="submit" className="h-13 w-full rounded-full bg-[#ba466d] text-base font-bold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-[#822944] hover:shadow-lg">{isRegister ? "Tạo tài khoản" : "Đăng nhập"}<ArrowRight size={18} /></Button>
           </form>
 
-          <p className="mt-6 text-center text-sm text-[#626751]">{isRegister ? "Đã có tài khoản?" : "Chưa có tài khoản?"}{" "}<a href={isRegister ? "/long-gia-nha-toi" : "/long-gia-nha-toi/dang-ky"} className="font-bold text-[#ba466d] underline-offset-4 transition hover:text-[#822944] hover:underline">{isRegister ? "Đăng nhập" : "Đăng ký ngay"}</a></p>
+          <p className="mt-6 text-center text-sm text-[#626751]">{isRegister ? "Đã có tài khoản?" : "Chưa có tài khoản?"}{" "}<a href={authSwitchHref} className="font-bold text-[#ba466d] underline-offset-4 transition hover:text-[#822944] hover:underline">{isRegister ? "Đăng nhập" : "Đăng ký ngay"}</a></p>
           <p className="mt-6 border-t border-[#ded3c6] pt-5 text-center text-xs leading-5 text-[#9b9085]">Prototype đăng nhập · Không kết nối thanh toán hoặc dữ liệu thật.</p>
         </div>
       </div>
@@ -121,9 +141,24 @@ export function LongGiaAuthPage({ mode, onAuthenticated }: { mode: "login" | "re
 export function LongGiaAccountChip({ user, onLogout }: { user: LongGiaUser; onLogout: () => void }) {
   const initial = user.name.trim().charAt(0).toUpperCase() || "L"
 
-  return <div className="fixed right-5 top-24 z-40 flex items-center gap-2 rounded-full border border-white/80 bg-[#fffaf3]/95 p-1.5 pl-2 shadow-lg backdrop-blur-xl sm:right-8">
-    <span className="grid size-9 place-items-center rounded-full bg-[#ba466d] text-sm font-bold text-white">{initial}</span>
-    <span className="hidden max-w-32 truncate text-xs font-semibold text-[#822944] sm:block">{user.name}</span>
-    <button type="button" aria-label="Đăng xuất" onClick={onLogout} className="grid size-8 place-items-center rounded-full text-[#626751] transition hover:bg-[#f7e7ea] hover:text-[#822944] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ba466d]"><LogOut size={15} /></button>
+  return <div className="fixed right-5 top-24 z-40 sm:right-8">
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <button type="button" aria-label={`Mở menu tài khoản ${user.name}`} data-testid="account-menu-trigger" className="grid size-11 place-items-center rounded-full border border-white/90 bg-[#fffaf3]/95 p-1 shadow-lg shadow-[#3f3150]/10 backdrop-blur-xl transition hover:-translate-y-0.5 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ba466d] focus-visible:ring-offset-2">
+          <span className="grid size-8 place-items-center rounded-full bg-[#ba466d] text-sm font-bold text-white">{initial}</span>
+        </button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end" sideOffset={8} className="w-56 rounded-2xl border-[#ded3c6] bg-[#fffaf3] p-2 text-[#626751] shadow-xl">
+        <DropdownMenuLabel className="px-3 py-2">
+          <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#6e8644]">Thành viên Long Gia</p>
+          <p className="mt-1 truncate text-sm font-bold text-[#822944]">{user.name}</p>
+          <p className="mt-0.5 text-xs font-normal text-[#9b9085]">{user.phone}</p>
+        </DropdownMenuLabel>
+        <DropdownMenuSeparator className="bg-[#ded3c6]" />
+        <DropdownMenuItem onSelect={onLogout} className="rounded-xl px-3 py-2.5 text-sm text-[#822944] focus:bg-[#f7e7ea] focus:text-[#822944]">
+          <LogOut size={15} /> Đăng xuất
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
   </div>
 }
