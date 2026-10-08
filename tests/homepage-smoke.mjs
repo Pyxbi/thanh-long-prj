@@ -7,6 +7,11 @@ async function loadPage(path = "") {
   return response.text()
 }
 
+async function loadJson(path) {
+  const response = await fetch(`${process.env.HOME_URL ?? "http://127.0.0.1:3002"}${path}`)
+  return { response, body: await response.json() }
+}
+
 test("homepage exposes the requested brand navigation and overview CTA", async () => {
   const html = await loadPage()
   assert.match(html, /Câu chuyện thương hiệu/)
@@ -140,6 +145,31 @@ test("all public routes render their own page", async () => {
     const html = await loadPage(path)
     assert.match(html, new RegExp(heading))
   }
+})
+
+test("analytics dashboard is available without being added to public navigation", async () => {
+  const html = await loadPage("/dashboard")
+  const nav = html.match(/<nav aria-label="Điều hướng chính"[\s\S]*?<\/nav>/)?.[0]
+
+  assert.match(html, /data-testid="analytics-dashboard"/)
+  assert.match(html, /Bảng theo dõi truy cập/)
+  assert.ok(nav, "dashboard is missing the shared navigation")
+  assert.doesNotMatch(nav, /\/dashboard/)
+})
+
+test("analytics API rejects invalid ranges without contacting the provider", async () => {
+  const invalid = await loadJson("/api/analytics?range=bad")
+
+  assert.equal(invalid.response.status, 400)
+  assert.equal(invalid.body.error, "Khoảng thời gian không hợp lệ.")
+})
+
+test("analytics API exposes a deterministic setup state when Vercel is not configured", async () => {
+  const setup = await loadJson("/api/analytics?range=7d")
+
+  assert.equal(setup.response.status, 200)
+  assert.equal(setup.body.configured, false)
+  assert.equal(setup.body.range, "7d")
 })
 
 test("quiz CTA stays in the quiz flow instead of routing to the farm page", async () => {
