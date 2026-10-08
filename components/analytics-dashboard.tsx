@@ -209,7 +209,7 @@ function AnalyticsContent({ data }: { data: AnalyticsResponse }) {
   return (
     <div className="grid gap-5">
       <div className="grid gap-5 md:grid-cols-2">
-        <MetricCard icon={<Users aria-hidden="true" />} label="Người truy cập" value={data.summary.visitors} tone="berry" />
+        <MetricCard icon={<Users aria-hidden="true" />} label="Tổng người truy cập" value={data.summary.visitors} tone="berry" />
         <MetricCard icon={<Eye aria-hidden="true" />} label="Lượt xem trang" value={data.summary.pageviews} tone="green" />
       </div>
 
@@ -221,7 +221,6 @@ function AnalyticsContent({ data }: { data: AnalyticsResponse }) {
         <RankedCard title="Thiết bị" rows={data.topDevices} />
       </div>
 
-      <p className="flex items-center gap-2 text-xs leading-5 text-muted-foreground"><BarChart3 className="size-4 text-forest-green" aria-hidden="true" /> Dữ liệu người truy cập là chỉ số ẩn danh được tổng hợp bởi Vercel Web Analytics.</p>
     </div>
   )
 }

@@ -153,6 +153,7 @@ test("analytics dashboard is available without being added to public navigation"
 
   assert.match(html, /data-testid="analytics-dashboard"/)
   assert.match(html, /Bảng theo dõi truy cập/)
+  assert.doesNotMatch(html, /được tổng hợp bởi Vercel Web Analytics/)
   assert.ok(nav, "dashboard is missing the shared navigation")
   assert.doesNotMatch(nav, /\/dashboard/)
 })

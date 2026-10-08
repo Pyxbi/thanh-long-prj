@@ -53,6 +53,7 @@ type VercelAggregateResponse = {
 
 const VERCEL_ANALYTICS_API = "https://api.vercel.com/v1/query/web-analytics/visits"
 const UNKNOWN_LABEL = "Không xác định"
+type AnalyticsQuery = "count" | "aggregate"
 
 export function isAnalyticsRange(value: string | null): value is AnalyticsRange {
   return value === "7d" || value === "30d" || value === "90d"
@@ -97,10 +98,17 @@ function dateLabel(value: unknown): string {
   return Number.isNaN(date.getTime()) ? UNKNOWN_LABEL : date.toISOString().slice(0, 10)
 }
 
-function dateRange(range: AnalyticsRange) {
+export function getAnalyticsDateRange(range: AnalyticsRange, now = new Date(), query: AnalyticsQuery = "aggregate") {
   const days = Number.parseInt(range, 10)
-  const until = new Date()
-  const since = new Date(until)
+  const until = new Date(now)
+  if (query === "count") {
+    until.setUTCDate(until.getUTCDate() + 1)
+    until.setUTCHours(0, 0, 0, 0)
+  } else {
+    until.setUTCHours(23, 59, 59, 999)
+  }
+
+  const since = new Date(now)
   since.setUTCDate(since.getUTCDate() - days + 1)
   since.setUTCHours(0, 0, 0, 0)
 
@@ -110,10 +118,10 @@ function dateRange(range: AnalyticsRange) {
   }
 }
 
-function queryParams(range: AnalyticsRange, by?: string, limit?: number) {
+function queryParams(range: AnalyticsRange, by?: string, limit?: number, query: AnalyticsQuery = "aggregate") {
   const params = new URLSearchParams({
     projectId: process.env.VERCEL_PROJECT_ID ?? "",
-    ...dateRange(range),
+    ...getAnalyticsDateRange(range, new Date(), query),
   })
 
   if (process.env.VERCEL_TEAM_ID) params.set("teamId", process.env.VERCEL_TEAM_ID)
@@ -124,7 +132,8 @@ function queryParams(range: AnalyticsRange, by?: string, limit?: number) {
 }
 
 async function vercelRequest<T>(path: string, range: AnalyticsRange, by?: string, limit?: number): Promise<T> {
-  const response = await fetch(`${VERCEL_ANALYTICS_API}/${path}?${queryParams(range, by, limit)}`, {
+  const query = path === "count" ? "count" : "aggregate"
+  const response = await fetch(`${VERCEL_ANALYTICS_API}/${path}?${queryParams(range, by, limit, query)}`, {
     headers: {
       Authorization: `Bearer ${process.env.VERCEL_TOKEN}`,
       "Content-Type": "application/json",
