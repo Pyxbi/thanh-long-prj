@@ -5,7 +5,7 @@ import { ArrowUpRight } from "lucide-react"
 import { Footer } from "@/components/footer"
 import { SiteHeader } from "@/components/site-header"
 
-const farmImage = "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1200&q=85"
+const farmImage = "/images/about-farm.jpg"
 const letterImage = "/images/about-letter-orchard.jpg"
 
 const missions = ["Tuyên truyền, hướng dẫn kỹ thuật canh tác mới cho người dân.", "Là đơn vị liên kết đáng tin cậy, hỗ trợ người nông dân từ kỹ thuật, quy trình đến đầu ra.", "Xây dựng chuỗi liên kết từ đầu vào, sản xuất đến hệ thống đầu ra với siêu thị và doanh nghiệp thương mại.", "Góp phần xây dựng nền nông nghiệp giá trị cao và bền vững.", "Cải thiện môi trường đất, nước và không khí thông qua các giải pháp canh tác an toàn.", "Góp phần xây dựng thương hiệu nông sản địa phương và quốc gia."]

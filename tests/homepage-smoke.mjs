@@ -90,6 +90,8 @@ test("operations gallery uses the supplied factory and packing images", async ()
 test("about page shows the supplied history images and detailed milestones", async () => {
   const html = await loadPage("/ve-chung-toi")
 
+  assert.match(html, /\/images\/about-farm\.jpg/)
+  assert.doesNotMatch(html, /images\.unsplash\.com\/photo-1501004318641-b39e6451bec6/)
   assert.match(html, /\/images\/about-letter-orchard\.jpg/)
   assert.match(html, /\/images\/milestone-2021\.jpg/)
   assert.match(html, /\/images\/milestone-2023\.jpg/)
