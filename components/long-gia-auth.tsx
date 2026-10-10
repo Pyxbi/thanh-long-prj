@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 
 export const LONG_GIA_AUTH_KEY = "long-gia-demo-user"
+export const LONG_GIA_POINTS_KEY = "long-gia-demo-points"
 
 export type LongGiaUser = {
   name: string
@@ -31,6 +32,31 @@ export function readLongGiaUser(): LongGiaUser | null {
   } catch {
     return null
   }
+}
+
+function pointsStorageKey(user: LongGiaUser) {
+  return `${LONG_GIA_POINTS_KEY}:${encodeURIComponent(user.phone.trim())}`
+}
+
+export function readLongGiaPoints(user: LongGiaUser | null) {
+  if (!user || typeof window === "undefined") return 0
+
+  try {
+    const value = Number(window.localStorage.getItem(pointsStorageKey(user)) ?? 0)
+    return Number.isFinite(value) && value >= 0 ? value : 0
+  } catch {
+    return 0
+  }
+}
+
+export function addLongGiaPoints(user: LongGiaUser | null, points: number) {
+  if (!user || typeof window === "undefined" || !Number.isFinite(points) || points <= 0) {
+    return readLongGiaPoints(user)
+  }
+
+  const total = readLongGiaPoints(user) + points
+  window.localStorage.setItem(pointsStorageKey(user), String(total))
+  return total
 }
 
 function saveLongGiaUser(user: LongGiaUser) {

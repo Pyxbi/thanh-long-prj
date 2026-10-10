@@ -224,6 +224,16 @@ test("quiz does not render color dots or selection icons", async () => {
   assert.doesNotMatch(source, /<Check/)
 })
 
+test("quiz rewards accumulate for the signed-in account", async () => {
+  const quizSource = await readFile(new URL("../app/quiz/quiz-client.tsx", import.meta.url), "utf8")
+  const authSource = await readFile(new URL("../components/long-gia-auth.tsx", import.meta.url), "utf8")
+
+  assert.match(authSource, /LONG_GIA_POINTS_KEY/)
+  assert.match(authSource, /addLongGiaPoints/)
+  assert.match(quizSource, /addLongGiaPoints/)
+  assert.doesNotMatch(quizSource, /MOCK_PREV_POINTS/)
+})
+
 test("product page uses homepage product imagery", async () => {
   const html = await loadPage("/san-pham")
 

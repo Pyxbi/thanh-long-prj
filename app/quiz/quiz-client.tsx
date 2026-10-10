@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Sparkles, RotateCcw, Share2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -11,7 +11,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { SiteHeader } from "@/components/site-header";
 import { Footer } from "@/components/footer";
 import { SharePreview } from "@/components/quiz/ShareCard";
-import { readLongGiaUser } from "@/components/long-gia-auth";
+import { addLongGiaPoints, readLongGiaUser } from "@/components/long-gia-auth";
 import {
   calcResult,
   colorLabel,
@@ -24,7 +24,6 @@ import { cn } from "@/lib/utils";
 
 type Screen = "landing" | "quiz" | "loading" | "result";
 const REWARD = 100;
-const MOCK_PREV_POINTS = 60;
 
 const accent: Record<AnswerColor, { selected: string; text: string; soft: string }> = {
   red: { selected: "border-[#BA466D] bg-[#BA466D]/10", text: "text-[#BA466D]", soft: "bg-[#BA466D]/10" },
@@ -307,11 +306,20 @@ function ResultLoading() {
 
 function QuizResult({ answers, onReplay }: { answers: AnswerColor[]; onReplay: () => void }) {
   const [shareOpen, setShareOpen] = useState(false);
+  const [totalPoints, setTotalPoints] = useState<number | null>(null);
+  const pointsAwarded = useRef(false);
   const result = calcResult(answers);
   const r = results[result];
   const a = accent[result];
   const counts = { red: 0, white: 0, yellow: 0 };
   answers.forEach((x) => counts[x]++);
+
+  useEffect(() => {
+    if (pointsAwarded.current) return;
+
+    pointsAwarded.current = true;
+    setTotalPoints(addLongGiaPoints(readLongGiaUser(), REWARD));
+  }, []);
 
   return (
     <section className="mx-auto max-w-6xl px-5 py-4 md:py-8">
@@ -332,7 +340,7 @@ function QuizResult({ answers, onReplay }: { answers: AnswerColor[]; onReplay: (
             <div className="text-sm">
               <p className="font-semibold text-foreground">Điểm thưởng của bạn</p>
               <p className="text-muted-foreground">Điểm đã được cộng sau khi hoàn thành quiz.</p>
-              <p className="mt-1 font-medium text-[#6E8644]">Tổng điểm: {MOCK_PREV_POINTS + REWARD}</p>
+              <p className="mt-1 font-medium text-[#6E8644]">Tổng điểm: {totalPoints ?? REWARD}</p>
             </div>
           </div>
 
