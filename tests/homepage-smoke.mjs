@@ -107,13 +107,13 @@ test("about page decorates the values section with both supplied mascots", async
   assert.match(html, /\/images\/value-mascot-white\.png/)
 })
 
-test("Long Gia Nhà Tôi shows the auth gate before private farm content", async () => {
+test("Long Gia Nhà Tôi is publicly viewable without an auth gate", async () => {
   const html = await loadPage("/long-gia-nha-toi")
 
   assert.match(html, /\/images\/long-gia-pillar\.jpg/)
-  assert.match(html, /Đăng nhập/)
-  assert.match(html, /Đăng ký ngay/)
-  assert.match(html, /Prototype đăng nhập/)
+  assert.match(html, /Bản Đồ Trụ Thanh Long/)
+  assert.match(html, /Đăng Ký Nhận Nuôi/)
+  assert.doesNotMatch(html, /Prototype đăng nhập/)
 })
 
 test("every page uses the shared Long Gia navigation and footer", async () => {
@@ -180,11 +180,11 @@ test("quiz CTA stays in the quiz flow instead of routing to the farm page", asyn
   assert.doesNotMatch(html, /href="\/long-gia-nha-toi"[^>]*>Làm Trắc Nghiệm Ngay/)
 })
 
-test("Long Gia Nhà Tôi starts with a login entry point", async () => {
+test("Long Gia Nhà Tôi keeps its public content available when signed out", async () => {
   const html = await loadPage("/long-gia-nha-toi")
 
-  assert.match(html, /Đăng nhập/)
-  assert.match(html, /Đăng ký ngay/)
+  assert.match(html, /Nhận Nuôi Một Trụ Thanh Long/)
+  assert.doesNotMatch(html, /Bạn chưa đăng nhập\?|Đăng nhập/)
   assert.match(html, /Vùng trồng &amp; Nhà xưởng/)
 })
 
