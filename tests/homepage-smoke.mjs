@@ -87,6 +87,38 @@ test("operations gallery uses the supplied factory and packing images", async ()
   assert.match(html, /\/images\/dong-goi-nong-san\.png/)
 })
 
+test("process intake step uses the four-photo collage", async () => {
+  const html = await loadPage("/quy-trinh-lien-he")
+
+  assert.match(html, /\/images\/process-intake-collage\.jpg/)
+  assert.doesNotMatch(html, /images\.unsplash\.com\/photo-1592924357228-91a4daadcfea/)
+})
+
+test("process drying and packaging steps use the supplied local images", async () => {
+  const html = await loadPage("/quy-trinh-lien-he")
+
+  assert.match(html, /\/images\/process-drying-collage\.jpg/)
+  assert.match(html, /\/images\/process-packaging\.jpg/)
+  assert.doesNotMatch(html, /images\.unsplash\.com\/photo-1586864387967-d02ef85d93e8/)
+  assert.doesNotMatch(html, /images\.unsplash\.com\/photo-1556911220-e15b29be8c8f/)
+})
+
+test("process washing and carton steps use the supplied local images", async () => {
+  const html = await loadPage("/quy-trinh-lien-he")
+
+  assert.match(html, /\/images\/process-washing\.jpg/)
+  assert.match(html, /\/images\/process-carton-collage\.jpg/)
+  assert.doesNotMatch(html, /images\.unsplash\.com\/photo-1581091226825-a6a2a5aee158/)
+  assert.doesNotMatch(html, /images\.unsplash\.com\/photo-1601598851547-4302969d7c71/)
+})
+
+test("process cold-storage step uses the supplied four-photo collage", async () => {
+  const html = await loadPage("/quy-trinh-lien-he")
+
+  assert.match(html, /\/images\/process-cold-collage\.jpg/)
+  assert.doesNotMatch(html, /images\.unsplash\.com\/photo-1586528116311-ad8dd3c8310d/)
+})
+
 test("about page shows the supplied history images and detailed milestones", async () => {
   const html = await loadPage("/ve-chung-toi")
 
