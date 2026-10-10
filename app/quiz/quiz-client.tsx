@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from "react";
-import { ArrowRight, Check, Sparkles, RotateCcw, Share2 } from "lucide-react";
+import { ArrowRight, Sparkles, RotateCcw, Share2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Progress } from "@/components/ui/progress";
@@ -26,10 +26,10 @@ type Screen = "landing" | "quiz" | "loading" | "result";
 const REWARD = 100;
 const MOCK_PREV_POINTS = 60;
 
-const accent: Record<AnswerColor, { dot: string; selected: string; text: string; soft: string }> = {
-  red: { dot: "bg-[#BA466D]", selected: "border-[#BA466D] bg-[#BA466D]/10", text: "text-[#BA466D]", soft: "bg-[#BA466D]/10" },
-  white: { dot: "bg-white ring-1 ring-[#6E8644]/50", selected: "border-[#6E8644] bg-[#F0E8DD]", text: "text-[#6E8644]", soft: "bg-[#F0E8DD]" },
-  yellow: { dot: "bg-[#E8CDA8]", selected: "border-[#E8CDA8] bg-[#E8CDA8]/25", text: "text-[#822944]", soft: "bg-[#E8CDA8]/30" },
+const accent: Record<AnswerColor, { selected: string; text: string; soft: string }> = {
+  red: { selected: "border-[#BA466D] bg-[#BA466D]/10", text: "text-[#BA466D]", soft: "bg-[#BA466D]/10" },
+  white: { selected: "border-[#6E8644] bg-[#F0E8DD]", text: "text-[#6E8644]", soft: "bg-[#F0E8DD]" },
+  yellow: { selected: "border-[#E8CDA8] bg-[#E8CDA8]/25", text: "text-[#822944]", soft: "bg-[#E8CDA8]/30" },
 };
 
 export function QuizClient() {
@@ -142,7 +142,7 @@ function QuizHero({ onStart }: { onStart: () => void }) {
           <div className="mt-10 flex items-center gap-5 text-sm text-muted-foreground">
             {(["red", "white", "yellow"] as AnswerColor[]).map((c) => (
               <span key={c} className="flex items-center gap-2">
-                <span className={cn("h-3 w-3 rounded-full", accent[c].dot)} /> Long {colorLabel[c]}
+                Long {colorLabel[c]}
               </span>
             ))}
           </div>
@@ -275,15 +275,11 @@ function QuizQuestion({
                     onChoose(c);
                   }}
                   className={cn(
-                    "group flex w-full items-center gap-4 rounded-2xl border-2 border-border bg-card p-5 text-left shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[#BA466D]/40 hover:shadow-md",
+                    "group flex w-full items-center rounded-2xl border-2 border-border bg-card p-5 text-left shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[#BA466D]/40 hover:shadow-md",
                     active && accent[c].selected,
                   )}
                 >
-                  <span className={cn("h-5 w-5 shrink-0 rounded-full transition-transform", accent[c].dot, active && "scale-125")} />
                   <span className="flex-1 text-base leading-snug md:text-lg">{q.answers[c]}</span>
-                  <span className={cn("grid h-7 w-7 place-items-center rounded-full bg-[#BA466D] text-white opacity-0 transition-opacity", active && "opacity-100")}>
-                    <Check className="h-4 w-4" />
-                  </span>
                 </button>
               );
             })}
@@ -303,12 +299,7 @@ function ResultLoading() {
   return (
     <section className="grid min-h-[60vh] place-items-center px-5">
       <div className="text-center animate-reveal">
-        <div className="mx-auto flex gap-2 justify-center">
-          {(["red", "white", "yellow"] as AnswerColor[]).map((c, i) => (
-            <span key={c} className={cn("h-4 w-4 animate-pulse rounded-full", accent[c].dot)} style={{ animationDelay: `${i * 200}ms` }} />
-          ))}
-        </div>
-        <p className="mt-6 font-serif text-2xl text-[#822944] md:text-3xl">Đang khám phá phong cách sống của bạn...</p>
+        <p className="font-serif text-2xl text-[#822944] md:text-3xl">Đang khám phá phong cách sống của bạn...</p>
       </div>
     </section>
   );
@@ -369,7 +360,6 @@ function QuizResult({ answers, onReplay }: { answers: AnswerColor[]; onReplay: (
             <div className="mt-2 flex flex-wrap gap-4 text-sm">
               {(["red", "white", "yellow"] as AnswerColor[]).map((c) => (
                 <span key={c} className="flex items-center gap-2">
-                  <span className={cn("h-3 w-3 rounded-full", accent[c].dot)} />
                   {colorLabel[c]}: {counts[c]} câu
                 </span>
               ))}

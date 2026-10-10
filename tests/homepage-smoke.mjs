@@ -1,4 +1,5 @@
 import assert from "node:assert/strict"
+import { readFile } from "node:fs/promises"
 import { test } from "node:test"
 
 async function loadPage(path = "") {
@@ -212,6 +213,15 @@ test("quiz landing closes the hero flush with the footer", async () => {
   assert.ok(main, "quiz main is missing")
   assert.match(main, /pb-0/)
   assert.doesNotMatch(main, /pb-12|pb-20/)
+})
+
+test("quiz does not render color dots or selection icons", async () => {
+  const html = await loadPage("/quiz")
+  const source = await readFile(new URL("../app/quiz/quiz-client.tsx", import.meta.url), "utf8")
+
+  assert.doesNotMatch(html, /h-3 w-3 rounded-full/)
+  assert.doesNotMatch(source, /accent\[c\]\.dot/)
+  assert.doesNotMatch(source, /<Check/)
 })
 
 test("product page uses homepage product imagery", async () => {
