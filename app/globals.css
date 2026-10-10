@@ -184,8 +184,7 @@ html {
 .share-art__top { position: relative; height: 390px; }
 .share-art__spotlight { position: absolute; top: -20px; left: 394px; width: 335px; height: 387px; background: var(--art-beam); clip-path: polygon(35% 0, 65% 0, 100% 93%, 93% 100%, 7% 100%, 0 93%); }
 .share-art__spotlight::after { content: ""; position: absolute; bottom: 0; left: 0; width: 100%; height: 46px; border-radius: 50%; background: var(--art-outline); }
-.share-art__mascot { position: absolute; z-index: 2; top: 72px; left: 455px; width: 224px; height: 260px; object-fit: contain; filter: drop-shadow(0 8px 4px oklch(0.3 0.02 40 / 0.12)); }
-.share-art--red .share-art__mascot { top: 65px; left: 451px; width: 225px; height: 278px; }
+.share-art__mascot { position: absolute; z-index: 2; top: 64px; left: 560px; width: auto; height: 270px; object-fit: contain; transform: translateX(-50%); filter: drop-shadow(0 8px 4px oklch(0.3 0.02 40 / 0.12)); }
 .share-art__intro { position: absolute; z-index: 2; top: 135px; left: 58px; width: 400px; display: flex; flex-direction: column; align-items: flex-start; }
 .share-art__intro > span { font-size: 22px; line-height: 1.3; }
 .share-art__intro > strong { margin-top: 5px; font-family: Georgia, "Times New Roman", serif; font-size: 62px; line-height: 1.06; white-space: nowrap; }
