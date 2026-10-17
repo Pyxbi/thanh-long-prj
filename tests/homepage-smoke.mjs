@@ -249,6 +249,25 @@ test("quiz landing closes the hero flush with the footer", async () => {
   assert.doesNotMatch(main, /pb-12|pb-20/)
 })
 
+test("quiz questions use the supplied artwork for every question after the first", async () => {
+  const source = await readFile(new URL("../components/quiz/quiz-data.ts", import.meta.url), "utf8")
+  const assets = [2, 3, 4, 5].map((question) => `/images/quiz-question-${question}.png`)
+
+  assets.forEach((asset) => {
+    assert.match(source, new RegExp(asset.replaceAll("/", "\\/")))
+  })
+
+  assert.match(source, /Giữa một ngày bận rộn, bạn ‘sạc pin’ bằng cách nào\?"[\s\S]*image: question2Img/)
+  assert.match(source, /Với bạn, một ngày ‘trọn vẹn’ nghĩa là gì\?"[\s\S]*image: question3Img/)
+  assert.match(source, /Cuối ngày, bạn thường\.\.\."[\s\S]*image: question4Img/)
+  assert.match(source, /Nếu ví bản thân là một ly nước ép thanh long, bạn muốn nó\.\.\."[\s\S]*image: question5Img/)
+
+  for (const asset of assets) {
+    const file = await readFile(new URL(`../public${asset}`, import.meta.url))
+    assert.ok(file.length > 0, `${asset} is empty`)
+  }
+})
+
 test("quiz does not render color dots or selection icons", async () => {
   const html = await loadPage("/quiz")
   const source = await readFile(new URL("../app/quiz/quiz-client.tsx", import.meta.url), "utf8")

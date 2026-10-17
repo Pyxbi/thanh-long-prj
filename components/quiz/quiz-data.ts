@@ -2,6 +2,10 @@ export type AnswerColor = "red" | "white" | "yellow";
 
 // Using strings instead of imports for easy asset replacement later
 const heroImg = "/images/quiz-hero-bg.png";
+const question2Img = "/images/quiz-question-2.png";
+const question3Img = "/images/quiz-question-3.png";
+const question4Img = "/images/quiz-question-4.png";
+const question5Img = "/images/quiz-question-5.png";
 const redImg = "/images/result-red.jpg";
 const whiteImg = "/images/result-white.jpg";
 const yellowImg = "/images/result-yellow.jpg";
@@ -34,8 +38,8 @@ export const questions: {
   },
   {
     q: "Giữa một ngày bận rộn, bạn ‘sạc pin’ bằng cách nào?",
-    image: redImg,
-    imageAlt: "Nước ép thanh long đỏ tươi mát",
+    image: question2Img,
+    imageAlt: "Khu vườn thanh long và mascot nạp năng lượng",
     answers: {
       red: "Vận động, ra ngoài, đổi không khí",
       white: "Vài phút yên tĩnh một mình, hít thở sâu",
@@ -44,8 +48,8 @@ export const questions: {
   },
   {
     q: "Với bạn, một ngày ‘trọn vẹn’ nghĩa là gì?",
-    image: whiteImg,
-    imageAlt: "Thanh long trắng và tách trà",
+    image: question3Img,
+    imageAlt: "Mascot thanh long làm việc bên hiên nhà",
     answers: {
       red: "Làm được nhiều việc, chinh phục mục tiêu",
       white: "Cân bằng, không có gì phải hối tiếc",
@@ -54,8 +58,8 @@ export const questions: {
   },
   {
     q: "Cuối ngày, bạn thường...",
-    image: yellowImg,
-    imageAlt: "Bạn bè quây quần bên thanh long vàng",
+    image: question4Img,
+    imageAlt: "Mascot thanh long viết nhật ký lúc hoàng hôn",
     answers: {
       red: "Vẫn còn năng lượng, lên kế hoạch cho ngày mai",
       white: "Ngồi lại, tổng kết nhẹ nhàng những gì đã qua",
@@ -64,8 +68,8 @@ export const questions: {
   },
   {
     q: "Nếu ví bản thân là một ly nước ép thanh long, bạn muốn nó...",
-    image: redImg,
-    imageAlt: "Ly nước ép thanh long",
+    image: question5Img,
+    imageAlt: "Mascot thanh long thư giãn cuối ngày",
     answers: {
       red: "Đậm đà, rực rỡ, ai nhìn cũng ấn tượng",
       white: "Thanh mát, nhẹ nhàng, dễ chịu",
