@@ -322,11 +322,11 @@ function QuizResult({ answers, onReplay }: { answers: AnswerColor[]; onReplay: (
   }, []);
 
   return (
-    <section className="mx-auto max-w-6xl px-5 py-4 md:py-8">
-      <div className="grid items-center gap-10 md:grid-cols-2 md:gap-14">
+    <section className="mx-auto max-w-7xl px-5 py-4 md:py-8">
+      <div className="grid items-center gap-10 md:grid-cols-[1.15fr_0.85fr] md:gap-14">
         <div className="relative animate-reveal">
           <div className={cn("absolute -inset-4 -z-0 rounded-[3rem]", a.soft)} />
-          <div className="relative aspect-square overflow-hidden rounded-[2.5rem] shadow-md">
+          <div className="relative aspect-[16/10] overflow-hidden rounded-[2.5rem] shadow-md md:aspect-[4/3]">
             <img src={r.image} alt={r.title} width={1024} height={1024} className="h-full w-full object-cover bg-muted" />
           </div>
         </div>

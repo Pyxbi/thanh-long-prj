@@ -268,6 +268,26 @@ test("quiz questions use the supplied artwork for every question after the first
   }
 })
 
+test("quiz results use the supplied result artwork and wide desktop layouts", async () => {
+  const dataSource = await readFile(new URL("../components/quiz/quiz-data.ts", import.meta.url), "utf8")
+  const quizSource = await readFile(new URL("../app/quiz/quiz-client.tsx", import.meta.url), "utf8")
+  const shareSource = await readFile(new URL("../components/quiz/ShareCard.tsx", import.meta.url), "utf8")
+  const assets = ["/images/result-red.jpg", "/images/result-white.jpg", "/images/result-yellow.jpg"]
+
+  assets.forEach((asset) => {
+    assert.match(dataSource, new RegExp(asset.replaceAll("/", "\\/")))
+  })
+
+  for (const asset of assets) {
+    const file = await readFile(new URL(`../public${asset}`, import.meta.url))
+    assert.ok(file.length > 0, `${asset} is empty`)
+  }
+
+  assert.match(quizSource, /md:aspect-\[4\/3\]/)
+  assert.match(shareSource, /sm:max-w-\[1100px\]/)
+  assert.match(shareSource, /const maxWidth = Math\.min\(availableWidth, 1040\)/)
+})
+
 test("quiz does not render color dots or selection icons", async () => {
   const html = await loadPage("/quiz")
   const source = await readFile(new URL("../app/quiz/quiz-client.tsx", import.meta.url), "utf8")

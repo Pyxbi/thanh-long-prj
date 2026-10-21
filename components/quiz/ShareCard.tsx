@@ -64,13 +64,13 @@ export function SharePreview({ color, open, onOpenChange }: { color: AnswerColor
       const frame = frameRef.current;
       if (!frame) return;
       const availableWidth = Math.min(frame.clientWidth || 760, frame.parentElement?.clientWidth ?? frame.clientWidth);
-      const maxWidth = Math.min(availableWidth, 760);
-      const maxHeight = Math.max(320, window.innerHeight - 230);
+      const maxWidth = Math.min(availableWidth, 1040);
+      const maxHeight = Math.max(320, window.innerHeight - 190);
       
       const scaleW = maxWidth / 760;
       const scaleH = maxHeight / 760;
       
-      setScale(Math.max(0.35, Math.min(1, scaleW, scaleH)));
+      setScale(Math.max(0.35, Math.min(1.2, scaleW, scaleH)));
     };
 
     const observer = new ResizeObserver(updateScale);
@@ -137,7 +137,7 @@ export function SharePreview({ color, open, onOpenChange }: { color: AnswerColor
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-h-[95dvh] max-w-[850px] overflow-x-hidden overflow-y-auto p-4 sm:p-6">
+      <DialogContent className="max-h-[95dvh] overflow-x-hidden overflow-y-auto p-4 sm:max-w-[1100px] sm:p-6">
         <DialogHeader>
           <DialogTitle className="text-2xl">Chia sẻ kết quả</DialogTitle>
           <DialogDescription>Ảnh kết quả của bạn</DialogDescription>
