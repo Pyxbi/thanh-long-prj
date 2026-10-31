@@ -4,20 +4,45 @@ import { useEffect, useRef, useState } from "react";
 import { Coffee, Download, Footprints, Package, Share2 } from "lucide-react";
 import { toBlob } from "html-to-image";
 import { toast } from "sonner";
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { type AnswerColor, shareCards } from "./quiz-data";
 
 export function ResultShareCard({ color }: { color: AnswerColor }) {
-  const card = shareCards[color];
+  const t = useTranslations("Quiz");
+  const fallback = shareCards[color];
+  const shareData = t.raw("share") as {
+    youAre?: string;
+    vitalityIndex?: string;
+    luckyItemTitle?: string;
+    footer?: string;
+    cards?: Record<AnswerColor, {
+      name: string;
+      subtitle: string;
+      tags: string[];
+      archetype: string;
+      initials: string;
+      percentage: string;
+      metric: string;
+      luckyItem: string;
+    }>;
+  } | undefined;
+
+  const card = shareData?.cards?.[color] || fallback;
+  const youAre = shareData?.youAre || "Bạn là...";
+  const vitalityIndex = shareData?.vitalityIndex || "Chỉ số sống trọn ngày";
+  const luckyItemTitle = shareData?.luckyItemTitle || "Vật may mắn trong ngày";
+  const footerText = shareData?.footer || "Sống trọn một ngày cùng Long Gia";
+
   return (
     <div className={`share-art share-art--${color}`} data-testid="share-art">
       <div className="share-art__top">
         {/* Upper left is reserved for the final Long Gia logo. */}
         <div className="share-art__spotlight" aria-hidden="true" />
-        <img className="share-art__mascot" src={card.mascot} alt={`Nhân vật ${card.name}`} crossOrigin="anonymous" />
+        <img className="share-art__mascot" src={fallback.mascot} alt={`Nhân vật ${card.name}`} crossOrigin="anonymous" />
         <div className="share-art__intro">
-          <span>Bạn là...</span>
+          <span>{youAre}</span>
           <strong>{card.name}</strong>
           <b>{card.subtitle}</b>
           <div className="share-art__tags">{card.tags.map(tag => <span key={tag}>{tag}</span>)}</div>
@@ -25,8 +50,8 @@ export function ResultShareCard({ color }: { color: AnswerColor }) {
       </div>
       <div className="share-art__bottom">
         <div className="share-art__chart">
-          <h3>Chỉ số sống trọn ngày</h3>
-          <img src={card.chart} alt={`Biểu đồ chỉ số sống trọn ngày của ${card.name}`} crossOrigin="anonymous" />
+          <h3>{vitalityIndex}</h3>
+          <img src={fallback.chart} alt={`Biểu đồ chỉ số sống trọn ngày của ${card.name}`} crossOrigin="anonymous" />
         </div>
         <div className="share-art__facts">
           <div className="share-art__fact share-art__fact--dark">
@@ -41,17 +66,18 @@ export function ResultShareCard({ color }: { color: AnswerColor }) {
           </div>
           <div className="share-art__fact share-art__fact--lucky">
             <span className="share-art__number">3</span>
-            <strong>Vật may mắn trong ngày</strong>
+            <strong>{luckyItemTitle}</strong>
             <span><span className="share-art__lucky-icon">{color === "red" ? <Footprints /> : color === "yellow" ? <Package /> : <Coffee />}</span>{card.luckyItem} <i>✦</i></span>
           </div>
         </div>
       </div>
-      <div className="share-art__footer">Sống trọn một ngày cùng Long Gia</div>
+      <div className="share-art__footer">{footerText}</div>
     </div>
   );
 }
 
 export function SharePreview({ color, open, onOpenChange }: { color: AnswerColor; open: boolean; onOpenChange: (open: boolean) => void }) {
+  const t = useTranslations("Quiz");
   const frameRef = useRef<HTMLDivElement>(null);
   const artRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(1);
@@ -113,9 +139,9 @@ export function SharePreview({ color, open, onOpenChange }: { color: AnswerColor
       link.click();
       link.remove();
       setTimeout(() => URL.revokeObjectURL(url), 1000);
-      toast.success("Đã tải ảnh kết quả");
+      toast.success(t("resultSave"));
     } catch {
-      toast.error("Chưa thể tải ảnh. Vui lòng thử lại.");
+      toast.error("Error saving image");
     } finally { setBusy(false); }
   };
 
@@ -126,12 +152,12 @@ export function SharePreview({ color, open, onOpenChange }: { color: AnswerColor
       if (!blob) throw new Error("Image could not be created");
       const file = new File([blob], `long-gia-${color}.png`, { type: "image/png" });
       if (navigator.canShare?.({ files: [file] })) {
-        await navigator.share({ files: [file], title: "Kết quả Long Gia" });
+        await navigator.share({ files: [file], title: t("shareTitle") });
       } else {
-        toast("Thiết bị này chưa hỗ trợ chia sẻ ảnh trực tiếp. Hãy tải ảnh để gửi nhé.");
+        toast(t("resultSave"));
       }
     } catch (error) {
-      if (error instanceof Error && error.name !== "AbortError") toast.error("Chưa thể chia sẻ ảnh. Vui lòng thử lại.");
+      if (error instanceof Error && error.name !== "AbortError") toast.error("Error sharing image");
     } finally { setBusy(false); }
   };
 
@@ -139,8 +165,8 @@ export function SharePreview({ color, open, onOpenChange }: { color: AnswerColor
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-h-[95dvh] overflow-x-hidden overflow-y-auto p-4 sm:max-w-[1100px] sm:p-6">
         <DialogHeader>
-          <DialogTitle className="text-2xl">Chia sẻ kết quả</DialogTitle>
-          <DialogDescription>Ảnh kết quả của bạn</DialogDescription>
+          <DialogTitle className="text-2xl">{t("shareTitle")}</DialogTitle>
+          <DialogDescription>{t("resultSave")}</DialogDescription>
         </DialogHeader>
         <div className="flex min-w-0 w-full justify-center overflow-hidden" ref={frameRef} data-testid="share-preview-frame">
           <div style={{ width: `${760 * scale}px`, height: `${760 * scale}px`, flexShrink: 0, overflow: 'hidden', borderRadius: `${1.5 * scale}rem` }}>
@@ -150,8 +176,8 @@ export function SharePreview({ color, open, onOpenChange }: { color: AnswerColor
           </div>
         </div>
         <div className="flex flex-wrap justify-end gap-2">
-          <Button variant="outline" onClick={share} disabled={busy}><Share2 /> Chia sẻ ảnh</Button>
-          <Button onClick={download} disabled={busy}><Download /> Tải ảnh</Button>
+          <Button variant="outline" onClick={share} disabled={busy}><Share2 /> {t("shareTitle")}</Button>
+          <Button onClick={download} disabled={busy}><Download /> {t("resultSave")}</Button>
         </div>
       </DialogContent>
     </Dialog>

@@ -513,7 +513,111 @@
     "rewardNotice": "Points have been credited upon quiz completion.",
     "totalPoints": "Total Points",
     "usePointsCta": "Use Points Now",
-    "usePointsDesc": "Explore Long Gia Home Orchard — where points can be redeemed for activities and gifts."
+    "usePointsDesc": "Explore Long Gia Home Orchard — where points can be redeemed for activities and gifts.",
+    "colorLabels": {
+      "red": "Red",
+      "white": "White",
+      "yellow": "Yellow"
+    },
+    "questionsList": [
+      {
+        "q": "How does your morning typically begin?",
+        "imageAlt": "Dragon fruit orchard at dawn",
+        "answers": {
+          "red": "Leaping out of bed, bursting with energy, diving straight into action",
+          "white": "Slowly, with a warm cup of tea or water, finding calm focus",
+          "yellow": "Sleeping in a little longer, then savoring a delicious breakfast"
+        }
+      },
+      {
+        "q": "In the middle of a busy day, how do you recharge?",
+        "imageAlt": "Dragon fruit orchard with recharge mascot",
+        "answers": {
+          "red": "Getting active, stepping outside, changing the scenery",
+          "white": "A few quiet minutes alone with deep breaths",
+          "yellow": "A sweet, tasty little treat as a personal reward"
+        }
+      },
+      {
+        "q": "For you, what makes a day truly 'fulfilling'?",
+        "imageAlt": "Dragon fruit mascot working on the porch",
+        "answers": {
+          "red": "Accomplishing great tasks and conquering goals",
+          "white": "Balance, harmony, and leaving no regrets",
+          "yellow": "Joyful, heartwarming, and truly memorable moments"
+        }
+      },
+      {
+        "q": "At the end of the day, you usually...",
+        "imageAlt": "Dragon fruit mascot journaling at sunset",
+        "answers": {
+          "red": "Still have energy left, planning out tomorrow",
+          "white": "Sit back and reflect peacefully on what transpired",
+          "yellow": "Gather with family or friends and share hearty laughs"
+        }
+      },
+      {
+        "q": "If you were a glass of fresh dragon fruit juice, you would be...",
+        "imageAlt": "Dragon fruit mascot relaxing at day's end",
+        "answers": {
+          "red": "Bold and vibrant, leaving an unforgettable impression",
+          "white": "Crisp and refreshing, gentle and soothing",
+          "yellow": "Sweet and unique, creating lasting cherished memories"
+        }
+      }
+    ],
+    "resultsList": {
+      "red": {
+        "title": "RED DRAGON — RADIANT TRAILBLAZER",
+        "desc": "You are bursting with vitality, zest for life, and ready for any challenge. A succulent red dragon fruit is your ideal companion to fuel your spirit and radiate positivity every day."
+      },
+      "white": {
+        "title": "WHITE DRAGON — MINDFUL SERENITY",
+        "desc": "You appreciate peace, subtlety, and graceful balance amidst the everyday hustle. A refreshing white dragon fruit helps you find quiet focus, recharge, and savor each moment in your own unique way."
+      },
+      "yellow": {
+        "title": "YELLOW DRAGON — WARMHEARTED OPTIMIST",
+        "desc": "You bring warm optimism, gentle joy, and a knack for savoring life's simple pleasures. A rare yellow dragon fruit brightens your routine and spreads cheer to everyone around you."
+      }
+    },
+    "share": {
+      "youAre": "You are...",
+      "vitalityIndex": "Daily Vitality Index",
+      "luckyItemTitle": "Today's Lucky Item",
+      "footer": "Living fully with Long Gia",
+      "cards": {
+        "red": {
+          "name": "RED DRAGON",
+          "subtitle": "Radiant Trailblazer",
+          "tags": ["#RadiantLiving", "#BoldCourage"],
+          "archetype": "Pacesetter",
+          "initials": "R-T-B",
+          "percentage": "95%",
+          "metric": "Radiant energy index",
+          "luckyItem": "Running shoes"
+        },
+        "white": {
+          "name": "WHITE DRAGON",
+          "subtitle": "Mindful Serenity",
+          "tags": ["#MindfulLiving", "#GracefulPeace"],
+          "archetype": "Calm Mind",
+          "initials": "M-S-C",
+          "percentage": "90%",
+          "metric": "Daily relaxation level",
+          "luckyItem": "Warm tea cup"
+        },
+        "yellow": {
+          "name": "YELLOW DRAGON",
+          "subtitle": "Warmhearted Optimist",
+          "tags": ["#WarmLiving", "#CherishSmallMoments"],
+          "archetype": "Little Sunshine",
+          "initials": "W-H-O",
+          "percentage": "99%",
+          "metric": "Daily joy index",
+          "luckyItem": "Little pastry box"
+        }
+      }
+    }
   },
   "Dashboard": {
     "title": "Access Analytics Dashboard",
@@ -527,5 +631,65 @@
     "topPages": "Top Visited Pages",
     "topReferrers": "Top Traffic Sources",
     "noData": "No analytics recorded for this timeframe"
+  },
+  "Auth": {
+    "sideTag": "Long Gia Home Orchard",
+    "sideTitle": "Follow",
+    "sideTitleEm": "a living green journey.",
+    "sideDesc": "Log in to view your adopted dragon fruit pillar, track cultivation stages, and receive fresh fruits directly from the orchards.",
+    "badgeTransparent": "Transparent at every stage",
+    "badgeConnected": "Connected with local farmers",
+    "chipAccount": "Long Gia Account",
+    "titleRegister": "Create Long Gia Account",
+    "titleLogin": "Log In",
+    "descRegister": "Begin your journey adopting and following your personal orchard.",
+    "descLogin": "Welcome back to your personal dragon fruit cultivation journey.",
+    "nameLabel": "Full Name",
+    "namePlaceholder": "Your name",
+    "phoneLabel": "Phone Number / Zalo",
+    "phonePlaceholder": "+84 919 831 055",
+    "emailLabel": "Email",
+    "emailOptional": "(optional)",
+    "emailPlaceholder": "name@example.com",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "At least 6 characters",
+    "otpLabel": "Zalo OTP Code",
+    "otpPlaceholder": "123456",
+    "btnGetOtp": "Get Zalo Code",
+    "btnOtpSent": "Code Sent",
+    "demoOtpHint": "Demo code sent: 123456",
+    "btnRegister": "Create Account",
+    "btnLogin": "Log In",
+    "hasAccount": "Already have an account?",
+    "noAccount": "Don't have an account?",
+    "linkLogin": "Log in",
+    "linkRegister": "Register now",
+    "protoDisclaimer": "Demo login preview · No real payment or live credentials connected.",
+    "errPhone": "Please enter a phone number or Zalo.",
+    "errRegister": "Please enter your name and a password of at least 6 characters.",
+    "errOtp": "Demo OTP code is 123456. Click get code to view instructions.",
+    "chipHello": "Hello",
+    "chipPoints": "Reward Points",
+    "chipLogout": "Log Out"
+  },
+  "Metadata": {
+    "siteTitle": "Long Gia — Elevating Vietnamese Sweet Harvests",
+    "siteDesc": "Clean dragon fruits from Cho Gao orchards to global markets.",
+    "homeTitle": "Long Gia — Elevating Vietnamese Sweet Harvests",
+    "homeDesc": "Clean dragon fruits from Cho Gao orchards to global markets.",
+    "aboutTitle": "About Us — Long Gia",
+    "aboutDesc": "The development journey, vision, and mission of Hung Thinh Phat Cooperative.",
+    "productsTitle": "Products — Long Gia",
+    "productsDesc": "Certified clean produce and export catalog of Hung Thinh Phat.",
+    "processContactTitle": "Process & Contact — Long Gia",
+    "processContactDesc": "HACCP-standard packing process and partnership contact information.",
+    "longGiaTitle": "Long Gia Home Orchard — Digital Agriculture",
+    "longGiaDesc": "Adopt an electronic dragon fruit pillar and follow its cultivation journey.",
+    "registerTitle": "Register Long Gia Home Orchard | Long Gia",
+    "registerDesc": "Create an account to begin adopting and following dragon fruit pillars.",
+    "quizTitle": "Lifestyle Quiz | Long Gia",
+    "quizDesc": "Discover your lifestyle dragon fruit personality and earn Long Gia reward points.",
+    "dashboardTitle": "Long Gia Analytics — Dashboard",
+    "dashboardDesc": "Internal visitor analytics dashboard for Long Gia."
   }
 }

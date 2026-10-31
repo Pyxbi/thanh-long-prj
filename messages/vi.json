@@ -513,7 +513,111 @@
     "rewardNotice": "Điểm đã được cộng sau khi hoàn thành quiz.",
     "totalPoints": "Tổng điểm",
     "usePointsCta": "Sử dụng điểm ngay",
-    "usePointsDesc": "Khám phá Long Gia Nhà Tôi — nơi điểm tích lũy có thể được sử dụng cho các hoạt động và trải nghiệm của Long Gia."
+    "usePointsDesc": "Khám phá Long Gia Nhà Tôi — nơi điểm tích lũy có thể được sử dụng cho các hoạt động và trải nghiệm của Long Gia.",
+    "colorLabels": {
+      "red": "Đỏ",
+      "white": "Trắng",
+      "yellow": "Vàng"
+    },
+    "questionsList": [
+      {
+        "q": "Buổi sáng của bạn bắt đầu thế nào?",
+        "imageAlt": "Vườn thanh long lúc bình minh",
+        "answers": {
+          "red": "Bật dậy, tràn năng lượng, làm liền một mạch",
+          "white": "Từ từ, một tách trà/nước ấm, tĩnh tâm trước khi vào việc",
+          "yellow": "Ngủ nướng thêm chút, rồi tận hưởng bữa sáng thật ngon"
+        }
+      },
+      {
+        "q": "Giữa một ngày bận rộn, bạn ‘sạc pin’ bằng cách nào?",
+        "imageAlt": "Khu vườn thanh long và mascot nạp năng lượng",
+        "answers": {
+          "red": "Vận động, ra ngoài, đổi không khí",
+          "white": "Vài phút yên tĩnh một mình, hít thở sâu",
+          "yellow": "Một món ngọt/ngon nho nhỏ tự thưởng cho mình"
+        }
+      },
+      {
+        "q": "Với bạn, một ngày ‘trọn vẹn’ nghĩa là gì?",
+        "imageAlt": "Mascot thanh long làm việc bên hiên nhà",
+        "answers": {
+          "red": "Làm được nhiều việc, chinh phục mục tiêu",
+          "white": "Cân bằng, không có gì phải hối tiếc",
+          "yellow": "Có khoảnh khắc thật vui, thật đáng nhớ"
+        }
+      },
+      {
+        "q": "Cuối ngày, bạn thường...",
+        "imageAlt": "Mascot thanh long viết nhật ký lúc hoàng hôn",
+        "answers": {
+          "red": "Vẫn còn năng lượng, lên kế hoạch cho ngày mai",
+          "white": "Ngồi lại, tổng kết nhẹ nhàng những gì đã qua",
+          "yellow": "Quây quần cùng người thân/bạn bè, cười thật nhiều"
+        }
+      },
+      {
+        "q": "Nếu ví bản thân là một ly nước ép thanh long, bạn muốn nó...",
+        "imageAlt": "Mascot thanh long thư giãn cuối ngày",
+        "answers": {
+          "red": "Đậm đà, rực rỡ, ai nhìn cũng ấn tượng",
+          "white": "Thanh mát, nhẹ nhàng, dễ chịu",
+          "yellow": "Ngọt ngào, hiếm có, khiến người ta nhớ mãi"
+        }
+      }
+    ],
+    "resultsList": {
+      "red": {
+        "title": "LONG ĐỎ — NGƯỜI SỐNG RỰC RỠ",
+        "desc": "Bạn luôn tràn đầy năng lượng, yêu đời và không ngại thử thách. Một trái thanh long đỏ ngọt ngào là người bạn đồng hành lý tưởng giúp bạn giữ vững tinh thần và lan toả năng lượng tích cực mỗi ngày."
+      },
+      "white": {
+        "title": "LONG TRẮNG — NGƯỜI SỐNG CHILL",
+        "desc": "Bạn yêu sự bình yên, tinh tế và luôn biết cách cân bằng giữa những bộn bề thường ngày. Một trái thanh long trắng sẽ giúp bạn tìm lại khoảng lặng, nạp đầy năng lượng và tận hưởng từng khoảnh khắc theo cách riêng."
+      },
+      "yellow": {
+        "title": "LONG VÀNG — NGƯỜI SỐNG ẤM ÁP",
+        "desc": "Bạn mang nguồn năng lượng ấm áp, lạc quan và luôn biết cách tận hưởng những điều nhỏ bé trong cuộc sống. Một trái thanh long vàng nhỏ nhắn dễ mang theo hàng ngày sẽ giúp bạn lan toả sự vui vẻ đến mọi người xung quanh."
+      }
+    },
+    "share": {
+      "youAre": "Bạn là...",
+      "vitalityIndex": "Chỉ số sống trọn ngày",
+      "luckyItemTitle": "Vật may mắn trong ngày",
+      "footer": "Sống trọn một ngày cùng Long Gia",
+      "cards": {
+        "red": {
+          "name": "LONG ĐỎ",
+          "subtitle": "Người Sống Rực Rỡ",
+          "tags": ["#SốngRựcRỡ", "#DámThửThách"],
+          "archetype": "Người Bứt Phá",
+          "initials": "N-T-K",
+          "percentage": "95%",
+          "metric": "Mức năng lượng rực rỡ",
+          "luckyItem": "Giày chạy bộ"
+        },
+        "white": {
+          "name": "LONG TRẮNG",
+          "subtitle": "Người Sống Chill",
+          "tags": ["#SốngChill", "#BìnhYênTinhTế"],
+          "archetype": "Người Tĩnh Tâm",
+          "initials": "B-T-C",
+          "percentage": "90%",
+          "metric": "Mức thư thái mỗi ngày",
+          "luckyItem": "Tách trà ấm"
+        },
+        "yellow": {
+          "name": "LONG VÀNG",
+          "subtitle": "Người Sống Ấm Áp",
+          "tags": ["#SốngẤmÁp", "#TậnHưởngĐiềuNhỏ"],
+          "archetype": "Mặt trời nhỏ",
+          "initials": "A-L-V",
+          "percentage": "99%",
+          "metric": "Mức vui vẻ mỗi ngày",
+          "luckyItem": "Hộp bánh nhỏ"
+        }
+      }
+    }
   },
   "Dashboard": {
     "title": "Bảng theo dõi truy cập",
@@ -527,5 +631,65 @@
     "topPages": "Trang được xem nhiều nhất",
     "topReferrers": "Nguồn truy cập hàng đầu",
     "noData": "Không có dữ liệu trong khoảng thời gian này"
+  },
+  "Auth": {
+    "sideTag": "Long Gia Nhà Tôi",
+    "sideTitle": "Theo dõi",
+    "sideTitleEm": "một hành trình xanh.",
+    "sideDesc": "Đăng nhập để xem trụ thanh long của bạn, cập nhật từng giai đoạn chăm sóc và nhận trái tươi từ chính vùng trồng Long Gia.",
+    "badgeTransparent": "Minh bạch từng giai đoạn",
+    "badgeConnected": "Kết nối cùng người trồng",
+    "chipAccount": "Tài khoản Long Gia",
+    "titleRegister": "Tạo tài khoản Long Gia",
+    "titleLogin": "Đăng nhập",
+    "descRegister": "Bắt đầu hành trình nhận nuôi và theo dõi vùng trồng của bạn.",
+    "descLogin": "Chào mừng bạn trở lại với hành trình thanh long của riêng mình.",
+    "nameLabel": "Họ và tên",
+    "namePlaceholder": "Nguyễn Văn An",
+    "phoneLabel": "Số điện thoại / Zalo",
+    "phonePlaceholder": "0919 831 055",
+    "emailLabel": "Email",
+    "emailOptional": "(không bắt buộc)",
+    "emailPlaceholder": "ban@example.com",
+    "passwordLabel": "Mật khẩu",
+    "passwordPlaceholder": "Tối thiểu 6 ký tự",
+    "otpLabel": "Mã OTP Zalo",
+    "otpPlaceholder": "123456",
+    "btnGetOtp": "Lấy mã Zalo",
+    "btnOtpSent": "Đã gửi mã",
+    "demoOtpHint": "Mã demo đã gửi: 123456",
+    "btnRegister": "Tạo tài khoản",
+    "btnLogin": "Đăng nhập",
+    "hasAccount": "Đã có tài khoản?",
+    "noAccount": "Chưa có tài khoản?",
+    "linkLogin": "Đăng nhập",
+    "linkRegister": "Đăng ký ngay",
+    "protoDisclaimer": "Bản thử nghiệm đăng nhập · Không kết nối thanh toán hoặc dữ liệu thật.",
+    "errPhone": "Vui lòng nhập số điện thoại hoặc Zalo.",
+    "errRegister": "Vui lòng nhập họ tên và mật khẩu tối thiểu 6 ký tự.",
+    "errOtp": "Mã OTP demo là 123456. Bạn có thể bấm lấy mã để xem hướng dẫn.",
+    "chipHello": "Xin chào",
+    "chipPoints": "Điểm tích lũy",
+    "chipLogout": "Đăng xuất"
+  },
+  "Metadata": {
+    "siteTitle": "Long Gia — Nâng tầm trái ngọt xứ Tiền",
+    "siteDesc": "Thanh long sạch từ vùng trồng Chợ Gạo đến thị trường toàn cầu.",
+    "homeTitle": "Long Gia — Nâng tầm trái ngọt xứ Tiền",
+    "homeDesc": "Thanh long sạch từ vùng trồng Chợ Gạo đến thị trường toàn cầu.",
+    "aboutTitle": "Về chúng tôi — Long Gia",
+    "aboutDesc": "Hành trình phát triển, tầm nhìn và sứ mệnh của Hợp tác xã Hưng Thịnh Phát.",
+    "productsTitle": "Sản phẩm — Long Gia",
+    "productsDesc": "Danh mục nông sản sạch và sản phẩm xuất khẩu của Hưng Thịnh Phát.",
+    "processContactTitle": "Quy trình & Liên hệ — Long Gia",
+    "processContactDesc": "Quy trình sơ chế đóng gói đạt chuẩn HACCP và thông tin liên hệ hợp tác.",
+    "longGiaTitle": "Long Gia Nhà Tôi — Nông nghiệp số",
+    "longGiaDesc": "Nhận nuôi trụ thanh long điện tử và theo dõi hành trình sinh trưởng.",
+    "registerTitle": "Đăng ký Long Gia Nhà Tôi | Long Gia",
+    "registerDesc": "Tạo tài khoản để bắt đầu hành trình nhận nuôi và theo dõi trụ thanh long.",
+    "quizTitle": "Trắc nghiệm phong cách sống | Long Gia",
+    "quizDesc": "Khám phá phong cách sống tương ứng với từng dòng thanh long và nhận điểm thưởng Long Gia.",
+    "dashboardTitle": "Analytics Long Gia — Dashboard",
+    "dashboardDesc": "Bảng theo dõi truy cập nội bộ cho website Long Gia."
   }
 }

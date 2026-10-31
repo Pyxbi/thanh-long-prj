@@ -1,11 +1,21 @@
-import type { Metadata } from "next"
-import { ProcessContactPage } from "@/components/process-contact-page"
+import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
+import { ProcessContactPage } from "@/components/process-contact-page";
 
-export const metadata: Metadata = {
-  title: "Quy trình & Liên hệ — Long Gia",
-  description: "Quy trình sơ chế, đóng gói và thông tin liên hệ hợp tác của Hưng Thịnh Phát.",
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Metadata" });
+
+  return {
+    title: t("processContactTitle"),
+    description: t("processContactDesc"),
+  };
 }
 
 export default function ProcessContactRoute() {
-  return <ProcessContactPage />
+  return <ProcessContactPage />;
 }

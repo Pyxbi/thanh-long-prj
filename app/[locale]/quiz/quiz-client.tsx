@@ -17,7 +17,6 @@ import { addLongGiaPoints, readLongGiaUser } from "@/components/long-gia-auth";
 import {
   calcResult,
   colorLabel,
-  images,
   questions,
   results,
   type AnswerColor,
@@ -109,6 +108,8 @@ export function QuizClient() {
 
 function QuizHero({ onStart }: { onStart: () => void }) {
   const t = useTranslations("Quiz");
+  const colorLabels = t.raw("colorLabels") as Record<AnswerColor, string> | undefined;
+
   return (
     <section className="relative isolate min-h-[100dvh] overflow-hidden bg-[#f8f1e7]">
       <img
@@ -143,7 +144,7 @@ function QuizHero({ onStart }: { onStart: () => void }) {
           <div className="mt-10 flex items-center gap-5 text-sm text-muted-foreground">
             {(["red", "white", "yellow"] as AnswerColor[]).map((c) => (
               <span key={c} className="flex items-center gap-2">
-                Long {colorLabel[c]}
+                Long {colorLabels?.[c] || colorLabel[c]}
               </span>
             ))}
           </div>
@@ -247,8 +248,11 @@ function QuizQuestion({
   onBack: () => void;
 }) {
   const t = useTranslations("Quiz");
-  const q = questions[step]!;
+  const fallback = questions[step]!;
+  const questionsList = t.raw("questionsList") as Array<{ q: string; imageAlt: string; answers: Record<AnswerColor, string> }> | undefined;
+  const qData = questionsList?.[step] || fallback;
   const [picked, setPicked] = useState<AnswerColor | undefined>(selected);
+
   return (
     <section className="mx-auto max-w-6xl px-5 py-4 md:py-8">
       <div className="sticky top-[88px] lg:top-[104px] z-10 -mx-5 bg-background/90 px-5 py-3 backdrop-blur">
@@ -264,7 +268,7 @@ function QuizQuestion({
       </div>
       <div className="mt-8 grid items-center gap-10 md:grid-cols-[1.1fr_0.9fr]">
         <div className="animate-reveal">
-          <h2 className="text-3xl font-medium leading-tight text-[#822944] md:text-5xl">{q.q}</h2>
+          <h2 className="text-3xl font-medium leading-tight text-[#822944] md:text-5xl">{qData.q}</h2>
           <div className="mt-8 space-y-3">
             {(["red", "white", "yellow"] as AnswerColor[]).map((c) => {
               const active = picked === c;
@@ -281,7 +285,7 @@ function QuizQuestion({
                     active && accent[c].selected,
                   )}
                 >
-                  <span className="flex-1 text-base leading-snug md:text-lg">{q.answers[c]}</span>
+                  <span className="flex-1 text-base leading-snug md:text-lg">{qData.answers[c]}</span>
                 </button>
               );
             })}
@@ -289,7 +293,7 @@ function QuizQuestion({
         </div>
         <div className="order-first md:order-none">
           <div className="aspect-[16/10] overflow-hidden rounded-[2rem] shadow-md md:aspect-[4/5]">
-            <img src={q.image} alt={q.imageAlt} loading="lazy" width={1024} height={1024} className="h-full w-full object-cover bg-muted" />
+            <img src={fallback.image} alt={qData.imageAlt || fallback.imageAlt} loading="lazy" width={1024} height={1024} className="h-full w-full object-cover bg-muted" />
           </div>
         </div>
       </div>
@@ -313,7 +317,14 @@ function QuizResult({ answers, onReplay }: { answers: AnswerColor[]; onReplay: (
   const [totalPoints, setTotalPoints] = useState<number | null>(null);
   const pointsAwarded = useRef(false);
   const result = calcResult(answers);
-  const r = results[result];
+  const fallback = results[result];
+  const resultsList = t.raw("resultsList") as Record<AnswerColor, { title: string; desc: string }> | undefined;
+  const r = {
+    title: resultsList?.[result]?.title || fallback.title,
+    desc: resultsList?.[result]?.desc || fallback.desc,
+    image: fallback.image,
+  };
+  const colorLabels = t.raw("colorLabels") as Record<AnswerColor, string> | undefined;
   const a = accent[result];
   const counts = { red: 0, white: 0, yellow: 0 };
   answers.forEach((x) => counts[x]++);
@@ -372,7 +383,7 @@ function QuizResult({ answers, onReplay }: { answers: AnswerColor[]; onReplay: (
             <div className="mt-2 flex flex-wrap gap-4 text-sm">
               {(["red", "white", "yellow"] as AnswerColor[]).map((c) => (
                 <span key={c} className="flex items-center gap-2">
-                  {colorLabel[c]}: {counts[c]} câu
+                  {colorLabels?.[c] || colorLabel[c]}: {counts[c]}
                 </span>
               ))}
             </div>
