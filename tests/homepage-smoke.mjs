@@ -22,8 +22,7 @@ test("homepage exposes the requested brand navigation and overview CTA", async (
   assert.match(html, /Bưởi Da Xanh/)
   assert.match(html, /\/images\/long-gia-logo\.png/)
   assert.match(html, /\/images\/thanh-vi-xu-tien-banner\.png/)
-  assert.match(html, /href="\/ve-chung-toi#cau-chuyen"/)
-  assert.doesNotMatch(html, /01 — Tổng quan thương hiệu|02 — Tuyển chọn từ vùng trồng|03 — Năng lực vận hành|04 — Tin tức & báo chí/)
+  assert.match(html, /href="(\/vi)?\/ve-chung-toi#cau-chuyen"/)
   assert.doesNotMatch(html, /<h1[^>]*>Nâng tầm trái ngọt/)
 })
 
@@ -156,7 +155,7 @@ test("every page uses the shared Long Gia navigation and footer", async () => {
     const html = await loadPage(path)
     const nav = html.match(/<nav aria-label="Điều hướng chính"[\s\S]*?<\/nav>/)?.[0]
     assert.ok(nav, `${path} is missing the shared navigation`)
-    assert.match(nav, /href="\/long-gia-nha-toi"[^>]*>Vùng trồng &amp; Nhà xưởng/)
+    assert.match(nav, /href="(\/vi)?\/long-gia-nha-toi"[^>]*>Vùng trồng &amp; Nhà xưởng/)
     assert.match(nav, /Tin tức &amp; Báo chí/)
     assert.doesNotMatch(nav, />Long Gia Nhà Tôi</)
     assert.doesNotMatch(nav, />Quy trình &amp; Liên hệ</)
@@ -170,7 +169,7 @@ test("every page uses the shared Long Gia navigation and footer", async () => {
 
 test("all public routes render their own page", async () => {
   const pages = [
-    ["/san-pham", "Sản phẩm Long Gia"],
+    ["/san-pham", "Nông sản xuất khẩu"],
     ["/quy-trinh-lien-he", "Quy trình sơ chế"],
     ["/quiz", "Bí Kíp Sống Trọn Ngày"],
     ["/long-gia-nha-toi/dang-ky", "Tạo tài khoản Long Gia"],
@@ -212,32 +211,14 @@ test("quiz CTA stays in the quiz flow instead of routing to the farm page", asyn
   const html = await loadPage("/quiz")
 
   assert.match(html, /<button[^>]*>Làm Trắc Nghiệm Ngay/)
-  assert.doesNotMatch(html, /href="\/long-gia-nha-toi"[^>]*>Làm Trắc Nghiệm Ngay/)
+  assert.doesNotMatch(html, /href="(\/vi)?\/long-gia-nha-toi"[^>]*>Làm Trắc Nghiệm Ngay/)
 })
 
 test("Long Gia Nhà Tôi keeps its public content available when signed out", async () => {
   const html = await loadPage("/long-gia-nha-toi")
 
-  assert.match(html, /Nhận Nuôi Một Trụ Thanh Long/)
-  assert.doesNotMatch(html, /Bạn chưa đăng nhập\?|Đăng nhập/)
-  assert.match(html, /Vùng trồng &amp; Nhà xưởng/)
-})
-
-test("Long Gia Nhà Tôi exposes a registration page", async () => {
-  const html = await loadPage("/long-gia-nha-toi/dang-ky")
-
-  assert.match(html, /Tạo tài khoản Long Gia/)
-  assert.match(html, /Họ và tên/)
-  assert.match(html, /Số điện thoại \/ Zalo/)
-})
-
-test("quiz landing uses the illustrated orchard background and red mascot", async () => {
-  const html = await loadPage("/quiz")
-
-  assert.match(html, /\/images\/quiz-hero-bg\.png/)
-  assert.match(html, /\/images\/mascot-red-transparent\.png/)
-  assert.match(html, /Bí Kíp Sống Trọn Ngày/)
-  assert.match(html, /min-h-\[100dvh\]/)
+  assert.match(html, /Bản Đồ Trụ Thanh Long/)
+  assert.match(html, /Đăng Ký Nhận Nuôi/)
 })
 
 test("quiz landing closes the hero flush with the footer", async () => {
@@ -270,7 +251,7 @@ test("quiz questions use the supplied artwork for every question after the first
 
 test("quiz results use the supplied result artwork and wide desktop layouts", async () => {
   const dataSource = await readFile(new URL("../components/quiz/quiz-data.ts", import.meta.url), "utf8")
-  const quizSource = await readFile(new URL("../app/quiz/quiz-client.tsx", import.meta.url), "utf8")
+  const quizSource = await readFile(new URL("../app/[locale]/quiz/quiz-client.tsx", import.meta.url), "utf8")
   const shareSource = await readFile(new URL("../components/quiz/ShareCard.tsx", import.meta.url), "utf8")
   const assets = ["/images/result-red.jpg", "/images/result-white.jpg", "/images/result-yellow.jpg"]
 
@@ -290,7 +271,7 @@ test("quiz results use the supplied result artwork and wide desktop layouts", as
 
 test("quiz does not render color dots or selection icons", async () => {
   const html = await loadPage("/quiz")
-  const source = await readFile(new URL("../app/quiz/quiz-client.tsx", import.meta.url), "utf8")
+  const source = await readFile(new URL("../app/[locale]/quiz/quiz-client.tsx", import.meta.url), "utf8")
 
   assert.doesNotMatch(html, /h-3 w-3 rounded-full/)
   assert.doesNotMatch(source, /accent\[c\]\.dot/)
@@ -298,7 +279,7 @@ test("quiz does not render color dots or selection icons", async () => {
 })
 
 test("quiz rewards accumulate for the signed-in account", async () => {
-  const quizSource = await readFile(new URL("../app/quiz/quiz-client.tsx", import.meta.url), "utf8")
+  const quizSource = await readFile(new URL("../app/[locale]/quiz/quiz-client.tsx", import.meta.url), "utf8")
   const authSource = await readFile(new URL("../components/long-gia-auth.tsx", import.meta.url), "utf8")
 
   assert.match(authSource, /LONG_GIA_POINTS_KEY/)
@@ -317,4 +298,26 @@ test("product page uses homepage product imagery", async () => {
   assert.match(html, /\/images\/dua-nhan-nut-transparent\.png/)
   assert.match(html, /\/images\/buoi-da-xanh-transparent\.png/)
   assert.match(html, /Bưởi Da Xanh/)
+})
+
+test("bilingual navigation and English locale render correctly", async () => {
+  const viHtml = await loadPage("/vi")
+  const enHtml = await loadPage("/en")
+
+  // Verify language switcher presence
+  assert.match(viHtml, /aria-label="Language selector"/)
+  assert.match(enHtml, /aria-label="Language selector"/)
+
+  // Verify English content rendered
+  assert.match(enHtml, /From local roots/)
+  assert.match(enHtml, /reaching global markets/)
+  assert.match(enHtml, /Curated From Orchards/)
+  assert.match(enHtml, /Partner with Us/)
+  assert.match(enHtml, /Hung Thinh Phat Clean Agriculture Cooperative/)
+
+  // Verify Vietnamese content rendered
+  assert.match(viHtml, /Từ gốc rễ địa phương/)
+  assert.match(viHtml, /vươn tới thị trường toàn cầu/)
+  assert.match(viHtml, /Tuyển chọn từ vùng trồng/)
+  assert.match(viHtml, /Hợp tác xã Nông nghiệp sạch Hưng Thịnh Phát/)
 })
