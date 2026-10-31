@@ -137,7 +137,7 @@ function QuizHero({ onStart }: { onStart: () => void }) {
               {t("startCta")} <ArrowRight />
             </Button>
             <Button size="lg" variant="outline" asChild className="h-13 rounded-full border-[#6E8644]/40 px-7 text-base text-[#6E8644] hover:bg-[#F0E8DD] hover:text-[#6E8644]">
-              <Link href="/">Tìm hiểu thêm về Long Gia</Link>
+              <Link href="/">{t("learnMoreCta")}</Link>
             </Button>
           </div>
           <div className="mt-10 flex items-center gap-5 text-sm text-muted-foreground">
@@ -246,16 +246,17 @@ function QuizQuestion({
   onChoose: (c: AnswerColor) => void;
   onBack: () => void;
 }) {
+  const t = useTranslations("Quiz");
   const q = questions[step]!;
   const [picked, setPicked] = useState<AnswerColor | undefined>(selected);
   return (
     <section className="mx-auto max-w-6xl px-5 py-4 md:py-8">
       <div className="sticky top-[88px] lg:top-[104px] z-10 -mx-5 bg-background/90 px-5 py-3 backdrop-blur">
         <div className="flex items-center justify-between text-sm">
-          <span className="font-semibold text-[#822944]">Câu {step + 1} / 5</span>
+          <span className="font-semibold text-[#822944]">{t("question")} {step + 1} / 5</span>
           {step > 0 && (
             <button onClick={onBack} className="text-muted-foreground hover:text-[#BA466D]">
-              ← Câu trước
+              {t("prevQuestion")}
             </button>
           )}
         </div>
@@ -307,6 +308,7 @@ function ResultLoading() {
 }
 
 function QuizResult({ answers, onReplay }: { answers: AnswerColor[]; onReplay: () => void }) {
+  const t = useTranslations("Quiz");
   const [shareOpen, setShareOpen] = useState(false);
   const [totalPoints, setTotalPoints] = useState<number | null>(null);
   const pointsAwarded = useRef(false);
@@ -333,34 +335,34 @@ function QuizResult({ answers, onReplay }: { answers: AnswerColor[]; onReplay: (
           </div>
         </div>
         <div className="animate-reveal" style={{ animationDelay: '150ms' }}>
-          <span className={cn("text-xs font-semibold tracking-[0.2em]", a.text)}>KẾT QUẢ CỦA BẠN</span>
+          <span className={cn("text-xs font-semibold tracking-[0.2em]", a.text)}>{t("yourResult")}</span>
           <h1 className="mt-3 text-4xl font-medium leading-tight text-[#822944] md:text-5xl">{r.title}</h1>
           <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{r.desc}</p>
 
           <div className="mt-8 flex items-center gap-5 rounded-3xl border border-border bg-[#F0E8DD]/60 p-5">
             <div className="animate-pop font-serif text-5xl text-[#BA466D]" style={{ animationDelay: '500ms' }}>+{REWARD}</div>
             <div className="text-sm">
-              <p className="font-semibold text-foreground">Điểm thưởng của bạn</p>
-              <p className="text-muted-foreground">Điểm đã được cộng sau khi hoàn thành quiz.</p>
-              <p className="mt-1 font-medium text-[#6E8644]">Tổng điểm: {totalPoints ?? REWARD}</p>
+              <p className="font-semibold text-foreground">{t("pointsReward")}</p>
+              <p className="text-muted-foreground">{t("rewardNotice")}</p>
+              <p className="mt-1 font-medium text-[#6E8644]">{t("totalPoints")}: {totalPoints ?? REWARD}</p>
             </div>
           </div>
 
           <div className="mt-8">
             <Button size="lg" asChild className="h-13 rounded-full px-8 text-base shadow-sm bg-[#BA466D] text-white hover:bg-[#BA466D]/90">
-              <Link href="/long-gia-nha-toi">Sử dụng điểm ngay <ArrowRight /></Link>
+              <Link href="/long-gia-nha-toi">{t("usePointsCta")} <ArrowRight /></Link>
             </Button>
             <p className="mt-3 max-w-md text-sm text-muted-foreground">
-              Khám phá Long Gia Nhà Tôi — nơi điểm tích lũy có thể được sử dụng cho các hoạt động và trải nghiệm của Long Gia.
+              {t("usePointsDesc")}
             </p>
           </div>
 
           <div className="mt-6 flex flex-wrap gap-3">
             <Button variant="outline" className="rounded-full border-input bg-background hover:bg-accent hover:text-accent-foreground" onClick={() => setShareOpen(true)}>
-              <Share2 /> Chia sẻ kết quả
+              <Share2 /> {t("shareTitle")}
             </Button>
             <Button variant="ghost" className="rounded-full text-[#6E8644] hover:bg-[#F0E8DD] hover:text-[#6E8644]" onClick={onReplay}>
-              <RotateCcw /> Chơi lại
+              <RotateCcw /> {t("retakeCta")}
             </Button>
           </div>
           <SharePreview color={result} open={shareOpen} onOpenChange={setShareOpen} />

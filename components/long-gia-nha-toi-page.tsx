@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import { useEffect, useState } from "react"
-import { ArrowRight, Check, MapPin, Sprout } from "lucide-react"
+import { ArrowRight, Check, Sprout } from "lucide-react"
 import { useTranslations } from "next-intl"
 import { Footer } from "@/components/footer"
 import { SiteHeader } from "@/components/site-header"
@@ -10,24 +10,17 @@ import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, D
 import { Button } from "@/components/ui/button"
 import { clearLongGiaUser, LongGiaAccountChip, readLongGiaUser, type LongGiaUser } from "@/components/long-gia-auth"
 
-const stages = [
-  { no: "01", title: "Chong Đèn Kích Hoa", time: "Khoảng 20 – 30 ngày", short: "Kích thích cây ra hoa đồng loạt theo chu kỳ.", detail: "Hệ thống đèn LED chuyên dụng được thắp sáng từ 22:00 đến 02:00 hằng ngày nhằm kích thích trụ thanh long ra hoa đồng loạt theo chu kỳ. Kỹ thuật viên HTX liên tục kiểm tra mật độ ánh sáng và độ ẩm đất để đảm bảo tỷ lệ đậu hoa tối ưu nhất.", image: "/images/stage-01-lighting.jpg" },
-  { no: "02", title: "Tỉa Nhánh", time: "Khoảng 10 – 15 ngày", short: "Chăm sóc và tập trung dưỡng chất cho những nhánh khỏe mạnh.", detail: "Cắt tỉa những cành già, cành yếu hoặc sâu bệnh để tập trung dinh dưỡng nuôi các nhánh khỏe mạnh. Toàn bộ quá trình sử dụng phân bón hữu cơ sinh học theo đúng tiêu chuẩn VietGAP/GLOBALG.A.P.", image: "/images/stage-02-pruning.jpg" },
-  { no: "03", title: "Bọc Trái", time: "Khoảng 30 – 35 ngày", short: "Bảo vệ trái non trong giai đoạn phát triển quan trọng.", detail: "Khi quả non hình thành, từng trái thanh long được công nhân dùng túi chuyên dụng bọc cẩn thận. Công đoạn này giúp bảo vệ trái khỏi côn trùng, sâu bọ tự nhiên mà hoàn toàn không cần dùng đến thuốc bảo vệ thực vật hóa học.", image: "/images/stage-02-pruning.jpg" },
-  { no: "04", title: "Thu Hoạch", time: "Khi trái đạt độ chín 85 – 90%", short: "Thu hoạch đúng độ chín, sơ chế và chuẩn bị giao đến khách hàng.", detail: "Trái thanh long đạt độ chín chuẩn, tai xanh cứng, ruột mọng ngọt được hái thủ công vào buổi sáng sớm. Sau đó tiến hành phân loại, làm sạch và đóng gói theo quy trình an toàn thực phẩm trước khi giao đến tận tay khách hàng.", image: "/images/stage-03-04.jpg" },
+const stageImages = [
+  "/images/stage-01-lighting.jpg",
+  "/images/stage-02-pruning.jpg",
+  "/images/stage-02-pruning.jpg",
+  "/images/stage-03-04.jpg",
 ]
 
-const pillars = Array.from({ length: 8 }, (_, i) => ({
-  id: `LG-${String(27 + i).padStart(3, "0")}`,
-  owner: i % 3 === 0 ? "Nguyễn Văn An" : i % 3 === 1 ? "Trụ đang sinh trưởng" : "Sẵn sàng nhận nuôi",
-  status: i % 3 === 2 ? "available" : "growing",
-  stage: stages[i % stages.length].title,
-}))
-
-const postHarvest = [
-  { title: "Thu Hoạch Sạch", text: "Hái tay từng trái đủ độ chín theo tiêu chuẩn VietGAP. Không dùng hóa chất kích chín. Kiểm tra trực tuyến tại vườn.", image: "/images/post-harvest-picking.jpg" },
-  { title: "Đóng Gói Tiêu Chuẩn", text: "Mỗi hộp 5kg kiểm tra độ brix, trọng lượng và dán tem QR truy xuất nguồn gốc đầy đủ trước khi xuất kho.", image: "/images/post-harvest-packing.jpg" },
-  { title: "Giao Tận Nhà Nhanh Chóng", text: "Vận chuyển lạnh đến 63 tỉnh thành toàn quốc. Theo dõi đơn hàng theo thời gian thực. Nhận trái còn tươi ngon.", image: "/images/post-harvest-delivery.jpg" },
+const postHarvestImages = [
+  "/images/post-harvest-picking.jpg",
+  "/images/post-harvest-packing.jpg",
+  "/images/post-harvest-delivery.jpg",
 ]
 
 export function LongGiaNhaToiPage() {
@@ -36,7 +29,30 @@ export function LongGiaNhaToiPage() {
   const [adoptOpen, setAdoptOpen] = useState(false)
   const [success, setSuccess] = useState(false)
   const [user, setUser] = useState<LongGiaUser | null>(null)
-  const active = stages[stage]
+
+  const rawStages = (t.raw("stages") as Array<{ no: string; title: string; time: string; short: string; detail: string }>) || []
+  const stages = rawStages.map((st, idx) => ({
+    ...st,
+    image: stageImages[idx] || "/images/stage-01-lighting.jpg",
+  }))
+
+  const rawPostHarvest = (t.raw("postHarvestCards") as Array<{ title: string; text: string }>) || []
+  const postHarvest = rawPostHarvest.map((ph, idx) => ({
+    ...ph,
+    image: postHarvestImages[idx] || "/images/post-harvest-picking.jpg",
+  }))
+
+  const fruitOptions = (t.raw("fruitOptions") as string[]) || ["Thanh Long Ruột Đỏ HTP", "Thanh Long Ruột Trắng", "Thanh Long Vỏ Vàng"]
+  const durationOptions = (t.raw("durationOptions") as string[]) || ["3 tháng", "6 tháng", "12 tháng"]
+
+  const active = stages[stage] || stages[0]
+
+  const pillars = Array.from({ length: 8 }, (_, i) => ({
+    id: `LG-${String(27 + i).padStart(3, "0")}`,
+    owner: i % 3 === 0 ? "Nguyễn Văn An" : i % 3 === 1 ? t("statusGrowing") : t("statusAvailable"),
+    status: i % 3 === 2 ? "available" : "growing",
+    stage: stages[i % (stages.length || 1)]?.title || "",
+  }))
 
   useEffect(() => {
     setUser(readLongGiaUser())
@@ -119,7 +135,7 @@ export function LongGiaNhaToiPage() {
                     <Image src={item.image} alt="" fill className="object-cover" />
                   </div>
                   <div className="p-5">
-                    <p className="text-xs font-bold text-[#ba466d]">GIAI ĐOẠN {item.no}</p>
+                    <p className="text-xs font-bold text-[#ba466d]">{t("currentStage").toUpperCase()} {item.no}</p>
                     <h3 className="mt-3 font-serif text-xl text-[#822944]">{item.title}</h3>
                     <p className="mt-2 text-xs text-[#6e8644]">{item.time}</p>
                     <p className="mt-3 text-sm leading-6 text-[#626751]">{item.short}</p>
@@ -127,20 +143,22 @@ export function LongGiaNhaToiPage() {
                 </button>
               ))}
             </div>
-            <div className="mt-6 grid overflow-hidden rounded-3xl bg-[#f0e8dd] lg:grid-cols-[.8fr_1.2fr]">
-              <div className="relative min-h-[280px]">
-                <Image src={active.image} alt="" fill className="object-cover" />
+            {active && (
+              <div className="mt-6 grid overflow-hidden rounded-3xl bg-[#f0e8dd] lg:grid-cols-[.8fr_1.2fr]">
+                <div className="relative min-h-[280px]">
+                  <Image src={active.image} alt="" fill className="object-cover" />
+                </div>
+                <div className="p-8 lg:p-12">
+                  <p className="text-xs font-bold uppercase tracking-[.2em] text-[#ba466d]">{t("currentStage")} · {active.no}</p>
+                  <h3 className="mt-4 font-serif text-4xl text-[#822944]">{active.title}</h3>
+                  <p className="mt-3 font-semibold text-[#6e8644]">{active.time}</p>
+                  <p className="mt-5 max-w-xl leading-7 text-[#626751]">{active.detail}</p>
+                  <span className="mt-7 inline-flex items-center gap-2 rounded-full bg-[#ba466d] px-4 py-2 text-xs font-semibold text-white">
+                    <Check size={14} /> {t("updating")}
+                  </span>
+                </div>
               </div>
-              <div className="p-8 lg:p-12">
-                <p className="text-xs font-bold uppercase tracking-[.2em] text-[#ba466d]">{t("currentStage")} · {active.no}</p>
-                <h3 className="mt-4 font-serif text-4xl text-[#822944]">{active.title}</h3>
-                <p className="mt-3 font-semibold text-[#6e8644]">{active.time}</p>
-                <p className="mt-5 max-w-xl leading-7 text-[#626751]">{active.detail}</p>
-                <span className="mt-7 inline-flex items-center gap-2 rounded-full bg-[#ba466d] px-4 py-2 text-xs font-semibold text-white">
-                  <Check size={14} /> {t("updating")}
-                </span>
-              </div>
-            </div>
+            )}
           </div>
         </section>
 
@@ -183,7 +201,7 @@ export function LongGiaNhaToiPage() {
                   <p className="font-serif text-lg text-[#822944]">{t("pillarBadge")}</p>
                   <p className="mt-2 text-xs text-[#626751]">{pillar.owner}</p>
                   <p className="mt-4 border-t border-[#ded3c6] pt-4 text-xs text-[#626751]">
-                    Giai đoạn: <b>{pillar.stage}</b>
+                    {t("currentStage")}: <b>{pillar.stage}</b>
                   </p>
                   {pillar.status === "available" && (
                     <button
@@ -221,8 +239,8 @@ export function LongGiaNhaToiPage() {
             </div>
             <div className="mt-8 rounded-2xl border border-white/20 bg-white/10 p-6">
               <div className="flex flex-wrap items-center justify-between gap-3 text-base font-semibold">
-                <span>Đơn thu hoạch của bạn</span>
-                <span className="text-[#e8cda8]">Thu hoạch → Sơ chế → Đóng gói → Giao hàng</span>
+                <span>{t("harvestOrderTitle")}</span>
+                <span className="text-[#e8cda8]">{t("harvestOrderFlow")}</span>
               </div>
               <div className="mt-5 h-3 overflow-hidden rounded-full bg-white/20">
                 <div className="relative h-full w-3/4 rounded-full bg-[#e8cda8]">
@@ -262,28 +280,28 @@ export function LongGiaNhaToiPage() {
           {success ? (
             <div className="rounded-2xl bg-[#e4e8ce] p-6 text-center text-[#6e8644]">
               <Check className="mx-auto" />
-              <p className="mt-3 font-semibold">Thông tin đã được ghi nhận</p>
+              <p className="mt-3 font-semibold">{t("dialogSuccessDesc")}</p>
             </div>
           ) : (
             <div className="flex flex-col gap-4">
               <label className="text-sm font-semibold">
-                Họ và tên
-                <input className="mt-2 w-full rounded-xl border border-[#d7cabb] bg-white px-4 py-3" placeholder="Nhập họ và tên..." />
+                {t("formName")}
+                <input className="mt-2 w-full rounded-xl border border-[#d7cabb] bg-white px-4 py-3" placeholder={t("formNamePlaceholder")} />
               </label>
               <label className="text-sm font-semibold">
-                Số điện thoại / Zalo
-                <input className="mt-2 w-full rounded-xl border border-[#d7cabb] bg-white px-4 py-3" placeholder="Nhập số điện thoại..." />
+                {t("formPhone")}
+                <input className="mt-2 w-full rounded-xl border border-[#d7cabb] bg-white px-4 py-3" placeholder={t("formPhonePlaceholder")} />
               </label>
               <label className="text-sm font-semibold">
-                Loại thanh long
+                {t("fruitType")}
                 <select className="mt-2 w-full rounded-xl border border-[#d7cabb] bg-white px-4 py-3">
-                  <option>Thanh Long Ruột Đỏ HTP</option>
-                  <option>Thanh Long Ruột Trắng</option>
-                  <option>Thanh Long Vỏ Vàng</option>
+                  {fruitOptions.map((opt) => (
+                    <option key={opt}>{opt}</option>
+                  ))}
                 </select>
               </label>
               <label className="text-sm font-semibold">
-                Số trụ muốn nhận nuôi
+                {t("pillarCount")}
                 <div className="mt-2 grid grid-cols-5 gap-2">
                   {[1, 2, 3, 5, 10].map((n) => (
                     <button
@@ -297,11 +315,11 @@ export function LongGiaNhaToiPage() {
                 </div>
               </label>
               <label className="text-sm font-semibold">
-                Thời gian nhận nuôi
+                {t("duration")}
                 <select className="mt-2 w-full rounded-xl border border-[#d7cabb] bg-white px-4 py-3">
-                  <option>3 tháng</option>
-                  <option>6 tháng</option>
-                  <option>12 tháng</option>
+                  {durationOptions.map((opt) => (
+                    <option key={opt}>{opt}</option>
+                  ))}
                 </select>
               </label>
             </div>

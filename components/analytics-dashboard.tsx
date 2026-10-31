@@ -25,12 +25,6 @@ import { Skeleton } from "@/components/ui/skeleton"
 import type { AnalyticsRange, AnalyticsResponse } from "@/lib/analytics"
 
 const numberFormat = new Intl.NumberFormat("vi-VN")
-const rangeLabels: Record<AnalyticsRange, string> = {
-  "7d": "7 ngày qua",
-  "30d": "30 ngày qua",
-  "90d": "90 ngày qua",
-}
-
 type RankedRow = {
   label: string
   visitors: number
@@ -39,6 +33,11 @@ type RankedRow = {
 
 export function AnalyticsDashboard() {
   const t = useTranslations("Dashboard")
+  const rangeLabels: Record<AnalyticsRange, string> = {
+    "7d": t("range7d"),
+    "30d": t("range30d"),
+    "90d": t("range90d"),
+  }
   const [range, setRange] = useState<AnalyticsRange>("30d")
   const [refreshKey, setRefreshKey] = useState(0)
   const [data, setData] = useState<AnalyticsResponse | null>(null)
@@ -97,7 +96,7 @@ export function AnalyticsDashboard() {
                 {t("title")}
               </h1>
               <p className="mt-5 max-w-2xl leading-7 text-muted-foreground">
-                Nhìn nhanh nhịp ghé thăm của đội ngũ và đối tác trên website Long Gia.
+                {t("subtitle")}
               </p>
             </div>
 

@@ -35,7 +35,11 @@
     "partnerContact": "Liên hệ hợp tác",
     "readMore": "Xem thêm",
     "phone": "0919 831 055",
-    "allProducts": "Tất cả sản phẩm"
+    "allProducts": "Tất cả sản phẩm",
+    "callNow": "Gọi 0919 831 055",
+    "contactNow": "Liên hệ ngay",
+    "reset": "Nhập lại",
+    "sendInfo": "Gửi thông tin"
   },
   "Home": {
     "heroTag": "Nâng tầm trái ngọt xứ Tiền",
@@ -48,6 +52,10 @@
     "companyAddress": "Huyện Chợ Gạo, Tỉnh Tiền Giang, Việt Nam",
     "mainProducts": "Thanh long (Ruột đỏ, Ruột trắng), Dừa tươi & Nông sản nhiệt đới",
     "foundedYear": "2021",
+    "cardUnitName": "Tên đơn vị",
+    "cardAddress": "Địa chỉ trụ sở",
+    "cardProducts": "Sản phẩm chính",
+    "cardFounded": "Năm thành lập",
     "curatedTag": "02 — Tuyển chọn từ vùng trồng",
     "curatedTitle": "Nông sản tươi",
     "curatedTitleEm": "chuẩn sạch",
@@ -69,10 +77,19 @@
     "newsTag": "04 — Tin tức & báo chí",
     "newsTitle": "Câu chuyện về",
     "newsTitleEm": "trái ngọt Việt Nam",
+    "newsSubtitle": "Cập nhật hành trình phát triển và những dấu ấn mới của HTX Hưng Thịnh Phát.",
     "connectTag": "Kết nối cùng Long Gia",
     "connectTitle": "Phát triển nguồn cung",
     "connectTitleEm": "chất lượng cao",
-    "connectDesc": "Hãy để chúng tôi đồng hành cùng bạn trên hành trình đưa nông sản Việt vươn xa."
+    "connectDesc": "Hãy để chúng tôi đồng hành cùng bạn trên hành trình đưa nông sản Việt vươn xa.",
+    "carouselProducts": [
+      { "name": "Thanh long ruột đỏ", "copy": "Giàu chất chống oxy hóa, vị ngọt đậm đà, màu sắc mọng rực rỡ." },
+      { "name": "Thanh long vỏ vàng", "copy": "Giàu chất xơ, vị ngọt thơm đặc trưng, hỗ trợ tiêu hóa." },
+      { "name": "Thanh long ruột trắng", "copy": "Giàu chất xơ và vitamin, vị thanh nhẹ, hậu chua dịu." },
+      { "name": "Dừa Kim Cương", "copy": "Giàu nước và khoáng chất, giúp bổ sung nước, thanh mát cơ thể và cung cấp dưỡng chất. Nước dừa ngọt thanh, cơm dừa mềm, béo nhẹ." },
+      { "name": "Dừa Nhấn Nút", "copy": "Giàu vitamin và chất chống oxy hóa, hỗ trợ bổ sung năng lượng và dưỡng chất cho cơ thể. Vị ngọt đậm, thơm dịu, cùi dày và mọng nước." },
+      { "name": "Bưởi Da Xanh", "copy": "Giàu vitamin C và chất xơ, hỗ trợ tiêu hóa, bổ sung dưỡng chất và thanh mát cơ thể. Múi mọng nước, vị ngọt thanh, hậu hơi chua dịu." }
+    ]
   },
   "About": {
     "badge": "Về chúng tôi",
@@ -82,33 +99,208 @@
     "storyBadge": "Câu chuyện Hưng Thịnh Phát",
     "letterTitle": "Thư Ngỏ",
     "letterQuote": "“Kính chào Quý đối tác, Doanh nghiệp & Khách hàng!”",
+    "letterParagraphs": [
+      "Tiền Giang từ lâu đã được biết đến là vùng đất phù sa màu mỡ, thủ phủ của những trái thanh long ruột đỏ, ruột trắng mọng ngọt và các dòng nông sản nhiệt đới trù phú. Chúng tôi sinh ra và lớn lên trên mảnh đất này, chứng kiến sự dãi dầu nắng mưa của bà con nông dân và hiểu rõ tiềm năng to lớn của nông sản Việt trên bản đồ thế giới.",
+      "Tuy nhiên, rào cản về quy chuẩn canh tác, công nghệ bảo quản sau thu hoạch và tính minh bạch thương hiệu từng khiến nông sản địa phương gặp nhiều bấp bênh. Bằng niềm tin về một nền nông nghiệp sạch, tử tế và tự chủ, Hợp tác xã Nông nghiệp Sạch Hưng Thịnh Phát đã ra đời.",
+      "Chúng tôi chọn đồng hành trực tiếp cùng người nông dân từ khâu cải tạo đất, hướng dẫn kỹ thuật VietGAP/GLOBALG.A.P., đến đầu tư nhà máy sơ chế, đóng gói khép kín đạt chuẩn HACCP."
+    ],
     "visionBadge": "Định hướng phát triển",
     "visionMissionTitle": "Tầm Nhìn & Sứ Mệnh",
     "visionLabel": "TẦM NHÌN",
     "visionDesc": "Hợp tác xã Nông nghiệp Sạch Hưng Thịnh Phát mong muốn trở thành một trong những doanh nghiệp tiêu biểu về vùng nguyên liệu, sản xuất, chuyển giao công nghệ, sơ chế, bảo quản, chế biến sâu sau thu hoạch, nông nghiệp tuần hoàn và phân phối nông sản tại Tiền Giang và trên cả nước.",
     "missionLabel": "SỨ MỆNH",
     "missionDesc": "Đồng hành cùng Nông dân, Người tiêu dùng, Người lao động, Xã hội, Nông nghiệp, Môi trường và Quốc gia.",
+    "missions": [
+      "Tuyên truyền, hướng dẫn kỹ thuật canh tác mới cho người dân.",
+      "Là đơn vị liên kết đáng tin cậy, hỗ trợ người nông dân từ kỹ thuật, quy trình đến đầu ra.",
+      "Xây dựng chuỗi liên kết từ đầu vào, sản xuất đến hệ thống đầu ra với siêu thị và doanh nghiệp thương mại.",
+      "Góp phần xây dựng nền nông nghiệp giá trị cao và bền vững.",
+      "Cải thiện môi trường đất, nước và không khí thông qua các giải pháp canh tác an toàn.",
+      "Góp phần xây dựng thương hiệu nông sản địa phương và quốc gia."
+    ],
     "valuesBadge": "Giá trị thương hiệu",
     "valuesTitle": "Trọn Vẹn Trong Từng Giá Trị",
     "valuesDesc": "Ba giá trị tạo nên cách Hưng Thịnh Phát chăm chút cho sản phẩm, người tiêu dùng và cộng đồng nông nghiệp địa phương.",
+    "valueCards": [
+      {
+        "title": "TRỌN AN TÂM",
+        "items": ["Minh bạch nguồn gốc", "Quy trình canh tác", "Tiêu chuẩn an toàn", "Sự tin tưởng người tiêu dùng"]
+      },
+      {
+        "title": "TRỌN DINH DƯỠNG",
+        "items": ["Giữ trọn dưỡng chất", "Sản phẩm tươi ngon", "Giá trị tự nhiên", "Sức khỏe người tiêu dùng"]
+      },
+      {
+        "title": "TRỌN TRÁI TIM",
+        "items": ["Tâm huyết người nông dân", "Vùng đất Tiền Giang", "Sinh kế bền vững", "Niềm tự hào nông sản Việt"]
+      }
+    ],
     "journeyBadge": "Hành trình phát triển",
     "journeyTitle": "Từ khởi đầu địa phương",
     "journeyTitleEm": "đến chuỗi giá trị bền vững",
+    "journeyDesc": "Từng cột mốc là một bước tiến trong hành trình chuẩn hóa vùng trồng, nâng cấp năng lực sản xuất và mở rộng thị trường.",
+    "milestones": [
+      {
+        "year": "2021",
+        "title": "Tháng 3/2021: Khởi đầu từ quyết tâm đổi mới",
+        "text": "HTX Nông nghiệp Sạch Hưng Thịnh Phát chính thức được thành lập theo Giấy chứng nhận ĐKKD số 1201647060. Dù là đơn vị non trẻ với vốn điều lệ ban đầu hơn 2 tỷ đồng, HTP đã đặt nền móng vững chắc bằng định hướng làm nông nghiệp sạch và chuẩn hóa quy trình ngay từ ngày đầu."
+      },
+      {
+        "year": "2022",
+        "title": "Chuẩn hóa nhà xưởng & Hệ thống an toàn thực phẩm",
+        "items": [
+          "Đạt Giấy chứng nhận Cơ sở Đủ điều kiện An toàn thực phẩm số 052/2022/NNPTNT-TG do Sở NN&PTNT Tiền Giang cấp ngày 19/04/2022.",
+          "Đạt chứng nhận Hệ thống quản lý an toàn thực phẩm HACCP Codex 2020 cho hoạt động sơ chế, đóng gói thanh long và nông sản."
+        ]
+      },
+      {
+        "year": "2023",
+        "title": "Bứt phá xuất khẩu chính ngạch",
+        "items": [
+          "Triển khai thiết lập hệ thống mã số vùng trồng nông nghiệp bền vững và hoàn thiện nhà máy sơ chế đóng gói.",
+          "Xuất khẩu chính ngạch thành công thanh long sang các thị trường quốc tế khắt khe như Mỹ, Trung Đông... đạt doanh thu 203 tỷ đồng/năm."
+        ]
+      },
+      {
+        "year": "2024",
+        "title": "Mở rộng vùng nguyên liệu chuẩn GLOBALG.A.P.",
+        "items": [
+          "Phát triển chuỗi liên kết vùng nguyên liệu đạt chuẩn GLOBALG.A.P. gần 115 ha và mở rộng các vùng trồng VietGAP.",
+          "Đa dạng hóa danh mục sản phẩm xuất khẩu: Thanh long (ruột đỏ, ruột trắng, vỏ vàng), dừa tươi, dưa hấu, xoài…"
+        ]
+      },
+      {
+        "year": "2025",
+        "title": "Đẩy mạnh liên kết & Chế biến sâu",
+        "text": "Mở rộng liên kết xuất khẩu và nhận gia công, sơ chế đóng gói cho các đối tác trong và ngoài nước."
+      },
+      {
+        "year": "2026",
+        "title": "Hướng đến chuỗi giá trị toàn diện",
+        "items": [
+          "Mở rộng lĩnh vực thương mại dịch vụ nội địa và xuất khẩu.",
+          "Đầu tư phát triển vùng nguyên liệu và xây dựng chuỗi liên kết bền vững.",
+          "Đầu tư máy móc, thiết bị đông lạnh nông sản phục vụ chế biến sâu.",
+          "Đào tạo nhân sự, nâng cao năng lực quản lý và vận hành.",
+          "Truyền thông thay đổi hành vi canh tác của bà con nông dân theo hướng an toàn, hiệu quả."
+        ]
+      }
+    ],
     "partnerBadge": "Hợp tác cùng Hưng Thịnh Phát",
     "partnerTitle": "Cùng chúng tôi đưa",
     "partnerTitleEm": "nông sản Việt đi xa hơn",
     "partnerDesc": "Hưng Thịnh Phát sẵn sàng đồng hành cùng doanh nghiệp xuất nhập khẩu, hệ thống siêu thị, đại lý phân phối và khách hàng mua sỉ."
   },
   "Products": {
-    "badge": "Danh mục sản phẩm",
+    "badge": "Sản phẩm Long Gia",
     "heroTitle": "Nông sản xuất khẩu",
     "heroTitleEm": "chuẩn sạch & tuyển chọn",
-    "heroDesc": "Sản phẩm được canh tác theo tiêu chuẩn GLOBALG.A.P. và VietGAP, sơ chế và đóng gói trong hệ thống khép kín đạt chuẩn HACCP.",
-    "specsTitle": "Tiêu chuẩn kỹ thuật & Đóng gói xuất khẩu",
-    "specsDesc": "Quy cách đóng thùng linh hoạt, đáp ứng tiêu chuẩn kiểm dịch và thị hiếu của từng thị trường quốc tế.",
-    "quoteDialogTitle": "Yêu cầu báo giá xuất khẩu",
-    "quoteDialogDesc": "Vui lòng để lại thông tin nhu cầu của bạn, đội ngũ Hưng Thịnh Phát sẽ phản hồi trong vòng 24 giờ làm việc.",
-    "submitQuote": "Gửi yêu cầu báo giá"
+    "heroDesc": "Mỗi sản phẩm của HTX Hưng Thịnh Phát là một kiệt tác của nông nghiệp Việt Nam, được chăm chút tỉ mỉ và bảo chứng chất lượng bởi GlobalGAP, HACCP cùng chứng nhận OCOP 4 sao.",
+    "exploreCta": "Khám phá sản phẩm",
+    "originBannerTitle": "Từ vùng đất Tiền Giang",
+    "originBannerSubtitle": "Chuẩn sạch · Sẵn sàng xuất khẩu",
+    "categoriesBadge": "Danh mục",
+    "categoriesTitle": "Danh Mục Sản Phẩm Chính",
+    "categories": ["Tất cả sản phẩm", "Thanh long ruột đỏ", "Thanh long ruột trắng", "Thanh long vỏ vàng", "Dừa", "Bưởi"],
+    "productsList": [
+      { "name": "Thanh Long Ruột Đỏ", "category": "Thanh long ruột đỏ", "descriptor": "Vị ngọt đậm đà, sắc tím hồng rực rỡ.", "note": "Tiền Giang · Xuất khẩu" },
+      { "name": "Thanh Long Ruột Trắng", "category": "Thanh long ruột trắng", "descriptor": "Thanh mát, giòn nhẹ, tinh khiết.", "note": "Chợ Gạo · Cung ứng quanh năm" },
+      { "name": "Thanh Long Vỏ Vàng", "category": "Thanh long vỏ vàng", "descriptor": "Dòng cao cấp với vị ngọt tinh tế.", "note": "Tiền Giang · Premium" },
+      { "name": "Dừa Kim Cương", "category": "Dừa", "descriptor": "Tạo hình sang trọng, nước ngọt thanh.", "note": "Tiền Giang · Fresh coconut" },
+      { "name": "Dừa Nắp Bật", "category": "Dừa", "descriptor": "Mở nắp tiện lợi, giữ trọn vị tự nhiên.", "note": "Tiền Giang · Ready to drink" },
+      { "name": "Bưởi Da Xanh", "category": "Bưởi", "descriptor": "Mọng nước, vị ngọt thanh, hậu chua dịu.", "note": "Tiền Giang · Fresh pomelo" }
+    ],
+    "specsBadge": "Quy cách cung ứng",
+    "specsTitle": "Sẵn sàng cho từng thị trường",
+    "specsCards": [
+      {
+        "title": "Thanh long",
+        "products": "Ruột đỏ · Ruột trắng · Vỏ vàng",
+        "origin": "Huyện Chợ Gạo, Tiền Giang",
+        "weight": "450–600g",
+        "pack": "4KG / 10KG thùng carton",
+        "delivery": "Đường biển · Đường hàng không"
+      },
+      {
+        "title": "Dừa",
+        "products": "Dừa kim cương · Dừa nắp bật",
+        "origin": "Tỉnh Tiền Giang",
+        "weight": "1.1kg – 1.5kg",
+        "pack": "9 quả / 12 quả thùng carton",
+        "delivery": "Đường biển · Đường hàng không"
+      }
+    ],
+    "specsLabels": {
+      "origin": "Xuất xứ",
+      "weight": "Trọng lượng",
+      "pack": "Đóng gói",
+      "delivery": "Giao hàng"
+    },
+    "detailsBadge": "Khám phá sản phẩm",
+    "detailsTitle": "Tươi ngon từ vùng trồng",
+    "detailsTitleEm": "đến từng lô hàng",
+    "detailsList": [
+      {
+        "type": "THANH LONG / 01",
+        "name": "Thanh Long Ruột Đỏ",
+        "copy": "Được trồng trên vùng đất Tiền Giang màu mỡ, thanh long ruột đỏ thu hút nhờ sắc tím hồng rực rỡ và vị ngọt đậm đà vượt trội. Sản phẩm mang đến hương vị nhiệt đới phong phú, ấn tượng và đầy cuốn hút.",
+        "season": "Tháng 5 – Tháng 9 (Cung ứng quanh năm)",
+        "feature": "Ruột tím hồng đậm, độ ngọt cao, kết cấu mềm mọng nước."
+      },
+      {
+        "type": "THANH LONG / 02",
+        "name": "Thanh Long Ruột Trắng",
+        "copy": "Được tuyển chọn từ những vườn cây ăn trái trứ danh tại Tiền Giang, thanh long ruột trắng mang đến sự kết hợp hoàn hảo giữa vị ngọt thanh và độ giòn đặc trưng. Với lớp vỏ hồng rực rỡ cùng phần ruột trắng trong trẻo, sản phẩm được ưa chuộng trên toàn thế giới như một món ăn nhẹ lành mạnh.",
+        "season": "Tháng 5 – Tháng 9 (Cung ứng quanh năm)",
+        "feature": "Vị ngọt thanh mát, thịt quả chắc giòn, lớp tai xanh tươi bắt mắt."
+      },
+      {
+        "type": "THANH LONG / 03",
+        "name": "Thanh Long Vỏ Vàng",
+        "copy": "Dòng sản phẩm cao cấp gây ấn tượng bởi lớp vỏ vàng ươm rực rỡ và vị ngọt thanh mát, tinh tế. Sở hữu chỉ số Brix cao cùng hương thơm thoang thoảng đặc trưng.",
+        "season": "Cung cấp quanh năm (Rộ vụ từ tháng 6 – tháng 10)",
+        "feature": "Vỏ vàng ươm, ruột trắng trong, thịt quả giòn nhẹ và mọng nước."
+      },
+      {
+        "type": "DỪA / 04",
+        "name": "Dừa Kim Cương",
+        "copy": "Tuyển chọn từ thủ phủ dừa Tiền Giang, dừa gọt kim cương sở hữu hình dáng góc cạnh sang trọng, giúp tối ưu diện tích lưu trữ và vận chuyển. Sản phẩm giữ trọn lượng nước dừa ngọt thanh tự nhiên.",
+        "season": "Cung ứng quanh năm.",
+        "feature": "Tạo hình đẹp mắt, gọn gàng, dễ bảo quản, nước dừa ngọt thanh."
+      },
+      {
+        "type": "DỪA / 05",
+        "name": "Dừa Nắp Bật",
+        "copy": "Giải pháp giải khát hoàn hảo cho nhịp sống bận rộn nhờ công nghệ nắp bật thông minh. Chỉ với một thao tác nhấn đơn giản, người tiêu dùng có thể thưởng thức ngay dòng nước dừa tươi mát.",
+        "season": "Cung ứng quanh năm.",
+        "feature": "Nút nhấn tiện lợi, mở nắp an toàn, giữ nguyên vị ngọt nguyên bản."
+      },
+      {
+        "type": "TRÁI CÂY / 06",
+        "name": "Bưởi Da Xanh",
+        "copy": "Bưởi da xanh được tuyển chọn từ vùng trồng Tiền Giang, nổi bật với múi mọng nước, vị ngọt thanh và hậu chua dịu. Sản phẩm phù hợp cho thị trường tiêu dùng tươi và các đơn hàng nông sản nhiệt đới chất lượng cao.",
+        "season": "Cung ứng theo mùa.",
+        "feature": "Giàu vitamin C và chất xơ, múi mọng nước, dễ thưởng thức."
+      }
+    ],
+    "seasonLabel": "Mùa vụ chính",
+    "featureLabel": "Đặc điểm nổi bật",
+    "quoteSectionBadge": "Hợp tác & phân phối",
+    "quoteSectionTitle": "Bạn đang tìm nguồn cung",
+    "quoteSectionTitleEm": "nông sản chất lượng?",
+    "quoteSectionDesc": "Chúng tôi sẵn sàng hỗ trợ nhu cầu mua sỉ, phân phối, gia công đóng gói và xuất khẩu theo yêu cầu của từng đối tác.",
+    "quoteSectionCall": "Để được hỗ trợ nhanh nhất, vui lòng gọi tới (+84) 0919 831 055",
+    "quoteDialogTitle": "Yêu Cầu Báo Giá",
+    "quoteDialogDesc": "Rất vui khi nhận được yêu cầu hợp tác từ Quý khách! Vui lòng điền thông tin bên dưới.",
+    "interestedProduct": "Sản phẩm quan tâm:",
+    "formName": "Họ và tên",
+    "formEmail": "Email",
+    "formPhone": "Số điện thoại / Zalo",
+    "formOrg": "Đơn vị / Địa chỉ",
+    "formSubject": "Tiêu đề",
+    "formContent": "Nội dung chi tiết hoặc yêu cầu báo giá của bạn...",
+    "formCaptcha": "Mã bảo vệ",
+    "submitQuote": "GỬI THÔNG TIN"
   },
   "ProcessContact": {
     "processBadge": "Quy trình sản xuất",
@@ -116,16 +308,89 @@
     "processTitleEm": "thanh long xuất khẩu",
     "processTitleSuffix": "đạt chuẩn HACCP",
     "processDesc": "Để một quả thanh long giữ nguyên độ giòn ngọt, vỏ đỏ tươi và tai xanh cứng cáp khi đến các thị trường quốc tế, công đoạn sơ chế và đóng gói giữ vai trò then chốt.",
+    "processSubDesc": "Tại Hợp tác xã Nông nghiệp Sạch Hưng Thịnh Phát, toàn bộ quy trình tuân thủ nghiêm ngặt hệ thống quản lý an toàn thực phẩm HACCP Codex 2020.",
+    "viewProcessCta": "Xem quy trình",
+    "processStepCardTitle": "6 bước",
+    "processStepCardDesc": "kiểm soát từ vườn đến container",
+    "stats": ["Nhà xưởng 2.000 m²", "HACCP Codex 2020", "Vùng trồng GLOBALG.A.P.", "Sẵn sàng xuất khẩu"],
     "stepsBadge": "Quy trình 6 bước",
     "stepsTitle": "6 bước sơ chế & đóng gói thanh long xuất khẩu",
+    "stepsDesc": "Quy trình được vận hành chặt chẽ nhằm đảm bảo mỗi lô hàng giữ được độ tươi, tính an toàn và khả năng truy xuất nguồn gốc.",
+    "stepLabel": "Bước",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Tiếp Nhận Nguyên Liệu & Phân Loại Sơ Bộ",
+        "text": "Thanh long từ các vùng trồng liên kết đạt chuẩn GLOBALG.A.P. tại Chợ Gạo, Tiền Giang được thu hái đúng độ chín và vận chuyển về khu vực tiếp nhận trong thời gian ngắn nhất.",
+        "bullets": ["Đánh mã truy xuất cho từng lô hàng", "Ghi nhận vùng trồng, ngày thu hoạch và số lượng", "QC loại bỏ trái không đạt chuẩn xuất khẩu"],
+        "alt": "Khu vực tiếp nhận và phân loại nông sản"
+      },
+      {
+        "number": "02",
+        "title": "Vệ Sinh Bề Mặt Bằng Hệ Thống Rửa Áp Lực Nước",
+        "text": "Thanh long được đưa vào dây chuyền rửa tự động bằng nguồn nước sạch đạt chuẩn kỹ thuật. Vòi phun áp lực vừa đủ giúp loại bỏ bụi bẩn và tạp chất mà không gây trầy xước.",
+        "alt": "Khu vực rửa và sơ chế thanh long"
+      },
+      {
+        "number": "03",
+        "title": "Làm Khô Bằng Quạt Gió & Xử Lý Kỹ Thuật",
+        "text": "Sau khi rửa, trái thanh long đi qua băng tải sấy gió tự động để làm ráo nước ở phần cuống và kẽ tai, hạn chế đọng ẩm gây mốc trong quá trình đóng gói.",
+        "alt": "Khu vực sơ chế và xử lý nông sản"
+      },
+      {
+        "number": "04",
+        "title": "Phân Cấp Trọng Lượng & Dán Tem Truy Xuất",
+        "text": "Công nhân cân định lượng và phân loại sản phẩm theo yêu cầu từng đơn hàng. Mỗi quả được bọc riêng bằng túi xốp lưới hoặc túi PE chuyên dụng.",
+        "bullets": ["Cân và chia loại theo hợp đồng thương mại", "Bao gói bảo vệ từng quả", "Dán tem mã vạch / QR truy xuất", "Mã cơ sở đóng gói VN-TGPH-967"],
+        "alt": "Công nhân đóng gói thanh long"
+      },
+      {
+        "number": "05",
+        "title": "Đóng Thùng Carton & Kiểm Tra Chất Lượng 2 Lớp",
+        "text": "Thanh long được xếp cẩn thận vào thùng carton cứng cáp, có khả năng chống ẩm tốt. Quy cách phổ biến gồm thùng 6 kg, 9 kg hoặc 15 kg tùy yêu cầu thị trường.",
+        "bullets": ["Xếp thùng đúng quy chuẩn", "Kiểm tra ngẫu nhiên lô hàng", "Đánh giá độ đồng đều trọng lượng", "Kiểm tra độ tươi, tem nhãn và niêm phong"],
+        "alt": "Khu vực đóng thùng và kiểm tra chất lượng"
+      },
+      {
+        "number": "06",
+        "title": "Làm Lạnh Nhanh & Bảo Quản Kho Lạnh Chuẩn Export",
+        "text": "Thành phẩm sau đóng thùng được đưa vào kho lạnh tiêu chuẩn để hạ nhiệt độ quả xuống mức phù hợp, đồng thời duy trì độ ẩm ổn định.",
+        "bullets": ["Kho lạnh duy trì 12°C–14°C hoặc 5°C–8°C", "Kéo dài độ tươi từ 30–35 ngày", "Container lạnh được kiểm tra trước khi xếp hàng"],
+        "alt": "Kho hàng và khu vực logistics xuất khẩu"
+      }
+    ],
     "commitBadge": "Cam kết chất lượng",
     "commitTitle": "Đồng hành cùng đối tác bằng chất lượng và minh bạch",
+    "commitDesc": "Với nhà xưởng đạt chuẩn HACCP, đội ngũ công nhân lành nghề và sự giám sát chặt chẽ từ vùng trồng đến khâu đóng thùng, Hưng Thịnh Phát sẵn sàng đáp ứng những yêu cầu khắt khe của đối tác.",
+    "commitments": ["Chuỗi kiểm soát rõ ràng", "Truy xuất minh bạch", "Đáp ứng sỉ & xuất khẩu", "Quy trình đạt chuẩn"],
     "contactBadge": "Liên hệ hợp tác",
     "contactTitle": "Liên hệ với Hưng Thịnh Phát",
+    "contactDesc": "Quý đối tác, doanh nghiệp hoặc khách hàng có nhu cầu nhập sỉ, gia công đóng gói hoặc hợp tác xuất khẩu thanh long chính ngạch, vui lòng liên hệ với chúng tôi.",
     "contactInfoTitle": "Thông tin liên hệ & bản đồ",
+    "taxCodeLabel": "Mã số thuế / ĐKKD:",
+    "websiteLabel": "Website:",
+    "mapTitle": "Bản đồ vị trí nhà xưởng",
+    "mapLink": "Mở Google Maps",
     "formTitle": "Gửi thông tin / yêu cầu báo giá",
+    "formName": "Họ và tên",
+    "formNamePlaceholder": "Nhập tên của bạn...",
+    "formEmail": "Email",
+    "formEmailPlaceholder": "Nhập địa chỉ email của bạn...",
+    "formPhone": "Số điện thoại / Zalo",
+    "formPhonePlaceholder": "Nhập số điện thoại...",
+    "formOrg": "Đơn vị / Địa chỉ",
+    "formOrgPlaceholder": "Bạn thuộc công ty/đại lý nào...",
+    "formSubject": "Tiêu đề",
+    "formSubjectPlaceholder": "Tư vấn mua sỉ / Đặt hàng xuất khẩu...",
+    "formContent": "Nội dung",
+    "formContentPlaceholder": "Nhập nội dung chi tiết hoặc yêu cầu báo giá...",
+    "formCaptcha": "Mã bảo vệ",
+    "formCaptchaPlaceholder": "Nhập mã CAPTCHA",
     "formSubmit": "Gửi thông tin",
-    "formReset": "Nhập lại"
+    "formReset": "Nhập lại",
+    "formSuccess": "Thông tin đã được ghi nhận trong bản xem trước.",
+    "ctaBannerTitle": "Cùng chúng tôi đưa thanh long Việt vươn xa hơn nữa",
+    "ctaBannerDesc": "Hưng Thịnh Phát luôn sẵn sàng hợp tác cùng các doanh nghiệp xuất nhập khẩu, hệ thống siêu thị, đại lý phân phối và khách hàng mua sỉ."
   },
   "LongGiaNhaToi": {
     "heroBadge": "Nông nghiệp số · Tiền Giang",
@@ -151,6 +416,36 @@
     "diaryDesc": "Mọi công đoạn chăm sóc đều được cập nhật minh bạch, giúp bạn dễ dàng theo dõi hành trình lớn lên của trụ thanh long nhà mình.",
     "currentStage": "Giai đoạn hiện tại",
     "updating": "Đang được cập nhật",
+    "stages": [
+      {
+        "no": "01",
+        "title": "Chong Đèn Kích Hoa",
+        "time": "Khoảng 20 – 30 ngày",
+        "short": "Kích thích cây ra hoa đồng loạt theo chu kỳ.",
+        "detail": "Hệ thống đèn LED chuyên dụng được thắp sáng từ 22:00 đến 02:00 hằng ngày nhằm kích thích trụ thanh long ra hoa đồng loạt theo chu kỳ. Kỹ thuật viên HTX liên tục kiểm tra mật độ ánh sáng và độ ẩm đất để đảm bảo tỷ lệ đậu hoa tối ưu nhất."
+      },
+      {
+        "no": "02",
+        "title": "Tỉa Nhánh",
+        "time": "Khoảng 10 – 15 ngày",
+        "short": "Chăm sóc và tập trung dưỡng chất cho những nhánh khỏe mạnh.",
+        "detail": "Cắt tỉa những cành già, cành yếu hoặc sâu bệnh để tập trung dinh dưỡng nuôi các nhánh khỏe mạnh. Toàn bộ quá trình sử dụng phân bón hữu cơ sinh học theo đúng tiêu chuẩn VietGAP/GLOBALG.A.P."
+      },
+      {
+        "no": "03",
+        "title": "Bọc Trái",
+        "time": "Khoảng 30 – 35 ngày",
+        "short": "Bảo vệ trái non trong giai đoạn phát triển quan trọng.",
+        "detail": "Khi quả non hình thành, từng trái thanh long được công nhân dùng túi chuyên dụng bọc cẩn thận. Công đoạn này giúp bảo vệ trái khỏi côn trùng, sâu bọ tự nhiên mà hoàn toàn không cần dùng đến thuốc bảo vệ thực vật hóa học."
+      },
+      {
+        "no": "04",
+        "title": "Thu Hoạch",
+        "time": "Khi trái đạt độ chín 85 – 90%",
+        "short": "Thu hoạch đúng độ chín, sơ chế và chuẩn bị giao đến khách hàng.",
+        "detail": "Trái thanh long đạt độ chín chuẩn, tai xanh cứng, ruột mọng ngọt được hái thủ công vào buổi sáng sớm. Sau đó tiến hành phân loại, làm sạch và đóng gói theo quy trình an toàn thực phẩm trước khi giao đến tận tay khách hàng."
+      }
+    ],
     "mapBadge": "Vườn Long Gia",
     "mapTitle": "Bản Đồ Trụ Thanh Long",
     "mapTitleEm": "Của Bạn Tại Long Gia",
@@ -162,6 +457,22 @@
     "postHarvestTitle": "Từ Vườn Đến Bàn Ăn",
     "postHarvestTitleEm": "Nhanh Chóng",
     "postHarvestDesc": "Sau khi đạt độ chín chuẩn, thanh long được thu hoạch, sơ chế và chuẩn bị giao đến người nhận nuôi trong thời gian tối ưu.",
+    "postHarvestCards": [
+      {
+        "title": "Thu Hoạch Sạch",
+        "text": "Hái tay từng trái đủ độ chín theo tiêu chuẩn VietGAP. Không dùng hóa chất kích chín. Kiểm tra trực tuyến tại vườn."
+      },
+      {
+        "title": "Đóng Gói Tiêu Chuẩn",
+        "text": "Mỗi hộp 5kg kiểm tra độ brix, trọng lượng và dán tem QR truy xuất nguồn gốc đầy đủ trước khi xuất kho."
+      },
+      {
+        "title": "Giao Tận Nhà Nhanh Chóng",
+        "text": "Vận chuyển lạnh đến 63 tỉnh thành toàn quốc. Theo dõi đơn hàng theo thời gian thực. Nhận trái còn tươi ngon."
+      }
+    ],
+    "harvestOrderTitle": "Đơn thu hoạch của bạn",
+    "harvestOrderFlow": "Thu hoạch → Sơ chế → Đóng gói → Giao hàng",
     "startTodayBadge": "Bắt đầu ngay hôm nay",
     "startTodayTitle": "Bắt Đầu Hành Trình",
     "startTodayTitleEm": "Nông Nghiệp Số Cùng Long Gia",
@@ -171,26 +482,42 @@
     "dialogSuccessDesc": "Cảm ơn bạn. Đây là trạng thái mô phỏng cho prototype Long Gia Nhà Tôi.",
     "dialogDesc": "Vui lòng điền thông tin để nhận thông tin trụ thanh long và lựa chọn gói phù hợp.",
     "confirmPayment": "Xác nhận & Thanh toán",
+    "formName": "Họ và tên",
+    "formNamePlaceholder": "Nhập họ và tên...",
+    "formPhone": "Số điện thoại / Zalo",
+    "formPhonePlaceholder": "Nhập số điện thoại...",
+    "fruitType": "Loại thanh long",
+    "fruitOptions": ["Thanh Long Ruột Đỏ HTP", "Thanh Long Ruột Trắng", "Thanh Long Vỏ Vàng"],
+    "pillarCount": "Số trụ muốn nhận nuôi",
+    "duration": "Thời gian nhận nuôi",
+    "durationOptions": ["3 tháng", "6 tháng", "12 tháng"],
     "accountLogin": "Đăng nhập",
     "accountRegister": "Đăng ký",
     "accountLogout": "Đăng xuất"
   },
   "Quiz": {
-    "badge": "Trắc nghiệm phong cách sống",
-    "heroTitle": "Bí Kíp Sống Trọn Ngày",
-    "heroSubtitle": "Khám phá phong cách sống phù hợp với bạn qua câu chuyện thanh long Long Gia",
+    "badge": "TRẮC NGHIỆM LONG GIA",
+    "heroTitle": "Bí Kíp Sống Trọn Ngày!",
+    "heroSubtitle": "Chỉ với 5 câu hỏi nhanh để hiểu hơn về bản thân và nhận ngay 100 điểm thưởng tích lũy.",
     "startCta": "Làm Trắc Nghiệm Ngay",
+    "learnMoreCta": "Tìm hiểu thêm về Long Gia",
     "question": "Câu hỏi",
+    "prevQuestion": "← Câu trước",
+    "yourResult": "KẾT QUẢ CỦA BẠN",
     "completed": "Hoàn thành",
     "pointsReward": "Thưởng điểm Long Gia",
     "shareTitle": "Chia sẻ kết quả",
-    "retakeCta": "Làm lại trắc nghiệm",
+    "retakeCta": "Chơi lại",
     "resultIntro": "Phong cách của bạn tương ứng với",
-    "resultSave": "Lưu hình ảnh kết quả"
+    "resultSave": "Lưu hình ảnh kết quả",
+    "rewardNotice": "Điểm đã được cộng sau khi hoàn thành quiz.",
+    "totalPoints": "Tổng điểm",
+    "usePointsCta": "Sử dụng điểm ngay",
+    "usePointsDesc": "Khám phá Long Gia Nhà Tôi — nơi điểm tích lũy có thể được sử dụng cho các hoạt động và trải nghiệm của Long Gia."
   },
   "Dashboard": {
     "title": "Bảng theo dõi truy cập",
-    "subtitle": "Thống kê lưu lượng truy cập và người dùng theo thời gian thực",
+    "subtitle": "Nhìn nhanh nhịp ghé thăm của đội ngũ và đối tác trên website Long Gia.",
     "views": "Lượt xem trang",
     "visitors": "Khách truy cập",
     "sessions": "Phiên hoạt động",

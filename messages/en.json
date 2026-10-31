@@ -35,7 +35,11 @@
     "partnerContact": "Partner with Us",
     "readMore": "Read More",
     "phone": "+84 919 831 055",
-    "allProducts": "All Products"
+    "allProducts": "All Products",
+    "callNow": "Call +84 919 831 055",
+    "contactNow": "Contact Now",
+    "reset": "Reset",
+    "sendInfo": "Submit Information"
   },
   "Home": {
     "heroTag": "Elevating Vietnamese Sweet Harvests",
@@ -48,6 +52,10 @@
     "companyAddress": "Cho Gao District, Tien Giang Province, Vietnam",
     "mainProducts": "Dragon Fruits (Red & White Flesh), Fresh Coconuts & Tropical Fruits",
     "foundedYear": "2021",
+    "cardUnitName": "Entity Name",
+    "cardAddress": "Headquarters",
+    "cardProducts": "Core Products",
+    "cardFounded": "Founded Year",
     "curatedTag": "02 — Curated From Orchards",
     "curatedTitle": "Fresh Produce",
     "curatedTitleEm": "Certified Clean",
@@ -69,10 +77,19 @@
     "newsTag": "04 — News & Media",
     "newsTitle": "Stories of",
     "newsTitleEm": "Vietnamese Sweet Harvests",
+    "newsSubtitle": "Updates on development milestones and achievements of Hung Thinh Phat Cooperative.",
     "connectTag": "Connect with Long Gia",
     "connectTitle": "Develop High-Quality",
     "connectTitleEm": "Export Supply",
-    "connectDesc": "Let us accompany your business on the journey to bring clean Vietnamese agricultural produce to world markets."
+    "connectDesc": "Let us accompany your business on the journey to bring clean Vietnamese agricultural produce to world markets.",
+    "carouselProducts": [
+      { "name": "Red Flesh Dragon Fruit", "copy": "Rich in antioxidants, intensely sweet flavor with vibrant magenta hue." },
+      { "name": "Yellow Dragon Fruit", "copy": "High dietary fiber with distinctive aromatic sweetness, supporting digestion." },
+      { "name": "White Flesh Dragon Fruit", "copy": "Rich in fiber and vitamins with a crisp, refreshing, mildly tangy finish." },
+      { "name": "Diamond Cut Coconut", "copy": "Packed with hydrating electrolytes and essential minerals, refreshing and naturally sweet." },
+      { "name": "Easy-Open Coconut", "copy": "Rich in vitamins and antioxidants. Convenient push-button opening with tender, flavorful meat." },
+      { "name": "Green Skin Pomelo", "copy": "Abundant vitamin C and dietary fiber, succulent segments with mild sweet-tart balance." }
+    ]
   },
   "About": {
     "badge": "About Us",
@@ -82,50 +99,298 @@
     "storyBadge": "Hung Thinh Phat Story",
     "letterTitle": "Open Letter",
     "letterQuote": "“Welcome Esteemed Partners, Businesses & Customers!”",
+    "letterParagraphs": [
+      "Tien Giang has long been renowned as an alluvial and fertile province, the heartland of sweet red and white dragon fruits and thriving tropical produce. Born and raised on this soil, we witnessed firsthand the tireless devotion of our farmers and recognized the boundless potential of Vietnamese agriculture across international markets.",
+      "However, traditional barriers in farming standards, post-harvest preservation, and brand transparency previously exposed local growers to market instability. Bound by the vision of a clean, ethical, and self-reliant agriculture, Hung Thinh Phat Clean Agriculture Cooperative was founded.",
+      "We partner directly with farmers from soil preparation, VietGAP/GLOBALG.A.P. agronomic training, to investing in modern HACCP-certified post-harvest sorting and packing facilities."
+    ],
     "visionBadge": "Strategic Direction",
     "visionMissionTitle": "Vision & Mission",
     "visionLabel": "VISION",
     "visionDesc": "Hung Thinh Phat Clean Agriculture Cooperative aims to become a leading enterprise in raw material development, technology transfer, post-harvest processing, circular agriculture, and agricultural distribution across Vietnam and globally.",
     "missionLabel": "MISSION",
     "missionDesc": "Walking hand in hand with Farmers, Consumers, Workers, Society, Agriculture, Environment, and the Nation.",
+    "missions": [
+      "Educate and guide farmers in adopting modern safe cultivation techniques.",
+      "Serve as a dependable partner assisting growers in agronomy, compliance, and guaranteed off-take.",
+      "Build connected supply chains spanning farming inputs, harvest operations, and distribution channels.",
+      "Foster sustainable, high-value modern agriculture for the community.",
+      "Protect soil, water, and air ecosystems through biological and safe cultivation practices.",
+      "Build pride and prestige for regional and national agricultural produce."
+    ],
     "valuesBadge": "Brand Values",
     "valuesTitle": "Completeness in Every Value",
     "valuesDesc": "Three core values shape how Hung Thinh Phat nurtures every fruit, cares for consumers, and supports the local farming community.",
+    "valueCards": [
+      {
+        "title": "ABSOLUTE PEACE OF MIND",
+        "items": ["Origin transparency", "Safe farming processes", "International standards", "Consumer trust"]
+      },
+      {
+        "title": "COMPLETE NUTRITION",
+        "items": ["Preserved nutrients", "Fresh farm flavor", "Pure natural quality", "Consumer wellness"]
+      },
+      {
+        "title": "WHOLEHEARTED CARE",
+        "items": ["Farmer craftsmanship", "Tien Giang heritage", "Sustainable livelihoods", "National pride"]
+      }
+    ],
     "journeyBadge": "Milestones",
     "journeyTitle": "From Local Beginnings",
     "journeyTitleEm": "To Sustainable Value Chains",
+    "journeyDesc": "Every milestone marks our progress in standardizing orchards, upgrading post-harvest capacity, and expanding international export markets.",
+    "milestones": [
+      {
+        "year": "2021",
+        "title": "March 2021: Founded on Determination to Innovate",
+        "text": "Hung Thinh Phat Clean Agriculture Cooperative was officially incorporated under Business License 1201647060, establishing strict standardized processes from day one."
+      },
+      {
+        "year": "2022",
+        "title": "Facility Standardization & Food Safety Certification",
+        "items": [
+          "Awarded Food Safety Eligibility Certificate No. 052/2022/NNPTNT-TG by Tien Giang DARD on 19/04/2022.",
+          "Achieved HACCP Codex 2020 Food Safety Management System certification for post-harvest sorting and packing."
+        ]
+      },
+      {
+        "year": "2023",
+        "title": "Breakthrough in Official Fresh Exports",
+        "items": [
+          "Established sustainable orchard registration codes and expanded packing facility operations.",
+          "Successfully exported fresh dragon fruits through official channels to the US and Middle East, achieving 203 billion VND in revenue."
+        ]
+      },
+      {
+        "year": "2024",
+        "title": "Expansion of GLOBALG.A.P. Raw Material Supply",
+        "items": [
+          "Expanded our affiliated cultivation network to nearly 115 ha under GLOBALG.A.P. and VietGAP standards.",
+          "Diversified export fresh portfolio: Red, white, and yellow dragon fruits, fresh coconuts, seedless watermelons, and mangoes."
+        ]
+      },
+      {
+        "year": "2025",
+        "title": "Strengthening Partnerships & Deep Processing",
+        "text": "Expanded export partnerships and offered tailored OEM post-harvest sorting and packaging services for domestic and overseas brands."
+      },
+      {
+        "year": "2026",
+        "title": "Towards a Comprehensive End-to-End Value Chain",
+        "items": [
+          "Broaden domestic trade and export distribution networks.",
+          "Invest in raw material sustainability and closed-loop agro-forestry models.",
+          "Install cold storage and deep freezing equipment for post-harvest value addition.",
+          "Train personnel and elevate management and traceability systems.",
+          "Lead farmer communication toward eco-friendly, circular farming methodologies."
+        ]
+      }
+    ],
     "partnerBadge": "Partner with Hung Thinh Phat",
     "partnerTitle": "Join Us In Bringing",
     "partnerTitleEm": "Vietnamese Agriculture Further",
     "partnerDesc": "Hung Thinh Phat warmly welcomes import-export corporations, supermarket chains, wholesalers, and food distributors."
   },
   "Products": {
-    "badge": "Product Catalog",
-    "heroTitle": "Export Fresh Produce",
-    "heroTitleEm": "Certified Clean & Selected",
-    "heroDesc": "Cultivated under GLOBALG.A.P. and VietGAP standards, processed and packaged within a HACCP-certified facility.",
-    "specsTitle": "Technical Specifications & Export Packaging",
-    "specsDesc": "Flexible packaging configurations tailored to international phytosanitary standards and market preferences.",
-    "quoteDialogTitle": "Request an Export Quotation",
-    "quoteDialogDesc": "Please provide your requirements; our export sales team will get back to you within 24 business hours.",
-    "submitQuote": "Send Quotation Request"
+    "badge": "Long Gia Products",
+    "heroTitle": "From Vietnam",
+    "heroTitleEm": "Reaching Across The World",
+    "heroDesc": "Every harvest from Hung Thinh Phat is a testament to Vietnamese farming excellence, nurtured with care and certified under GlobalGAP, HACCP, and 4-star OCOP standards.",
+    "exploreCta": "Explore Products",
+    "originBannerTitle": "Grown in Tien Giang Soil",
+    "originBannerSubtitle": "Certified Clean · Export Ready",
+    "categoriesBadge": "Catalog",
+    "categoriesTitle": "Featured Product Portfolio",
+    "categories": ["All Products", "Red Flesh Dragon Fruit", "White Flesh Dragon Fruit", "Yellow Dragon Fruit", "Fresh Coconut", "Pomelo"],
+    "productsList": [
+      { "name": "Red Flesh Dragon Fruit", "category": "Thanh long ruột đỏ", "descriptor": "Intensely sweet, vibrant natural magenta color.", "note": "Tien Giang · Export Grade" },
+      { "name": "White Flesh Dragon Fruit", "category": "Thanh long ruột trắng", "descriptor": "Crisp texture, refreshing light sweetness.", "note": "Cho Gao · Year-round Supply" },
+      { "name": "Yellow Dragon Fruit", "category": "Thanh long vỏ vàng", "descriptor": "Premium variety with delicate aromatic flavor.", "note": "Tien Giang · Premium" },
+      { "name": "Diamond Cut Coconut", "category": "Dừa", "descriptor": "Elegant geometric cut, pure refreshing water.", "note": "Tien Giang · Fresh coconut" },
+      { "name": "Easy-Open Coconut", "category": "Dừa", "descriptor": "Smart push-cap opening, 100% natural freshness.", "note": "Tien Giang · Ready to drink" },
+      { "name": "Green Skin Pomelo", "category": "Bưởi", "descriptor": "Succulent pulp, sweet-tart balance with aromatic peel.", "note": "Tien Giang · Fresh pomelo" }
+    ],
+    "specsBadge": "Supply Specifications",
+    "specsTitle": "Ready for International Standards",
+    "specsCards": [
+      {
+        "title": "Dragon Fruit",
+        "products": "Red flesh · White flesh · Yellow skin",
+        "origin": "Cho Gao District, Tien Giang",
+        "weight": "450–600g",
+        "pack": "4KG / 10KG carton box",
+        "delivery": "Sea freight · Air freight"
+      },
+      {
+        "title": "Fresh Coconut",
+        "products": "Diamond cut · Easy-open cap",
+        "origin": "Tien Giang Province",
+        "weight": "1.1kg – 1.5kg",
+        "pack": "9 / 12 units per carton",
+        "delivery": "Sea freight · Air freight"
+      }
+    ],
+    "specsLabels": {
+      "origin": "Origin",
+      "weight": "Weight",
+      "pack": "Packaging",
+      "delivery": "Logistics"
+    },
+    "detailsBadge": "Product Discovery",
+    "detailsTitle": "Freshness from Orchards",
+    "detailsTitleEm": "To Every Delivery",
+    "detailsList": [
+      {
+        "type": "DRAGON FRUIT / 01",
+        "name": "Red Flesh Dragon Fruit",
+        "copy": "Cultivated across Cho Gao's fertile soils, red flesh dragon fruit is favored for its rich natural magenta hue and concentrated sweetness. Delivers an unforgettable tropical taste profile.",
+        "season": "May – September (Available year-round)",
+        "feature": "Deep purple-pink flesh, high Brix sweetness, juicy succulent texture."
+      },
+      {
+        "type": "DRAGON FRUIT / 02",
+        "name": "White Flesh Dragon Fruit",
+        "copy": "Carefully harvested from renowned Tien Giang orchards, white flesh dragon fruit offers a crisp, refreshing sweetness loved globally as a healthy daily fruit.",
+        "season": "May – September (Available year-round)",
+        "feature": "Delicate refreshing flavor, crisp white flesh, and vibrant green bracts."
+      },
+      {
+        "type": "DRAGON FRUIT / 03",
+        "name": "Yellow Dragon Fruit",
+        "copy": "A premium variety featuring brilliant golden peel and delicate floral aroma, boasting elevated Brix sugar levels and crisp, juicy translucent flesh.",
+        "season": "Year-round (Peak harvest June – October)",
+        "feature": "Golden peel, crystal-clear pulp, refined floral aroma."
+      },
+      {
+        "type": "COCONUT / 04",
+        "name": "Diamond Cut Coconut",
+        "copy": "Handcrafted from pristine Mekong delta coconuts, the diamond shape optimizes export shipping efficiency while preserving 100% pure sweet coconut water.",
+        "season": "Available year-round.",
+        "feature": "Clean geometric shape, compact shipping, naturally sweet water."
+      },
+      {
+        "type": "COCONUT / 05",
+        "name": "Easy-Open Coconut",
+        "copy": "Innovative pop-cap technology tailored for modern consumers. Enjoy fresh, unadulterated coconut water anywhere with a simple one-touch press.",
+        "season": "Available year-round.",
+        "feature": "Smart hygienic push-button, easy pull, sealed farm-fresh purity."
+      },
+      {
+        "type": "FRUIT / 06",
+        "name": "Green Skin Pomelo",
+        "copy": "Selected from prime orchards in Tien Giang, famous for plump jewel-like pulp sacs, balanced sweetness, and high natural vitamin C content.",
+        "season": "Seasonal availability.",
+        "feature": "Rich in dietary fiber and vitamin C, tender pink-tinted segments."
+      }
+    ],
+    "seasonLabel": "Primary Season",
+    "featureLabel": "Key Attributes",
+    "quoteSectionBadge": "Partnership & Wholesale",
+    "quoteSectionTitle": "Seeking Premium Quality",
+    "quoteSectionTitleEm": "Export Farm Supply?",
+    "quoteSectionDesc": "We accommodate bulk wholesale orders, custom contract packaging, and container export supply to meet your specific destination requirements.",
+    "quoteSectionCall": "For urgent inquiries, please call (+84) 919 831 055",
+    "quoteDialogTitle": "Request Quotation",
+    "quoteDialogDesc": "We look forward to partnering with your enterprise! Please submit your requirements below.",
+    "interestedProduct": "Product of Interest:",
+    "formName": "Full Name",
+    "formEmail": "Email Address",
+    "formPhone": "Phone / WhatsApp",
+    "formOrg": "Company / Organization",
+    "formSubject": "Subject",
+    "formContent": "Details on order volume, specs, or delivery timeframe...",
+    "formCaptcha": "Security Code",
+    "submitQuote": "SUBMIT INQUIRY"
   },
   "ProcessContact": {
-    "processBadge": "Production Process",
+    "processBadge": "Production Flow",
     "processTitle": "Packing & Processing Flow",
     "processTitleEm": "Export Dragon Fruit",
     "processTitleSuffix": "HACCP Certified",
     "processDesc": "Ensuring dragon fruits retain their crisp sweetness, vibrant red peel, and firm green bracts upon arrival at global destinations.",
+    "processSubDesc": "At Hung Thinh Phat Clean Agriculture Cooperative, the entire flow strictly complies with the HACCP Codex 2020 Food Safety Management System.",
+    "viewProcessCta": "View Process",
+    "processStepCardTitle": "6 Steps",
+    "processStepCardDesc": "controlled from orchard to container",
+    "stats": ["2,000 m² Facility", "HACCP Codex 2020", "GLOBALG.A.P. Certified", "Export Ready"],
     "stepsBadge": "6-Step Process",
     "stepsTitle": "6-Step Dragon Fruit Export Processing Flow",
+    "stepsDesc": "Operated with precise hygiene and grading controls to guarantee post-harvest freshness, safety, and full batch traceability.",
+    "stepLabel": "Step",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Raw Material Receiving & Initial Sorting",
+        "text": "Dragon fruits from affiliated GLOBALG.A.P. orchards in Cho Gao, Tien Giang are harvested at peak ripeness and transported to the facility promptly.",
+        "bullets": ["Assign batch traceability QR codes", "Record harvest date, orchard code, and tonnage", "QC culls fruits not meeting export standards"],
+        "alt": "Receiving and preliminary sorting area"
+      },
+      {
+        "number": "02",
+        "title": "Surface Cleaning with Pressurized Water System",
+        "text": "Fruits enter automated washing lines using technical-grade clean water. Calibrated spray nozzles remove farm dust and debris without bruising delicate peel.",
+        "alt": "Dragon fruit washing line"
+      },
+      {
+        "number": "03",
+        "title": "Air Drying & Quality Treatment",
+        "text": "Following washing, fruits travel on air-drying conveyors to remove moisture from stems and bract crevices, preventing mold during packing and transport.",
+        "alt": "Drying conveyor system"
+      },
+      {
+        "number": "04",
+        "title": "Weight Grading & Traceability Labeling",
+        "text": "Trained workers weigh and grade fruits to contract specifications. Each fruit is sleeved in foam netting or specialized export PE bags.",
+        "bullets": ["Weighed and sorted to purchase order tiers", "Individual protective fruit netting", "Affix QR/barcode traceability label", "Packing House Code: VN-TGPH-967"],
+        "alt": "Workers packaging export dragon fruits"
+      },
+      {
+        "number": "05",
+        "title": "Carton Packing & 2-Tier Quality Control",
+        "text": "Dragon fruits are carefully packed in moisture-resistant export cartons. Standard configurations include 6 kg, 9 kg, or 15 kg boxes.",
+        "bullets": ["Pack to international shipping standards", "Random sampling and Brix inspection", "Verify weight uniformity", "Check freshness, seals, and export markings"],
+        "alt": "Carton packing and quality inspection area"
+      },
+      {
+        "number": "06",
+        "title": "Pre-cooling & Export Cold Storage",
+        "text": "Packed cartons enter pre-cooling chambers to reduce core temperature, followed by cold storage maintaining steady relative humidity.",
+        "bullets": ["Cold rooms maintained at 12°C–14°C or 5°C–8°C", "Extends shelf-life for 30–35 days in transit", "Reefer containers inspected prior to loading"],
+        "alt": "Export logistics and cold warehouse"
+      }
+    ],
     "commitBadge": "Quality Assurance",
     "commitTitle": "Accompanying Partners with Quality & Transparency",
+    "commitDesc": "With HACCP-certified facilities, skilled operators, and continuous oversight from soil to shipping container, Hung Thinh Phat meets the highest international demands.",
+    "commitments": ["Clear Control Chain", "Transparent Traceability", "Wholesale & Export Ready", "Standardized Protocols"],
     "contactBadge": "Partnership Inquiries",
     "contactTitle": "Contact Hung Thinh Phat",
-    "contactInfoTitle": "Contact Details & Map",
+    "contactDesc": "For wholesale inquiries, custom contract packaging, or official export partnerships, please get in touch with our team.",
+    "contactInfoTitle": "Contact Information & Map",
+    "taxCodeLabel": "Tax ID / Registration:",
+    "websiteLabel": "Website:",
+    "mapTitle": "Facility Location Map",
+    "mapLink": "Open in Google Maps",
     "formTitle": "Send Inquiry / Quote Request",
+    "formName": "Full Name",
+    "formNamePlaceholder": "Enter your full name...",
+    "formEmail": "Email Address",
+    "formEmailPlaceholder": "Enter your email address...",
+    "formPhone": "Phone / WhatsApp",
+    "formPhonePlaceholder": "Enter your phone number...",
+    "formOrg": "Company / Organization",
+    "formOrgPlaceholder": "Enter your company or business name...",
+    "formSubject": "Subject",
+    "formSubjectPlaceholder": "Wholesale pricing / Export order...",
+    "formContent": "Message",
+    "formContentPlaceholder": "Enter your detailed requirements or quote request...",
+    "formCaptcha": "Security Code",
+    "formCaptchaPlaceholder": "Enter verification code",
     "formSubmit": "Submit Inquiry",
-    "formReset": "Reset"
+    "formReset": "Reset",
+    "formSuccess": "Your inquiry has been recorded in the preview mode.",
+    "ctaBannerTitle": "Join Us In Bringing Vietnamese Dragon Fruits Further",
+    "ctaBannerDesc": "Hung Thinh Phat is always ready to collaborate with import-export firms, supermarket chains, distributors, and bulk buyers."
   },
   "LongGiaNhaToi": {
     "heroBadge": "Digital Agriculture · Tien Giang",
@@ -151,6 +416,36 @@
     "diaryDesc": "Every care routine is transparently logged, making it effortless to accompany your dragon fruit pillar through each stage of development.",
     "currentStage": "Current Stage",
     "updating": "In Progress",
+    "stages": [
+      {
+        "no": "01",
+        "title": "Off-Season LED Lighting",
+        "time": "Approx. 20 – 30 days",
+        "short": "Stimulates uniform flowering across scheduled growth cycles.",
+        "detail": "Specialized agricultural LED arrays illuminate orchards nightly from 22:00 to 02:00 to stimulate uniform floral induction. Agronomists monitor light intensity and soil moisture to achieve optimal flowering rates."
+      },
+      {
+        "no": "02",
+        "title": "Canopy Pruning",
+        "time": "Approx. 10 – 15 days",
+        "short": "Prunes older branches to concentrate nutrition into vigorous shoots.",
+        "detail": "Older, shaded, or diseased branches are carefully pruned away to direct plant nutrition toward healthy flowering shoots. All treatments utilize organic bio-fertilizers adhering to VietGAP/GLOBALG.A.P. guidelines."
+      },
+      {
+        "no": "03",
+        "title": "Fruit Bagging",
+        "time": "Approx. 30 – 35 days",
+        "short": "Shields developing young fruits during critical growth periods.",
+        "detail": "As young fruits develop, each fruit is carefully covered in breathable protective bags. This natural barrier prevents pest attacks without relying on synthetic chemical pesticides."
+      },
+      {
+        "no": "04",
+        "title": "Harvest & Sorting",
+        "time": "At 85 – 90% ripeness",
+        "short": "Hand-picked at ideal ripeness, packed, and delivered to adopters.",
+        "detail": "Fruits reaching optimal ripeness, crisp green bracts, and juicy sweetness are harvested at dawn. They undergo sorting, gentle sanitization, and packaging under strict food safety protocols before doorstep delivery."
+      }
+    ],
     "mapBadge": "Long Gia Orchard",
     "mapTitle": "Your Dragon Fruit Pillar Map",
     "mapTitleEm": "At Long Gia",
@@ -162,6 +457,22 @@
     "postHarvestTitle": "From Farm To Table",
     "postHarvestTitleEm": "Quick & Fresh",
     "postHarvestDesc": "Upon reaching ideal ripeness, fruits are hand-harvested, cleaned, and dispatched to adopters in optimal time.",
+    "postHarvestCards": [
+      {
+        "title": "Clean Hand Harvest",
+        "text": "Hand-picked at optimal ripeness under VietGAP standards. No chemical ripening agents. Verified on-site at the orchard."
+      },
+      {
+        "title": "Standardized Packaging",
+        "text": "Every 5kg box is tested for Brix sweetness, weighed, and sealed with full QR traceability labels prior to dispatch."
+      },
+      {
+        "title": "Prompt Home Delivery",
+        "text": "Cold-chain delivery to 63 provinces nationwide. Real-time shipping updates. Enjoy orchard-fresh dragon fruit at home."
+      }
+    ],
+    "harvestOrderTitle": "Your Harvest Order",
+    "harvestOrderFlow": "Harvest → Sorting → Packing → Delivery",
     "startTodayBadge": "Start Today",
     "startTodayTitle": "Begin Your Journey",
     "startTodayTitleEm": "In Digital Farming With Long Gia",
@@ -171,26 +482,42 @@
     "dialogSuccessDesc": "Thank you. This is an interactive simulation for the Long Gia prototype.",
     "dialogDesc": "Please fill out the details below to receive pillar assignments and plan options.",
     "confirmPayment": "Confirm & Checkout",
+    "formName": "Full Name",
+    "formNamePlaceholder": "Enter your full name...",
+    "formPhone": "Phone / WhatsApp",
+    "formPhonePlaceholder": "Enter your phone number...",
+    "fruitType": "Dragon Fruit Variety",
+    "fruitOptions": ["HTP Red Dragon Fruit", "White Flesh Dragon Fruit", "Yellow Dragon Fruit"],
+    "pillarCount": "Number of Pillars",
+    "duration": "Adoption Period",
+    "durationOptions": ["3 months", "6 months", "12 months"],
     "accountLogin": "Log In",
     "accountRegister": "Register",
     "accountLogout": "Log Out"
   },
   "Quiz": {
-    "badge": "Lifestyle Quiz",
-    "heroTitle": "Secret to a Full Day",
-    "heroSubtitle": "Discover your lifestyle personality through the journey of Long Gia dragon fruits",
+    "badge": "LONG GIA LIFESTYLE QUIZ",
+    "heroTitle": "Secret to a Full Day!",
+    "heroSubtitle": "Just 5 quick questions to discover your lifestyle personality and earn 100 reward points.",
     "startCta": "Take the Quiz Now",
+    "learnMoreCta": "Learn more about Long Gia",
     "question": "Question",
+    "prevQuestion": "← Previous question",
+    "yourResult": "YOUR RESULT",
     "completed": "Completed",
     "pointsReward": "Long Gia Points Reward",
     "shareTitle": "Share Your Result",
-    "retakeCta": "Retake Quiz",
+    "retakeCta": "Play Again",
     "resultIntro": "Your personality matches",
-    "resultSave": "Save Result Card"
+    "resultSave": "Save Result Card",
+    "rewardNotice": "Points have been credited upon quiz completion.",
+    "totalPoints": "Total Points",
+    "usePointsCta": "Use Points Now",
+    "usePointsDesc": "Explore Long Gia Home Orchard — where points can be redeemed for activities and gifts."
   },
   "Dashboard": {
     "title": "Access Analytics Dashboard",
-    "subtitle": "Real-time traffic metrics and visitor engagement insights",
+    "subtitle": "Real-time traffic metrics and visitor engagement insights for the team and partners.",
     "views": "Page Views",
     "visitors": "Unique Visitors",
     "sessions": "Active Sessions",
