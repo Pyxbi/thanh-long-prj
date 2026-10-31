@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react"
 import { BarChart3, Eye, RefreshCw, Users } from "lucide-react"
+import { useTranslations } from "next-intl"
 import {
   Area,
   AreaChart,
@@ -37,6 +38,7 @@ type RankedRow = {
 }
 
 export function AnalyticsDashboard() {
+  const t = useTranslations("Dashboard")
   const [range, setRange] = useState<AnalyticsRange>("30d")
   const [refreshKey, setRefreshKey] = useState(0)
   const [data, setData] = useState<AnalyticsResponse | null>(null)
@@ -92,7 +94,7 @@ export function AnalyticsDashboard() {
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.24em] text-dragon-berry">Long Gia · Nội bộ</p>
               <h1 className="mt-4 max-w-3xl font-serif text-5xl leading-[0.98] tracking-[-0.04em] text-deep-rose sm:text-6xl">
-                Bảng theo dõi truy cập
+                {t("title")}
               </h1>
               <p className="mt-5 max-w-2xl leading-7 text-muted-foreground">
                 Nhìn nhanh nhịp ghé thăm của đội ngũ và đối tác trên website Long Gia.

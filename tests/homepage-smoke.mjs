@@ -303,10 +303,14 @@ test("product page uses homepage product imagery", async () => {
 test("bilingual navigation and English locale render correctly", async () => {
   const viHtml = await loadPage("/vi")
   const enHtml = await loadPage("/en")
+  const enLongGia = await loadPage("/en/long-gia-nha-toi")
+  const enDashboard = await loadPage("/en/dashboard")
+  const enQuiz = await loadPage("/en/quiz")
 
   // Verify language switcher presence
   assert.match(viHtml, /aria-label="Language selector"/)
   assert.match(enHtml, /aria-label="Language selector"/)
+  assert.match(enLongGia, /aria-label="Language selector"/)
 
   // Verify English content rendered
   assert.match(enHtml, /From local roots/)
@@ -314,6 +318,12 @@ test("bilingual navigation and English locale render correctly", async () => {
   assert.match(enHtml, /Curated From Orchards/)
   assert.match(enHtml, /Partner with Us/)
   assert.match(enHtml, /Hung Thinh Phat Clean Agriculture Cooperative/)
+
+  // Verify English on extended pages
+  assert.match(enLongGia, /Home Orchard/)
+  assert.match(enLongGia, /Adopt a Pillar/)
+  assert.match(enDashboard, /Access Analytics Dashboard/)
+  assert.match(enQuiz, /Secret to a Full Day/)
 
   // Verify Vietnamese content rendered
   assert.match(viHtml, /Từ gốc rễ địa phương/)

@@ -3,6 +3,7 @@
 import Image from "next/image"
 import { FormEvent, useEffect, useState } from "react"
 import { ArrowRight, LockKeyhole, LogOut, Phone, UserRound } from "lucide-react"
+import { Link } from "@/i18n/navigation"
 import { Footer } from "@/components/footer"
 import { SiteHeader } from "@/components/site-header"
 import { Button } from "@/components/ui/button"
@@ -155,7 +156,7 @@ export function LongGiaAuthPage({ mode, onAuthenticated }: { mode: "login" | "re
             <Button type="submit" className="h-13 w-full rounded-full bg-[#ba466d] text-base font-bold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-[#822944] hover:shadow-lg">{isRegister ? "Tạo tài khoản" : "Đăng nhập"}<ArrowRight size={18} /></Button>
           </form>
 
-          <p className="mt-6 text-center text-sm text-[#626751]">{isRegister ? "Đã có tài khoản?" : "Chưa có tài khoản?"}{" "}<a href={authSwitchHref} className="font-bold text-[#ba466d] underline-offset-4 transition hover:text-[#822944] hover:underline">{isRegister ? "Đăng nhập" : "Đăng ký ngay"}</a></p>
+          <p className="mt-6 text-center text-sm text-[#626751]">{isRegister ? "Đã có tài khoản?" : "Chưa có tài khoản?"}{" "}<Link href={authSwitchHref} className="font-bold text-[#ba466d] underline-offset-4 transition hover:text-[#822944] hover:underline">{isRegister ? "Đăng nhập" : "Đăng ký ngay"}</Link></p>
           <p className="mt-6 border-t border-[#ded3c6] pt-5 text-center text-xs leading-5 text-[#9b9085]">Prototype đăng nhập · Không kết nối thanh toán hoặc dữ liệu thật.</p>
         </div>
       </div>

@@ -8,6 +8,8 @@ import { Progress } from "@/components/ui/progress";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { SiteHeader } from "@/components/site-header";
 import { Footer } from "@/components/footer";
 import { SharePreview } from "@/components/quiz/ShareCard";
@@ -106,6 +108,7 @@ export function QuizClient() {
 }
 
 function QuizHero({ onStart }: { onStart: () => void }) {
+  const t = useTranslations("Quiz");
   return (
     <section className="relative isolate min-h-[100dvh] overflow-hidden bg-[#f8f1e7]">
       <img
@@ -121,21 +124,20 @@ function QuizHero({ onStart }: { onStart: () => void }) {
       <div className="relative mx-auto flex min-h-[100dvh] max-w-7xl items-center px-5 py-14 md:px-8 lg:py-20">
         <div className="relative z-20 w-full max-w-xl animate-reveal rounded-[2rem] border border-white/70 bg-[#fffaf3]/72 p-6 shadow-[0_24px_70px_rgba(130,41,68,0.12)] backdrop-blur-[3px] sm:p-8 md:ml-auto md:mr-[5%] md:max-w-[34rem] md:p-10">
           <span className="inline-flex items-center gap-2 rounded-full bg-[#F0E8DD] px-4 py-1.5 text-xs font-semibold tracking-[0.18em] text-[#6E8644]">
-            <Sparkles className="h-3.5 w-3.5" /> TRẮC NGHIỆM LONG GIA
+            <Sparkles className="h-3.5 w-3.5" /> {t("badge")}
           </span>
           <h1 className="mt-6 text-5xl font-medium leading-[1.05] text-[#822944] md:text-6xl lg:text-7xl">
-            Bí Kíp Sống <em className="text-[#BA466D]">Trọn Ngày!</em>
+            {t("heroTitle")}
           </h1>
           <p className="mt-6 max-w-md text-lg leading-relaxed text-muted-foreground">
-            Chỉ với 5 câu hỏi nhanh để hiểu hơn về bản thân và nhận ngay{" "}
-            <strong className="font-semibold text-[#BA466D]">100 điểm thưởng</strong> tích lũy.
+            {t("heroSubtitle")}
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
             <Button type="button" size="lg" onClick={onStart} className="h-13 rounded-full bg-[#BA466D] px-7 text-base text-white shadow-sm hover:bg-[#BA466D]/90">
-              Làm Trắc Nghiệm Ngay <ArrowRight />
+              {t("startCta")} <ArrowRight />
             </Button>
             <Button size="lg" variant="outline" asChild className="h-13 rounded-full border-[#6E8644]/40 px-7 text-base text-[#6E8644] hover:bg-[#F0E8DD] hover:text-[#6E8644]">
-              <a href="/">Tìm hiểu thêm về Long Gia</a>
+              <Link href="/">Tìm hiểu thêm về Long Gia</Link>
             </Button>
           </div>
           <div className="mt-10 flex items-center gap-5 text-sm text-muted-foreground">
@@ -197,9 +199,9 @@ function QuizLoginDialog({
       </Button>
       <p className="text-center text-sm text-muted-foreground">
         Chưa có tài khoản?{" "}
-        <a href="/long-gia-nha-toi/dang-ky?returnTo=%2Fquiz%3Fstart%3D1" className="font-medium text-[#BA466D] underline-offset-4 hover:underline">
+        <Link href="/long-gia-nha-toi/dang-ky?returnTo=%2Fquiz%3Fstart%3D1" className="font-medium text-[#BA466D] underline-offset-4 hover:underline">
           Đăng ký tài khoản
-        </a>
+        </Link>
       </p>
     </form>
   );
@@ -346,7 +348,7 @@ function QuizResult({ answers, onReplay }: { answers: AnswerColor[]; onReplay: (
 
           <div className="mt-8">
             <Button size="lg" asChild className="h-13 rounded-full px-8 text-base shadow-sm bg-[#BA466D] text-white hover:bg-[#BA466D]/90">
-              <a href="/long-gia-nha-toi">Sử dụng điểm ngay <ArrowRight /></a>
+              <Link href="/long-gia-nha-toi">Sử dụng điểm ngay <ArrowRight /></Link>
             </Button>
             <p className="mt-3 max-w-md text-sm text-muted-foreground">
               Khám phá Long Gia Nhà Tôi — nơi điểm tích lũy có thể được sử dụng cho các hoạt động và trải nghiệm của Long Gia.
