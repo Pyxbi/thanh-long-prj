@@ -192,6 +192,16 @@ test("analytics dashboard is available without being added to public navigation"
   assert.doesNotMatch(nav, /\/dashboard/)
 })
 
+test("analytics dashboard renders properly in both vi and en", async () => {
+  const viHtml = await loadPage("/vi/dashboard")
+  assert.match(viHtml, /Bảng theo dõi truy cập/)
+  assert.match(viHtml, /Long Gia · Nội bộ/)
+
+  const enHtml = await loadPage("/en/dashboard")
+  assert.match(enHtml, /Access Analytics Dashboard/)
+  assert.match(enHtml, /Long Gia · Internal/)
+})
+
 test("analytics API rejects invalid ranges without contacting the provider", async () => {
   const invalid = await loadJson("/api/analytics?range=bad")
 

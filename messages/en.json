@@ -620,8 +620,15 @@
     }
   },
   "Dashboard": {
+    "tag": "Long Gia · Internal",
     "title": "Access Analytics Dashboard",
     "subtitle": "Real-time traffic metrics and visitor engagement insights for the team and partners.",
+    "timeframe": "Timeframe",
+    "refresh": "Refresh",
+    "updating": "Updating data…",
+    "updatedAt": "Updated at {time}",
+    "totalVisitors": "Total Visitors",
+    "pageviews": "Page Views",
     "views": "Page Views",
     "visitors": "Unique Visitors",
     "sessions": "Active Sessions",
@@ -630,7 +637,21 @@
     "range90d": "Past 90 days",
     "topPages": "Top Visited Pages",
     "topReferrers": "Top Traffic Sources",
-    "noData": "No analytics recorded for this timeframe"
+    "dailyTrend": "Daily Traffic Trend",
+    "dailyTrendDesc": "Visitors and page views during {range}.",
+    "topRoutes": "Top Routes",
+    "topCountries": "Top Countries",
+    "devices": "Devices",
+    "pageviewsSuffix": "page views",
+    "needVercel": "Vercel Connection Required",
+    "noDataSetup": "No analytics data to display",
+    "setupDesc": "Add the environment variables below to Vercel Project Settings, enable Web Analytics, and redeploy the prototype.",
+    "setupGuide": "Analytics Setup Guide",
+    "connectionNotReady": "Connection not ready",
+    "loadError": "Unable to load analytics data.",
+    "retryHint": "Check Vercel configuration or try again in a few minutes.",
+    "noData": "No analytics recorded for this timeframe",
+    "noDataPeriodDesc": "Try selecting a longer timeframe or check if Web Analytics is enabled."
   },
   "Auth": {
     "sideTag": "Long Gia Home Orchard",

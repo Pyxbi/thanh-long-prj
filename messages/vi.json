@@ -620,8 +620,15 @@
     }
   },
   "Dashboard": {
+    "tag": "Long Gia · Nội bộ",
     "title": "Bảng theo dõi truy cập",
     "subtitle": "Nhìn nhanh nhịp ghé thăm của đội ngũ và đối tác trên website Long Gia.",
+    "timeframe": "Khoảng thời gian",
+    "refresh": "Tải lại",
+    "updating": "Đang cập nhật dữ liệu…",
+    "updatedAt": "Cập nhật lúc {time}",
+    "totalVisitors": "Tổng người truy cập",
+    "pageviews": "Lượt xem trang",
     "views": "Lượt xem trang",
     "visitors": "Khách truy cập",
     "sessions": "Phiên hoạt động",
@@ -630,7 +637,21 @@
     "range90d": "90 ngày qua",
     "topPages": "Trang được xem nhiều nhất",
     "topReferrers": "Nguồn truy cập hàng đầu",
-    "noData": "Không có dữ liệu trong khoảng thời gian này"
+    "dailyTrend": "Nhịp truy cập theo ngày",
+    "dailyTrendDesc": "Người truy cập và lượt xem trang trong {range}.",
+    "topRoutes": "Route phổ biến",
+    "topCountries": "Nguồn quốc gia",
+    "devices": "Thiết bị",
+    "pageviewsSuffix": "lượt xem trang",
+    "needVercel": "Cần kết nối Vercel",
+    "noDataSetup": "Chưa có dữ liệu analytics để hiển thị",
+    "setupDesc": "Thêm các biến môi trường bên dưới vào Vercel Project Settings, bật Web Analytics rồi deploy lại prototype.",
+    "setupGuide": "Hướng dẫn bật Analytics",
+    "connectionNotReady": "Kết nối chưa sẵn sàng",
+    "loadError": "Không thể tải dữ liệu analytics.",
+    "retryHint": "Kiểm tra lại cấu hình Vercel hoặc thử tải lại sau ít phút.",
+    "noData": "Chưa có dữ liệu trong khoảng thời gian này",
+    "noDataPeriodDesc": "Thử chọn một khoảng thời gian dài hơn hoặc kiểm tra lại việc bật Web Analytics."
   },
   "Auth": {
     "sideTag": "Long Gia Nhà Tôi",
